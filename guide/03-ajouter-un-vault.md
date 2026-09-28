@@ -48,7 +48,7 @@ mon-app       docs  mon-app
 
 > ⚠️ **Si le vault est dans un repo de code**, mets le sous-dossier de la doc (`docs`) et pas `.`, sinon tout le code est copié.
 
-> ⚠️ **N'utilise jamais `guide` comme dossier de destination.** Le dossier serait vidé et remplacé à chaque synchro.
+> ⚠️ **Noms réservés :** `guide`, `autres-docs` et `.github` ne peuvent pas servir de dossier de destination. La synchro s'arrête en erreur si tu les utilises, pour ne pas les écraser.
 
 ---
 
@@ -84,6 +84,7 @@ La modification de `repos.txt` relance la synchro toute seule. Vérifie dans **A
 | `Repository not found` | Le repo n'est pas coché dans le token, ou il y a une faute de frappe dans `repos.txt` |
 | `Authentication failed` / `Bad credentials` | Le token a expiré : il faut le régénérer et remplacer le secret |
 | `cp: cannot stat 'tmp/docs/.'` | Le dossier à copier (2e colonne) n'existe pas dans ce repo |
+| `'…' is a reserved folder` | La 3e colonne de `repos.txt` utilise un nom réservé (`guide`, `autres-docs`…) |
 | `Permission denied` au `git push` | **Settings → Actions → General → Workflow permissions** n'est pas sur *Read and write* |
 
 ---

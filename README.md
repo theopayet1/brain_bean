@@ -2,7 +2,7 @@
 
 Mon second cerveau : tous mes vaults Obsidian, un par projet, réunis automatiquement au même endroit.
 
-> ⚠️ **Copie en lecture seule.** Les dossiers des vaults sont écrasés à chaque synchro. Pour modifier une note, il faut passer par son repo d'origine.
+> ⚠️ **Les dossiers des vaults sont en lecture seule** : ils sont écrasés à chaque synchro. Pour modifier une de leurs notes, il faut passer par son repo d'origine. Pour écrire directement ici, il y a `autres-docs/`.
 
 ---
 
@@ -14,6 +14,7 @@ Mon second cerveau : tous mes vaults Obsidian, un par projet, réunis automatiqu
 | Comprendre comment la synchro fonctionne | [guide/02-comment-ca-marche.md](guide/02-comment-ca-marche.md) |
 | Ajouter ou retirer un vault | [guide/03-ajouter-un-vault.md](guide/03-ajouter-un-vault.md) |
 | Écrire une note qui se relie bien aux autres (tags, liens) | [guide/04-ecrire-une-note.md](guide/04-ecrire-une-note.md) |
+| Ajouter une doc directement ici, sans vault | [autres-docs/_index.md](autres-docs/_index.md) |
 | Faire écrire de la doc par une IA | [AGENTS.md](AGENTS.md) |
 
 ---
@@ -31,6 +32,8 @@ brain_bean/
 │   ├── 03-ajouter-un-vault.md
 │   ├── 04-ecrire-une-note.md
 │   └── modele-note.md         # Modèle de note à copier
+├── autres-docs/               # Zone libre : notes écrites directement ici
+│   └── _index.md
 ├── .github/workflows/sync.yml # La synchro automatique
 └── <un dossier par vault>/    # Créés par la synchro, ne pas modifier à la main
 ```
@@ -41,5 +44,6 @@ brain_bean/
 
 - Toutes les **6 h**, une GitHub Action copie chaque vault listé dans `repos.txt` dans son propre dossier.
 - Elle lit les repos privés grâce au secret `DOCS_READ_TOKEN`, un token GitHub en **lecture seule**.
+- Le dossier `autres-docs/` est la **zone libre** : on y écrit directement, et la synchro n'y touche jamais.
 - Pendant la copie, les dossiers `.git/`, `.obsidian/` et `.claude/` et les fichiers `CLAUDE.md` sont retirés.
 - Quelqu'un qui a accès à brain_bean voit **toute** la doc synchronisée, même si les repos d'origine sont privés. Le repo doit donc rester **privé**.

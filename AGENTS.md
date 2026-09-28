@@ -18,7 +18,7 @@ Ce fichier dit à une IA (assistant de code, agent) comment se comporter et comm
 1. **Ne jamais lancer `git commit` ni `git push`.** Prépare les fichiers et donne les commandes. C'est utilisateur qui les lance, sauf s'il donne explicitement l'autorisation, et seulement pour cette fois-là.
 2. **Ne jamais t'ajouter comme auteur ou co-auteur** : pas de `Co-Authored-By`, pas de signature d'IA dans les commits, les PR ou les notes.
 3. **Aucun fichier `CLAUDE.md`, aucune mention de Claude** dans ce repo ni dans les vaults. Pour des consignes d'IA, on utilise `AGENTS.md`.
-4. **Ne jamais modifier le contenu d'un dossier de vault dans brain_bean.** Il est écrasé à chaque synchro. On modifie la note dans son repo source.
+4. **Ne jamais modifier le contenu d'un dossier de vault dans brain_bean.** Il est écrasé à chaque synchro. On modifie la note dans son repo source. Une note écrite directement dans brain_bean va dans `autres-docs/`.
 5. **Ne pas choisir à la place de utilisateur ** ce qui entre dans `repos.txt`, ni quels vaults synchroniser.
 6. **Ne rien produire qui n'a pas été demandé** : ni fichier, ni note, ni refonte.
 
@@ -31,6 +31,7 @@ Ce fichier dit à une IA (assistant de code, agent) comment se comporter et comm
 | `README.md`, `AGENTS.md`, `guide/` | Doc du hub                    | Oui, si utilisateur le demande  |
 | `repos.txt`                        | Liste des vaults synchronisés | Seulement sur demande explicite |
 | `.github/workflows/sync.yml`       | La synchro (GitHub Action)    | Oui, si utilisateur le demande  |
+| `autres-docs/`                     | Notes écrites directement ici | Oui, si utilisateur le demande  |
 | `<dossier de vault>/`              | Copie synchronisée            | **Non**                         |
 
 ---

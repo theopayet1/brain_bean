@@ -43,6 +43,8 @@ Le fichier `.github/workflows/sync.yml` est une **GitHub Action** : un script qu
 4. **Elle nettoie** en retirant `.git/`, `.obsidian/`, `.claude/` et les `CLAUDE.md`.
 5. **Elle commite et pushe** dans brain_bean, sous le nom `vault-sync`, seulement s'il y a eu des changements.
 
+Elle ne touche **jamais** à `guide/`, `autres-docs/` ni au reste du repo : seulement aux dossiers listés dans `repos.txt`.
+
 ---
 
 ## Le token `DOCS_READ_TOKEN`

@@ -23,6 +23,12 @@ jobs:
           set -euo pipefail
           grep -vE '^\s*(#|$)' repos.txt | while read -r repo src dest; do
             echo "::group::$repo -> $dest"
+            # Protected folders: never overwritten by a vault
+            case "$dest" in
+              ""|.|..|.github|.github/*|guide|guide/*|autres-docs|autres-docs/*)
+                echo "::error::'$dest' is a reserved folder, pick another destination for $repo"
+                exit 1 ;;
+            esac
             rm -rf tmp
             git clone --depth 1 "https://x-access-token:${TOKEN}@github.com/${OWNER}/${repo}.git" tmp
             rm -rf "$dest" && mkdir -p "$dest"
