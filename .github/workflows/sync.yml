@@ -1,0 +1,45 @@
+name: Sync vaults
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # every 6 hours
+  workflow_dispatch:         # manual "Run workflow" button
+  push:
+    paths: [repos.txt]       # re-sync when the vault list changes
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pull vaults
+        env:
+          TOKEN: ${{ secrets.DOCS_READ_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
+        run: |
+          set -euo pipefail
+          grep -vE '^\s*(#|$)' repos.txt | while read -r repo src dest; do
+            echo "::group::$repo -> $dest"
+            rm -rf tmp
+            git clone --depth 1 "https://x-access-token:${TOKEN}@github.com/${OWNER}/${repo}.git" tmp
+            rm -rf "$dest" && mkdir -p "$dest"
+            cp -r "tmp/${src}/." "$dest/"
+            rm -rf "$dest/.git" "$dest/.obsidian"
+            # Never publish Claude files
+            find "$dest" -iname 'claude.md' -type f -delete
+            find "$dest" -name '.claude' -type d -prune -exec rm -rf {} +
+            echo "::endgroup::"
+          done
+          rm -rf tmp
+
+      - name: Commit and push
+        run: |
+          git config user.name "vault-sync"
+          git config user.email "vault-sync@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && echo "Nothing to sync" && exit 0
+          git commit -m "chore: sync vaults $(date -u +%F)"
+          git push

@@ -1,0 +1,6 @@
+# One vault per line: <repo>  <source folder in the repo>  <destination folder in brain_bean>
+# Use "." as source folder when the vault is at the repo root.
+# Lines starting with # are ignored.
+#
+# Example:
+# my-vault-repo  docs  my-vault

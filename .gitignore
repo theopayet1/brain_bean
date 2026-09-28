@@ -1,0 +1,4 @@
+# Obsidian local UI state
+.obsidian/workspace*.json
+.obsidian/cache
+.trash/
