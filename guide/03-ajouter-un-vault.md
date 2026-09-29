@@ -27,24 +27,31 @@ Le token ne lit que les repos que tu lui as explicitement donnés.
 
 ## 2. Ajouter une ligne à `repos.txt`
 
-Format : trois colonnes séparées par des espaces.
+Format : jusqu'à trois colonnes séparées par des espaces. **Seule la 1re est obligatoire.**
 
 ```
-<nom du repo>  <dossier à copier>  <nom du dossier dans brain_bean>
+<repo>  <dossier à copier>  <nom du dossier dans brain_bean>
 ```
 
-| Colonne | Quoi mettre |
-|---|---|
-| Nom du repo | Le nom exact sur GitHub, sans `theopayet1/` |
-| Dossier à copier | `.` si le vault est à la racine du repo, sinon le sous-dossier (ex. `docs`) |
-| Dossier dans brain_bean | Nom court, en minuscules. **Il devient aussi le tag `projet/…`** |
+| Colonne | Quoi mettre | Si tu la laisses vide |
+|---|---|---|
+| Repo | L'**URL** GitHub (`https://github.com/theopayet1/docsbox.git`), `theopayet1/docsbox`, ou juste `docsbox` | — (obligatoire) |
+| Dossier à copier | `.` pour tout le repo, sinon le sous-dossier (ex. `docs`) | `.` : tout le repo |
+| Dossier dans brain_bean | Nom court, en minuscules. **Il devient aussi le tag `projet/…`** | le nom du repo |
 
 Exemples :
 
 ```
-docsbox       .     sandbox
-mon-app       docs  mon-app
+https://github.com/theopayet1/doc_kotlin.git
+docsbox             .     sandbox
+https://github.com/theopayet1/sass_garage.git   docs  garaxo
 ```
+
+- La 1re ligne copie **tout** `doc_kotlin` dans le dossier `doc_kotlin/`.
+- La 2e copie tout `docsbox` dans `sandbox/`.
+- La 3e copie **seulement** `docs/` de `sass_garage` dans `garaxo/`.
+
+> ⚠️ **brain_bean est public : ajouter une ligne, c'est publier.** Tout ce qui est copié devient lisible par n'importe qui, même si le repo d'origine est privé. Avant d'ajouter un repo, vérifie ce qu'il contient, et utilise la 2e colonne (ex. `docs`) pour ne publier qu'une partie.
 
 > ⚠️ **Si le vault est dans un repo de code**, mets le sous-dossier de la doc (`docs`) et pas `.`, sinon tout le code est copié.
 
@@ -89,6 +96,6 @@ La modification de `repos.txt` relance la synchro toute seule. Vérifie dans **A
 
 ---
 
-## Voir aussi
+## 🔗 Liens
 - [[02-comment-ca-marche]] — le détail de la synchro
 - [[04-ecrire-une-note]] — préparer les notes du nouveau vault

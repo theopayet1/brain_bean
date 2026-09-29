@@ -15,7 +15,7 @@ Comment récupérer brain_bean sur ton poste et l'ouvrir dans Obsidian. À lire 
 
 ## 1. Récupérer le repo
 
-Il faut avoir été invité sur le repo : GitHub → **Settings → Collaborators**. Ensuite :
+Le repo est public, n'importe qui peut le cloner :
 
 ```bash
 git clone https://github.com/theopayet1/brain_bean.git
@@ -48,6 +48,6 @@ Chaque projet apparaît comme un **dossier** à gauche. Toutes leurs notes sont 
 
 ---
 
-## Voir aussi
+## 🔗 Liens
 - [[02-comment-ca-marche]] — ce qui se passe entre ton vault et brain_bean
 - [[04-ecrire-une-note]] — les conventions pour que tes notes se relient bien

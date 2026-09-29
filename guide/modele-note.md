@@ -35,5 +35,5 @@ L'idée expliquée simplement, puis le **terme technique** en gras.
 
 ---
 
-## Voir aussi
+## 🔗 Liens
 - [[note-liee]] — pourquoi ce lien est utile

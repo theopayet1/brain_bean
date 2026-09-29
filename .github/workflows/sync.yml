@@ -21,16 +21,27 @@ jobs:
           OWNER: ${{ github.repository_owner }}
         run: |
           set -euo pipefail
-          grep -vE '^\s*(#|$)' repos.txt | while read -r repo src dest; do
-            echo "::group::$repo -> $dest"
+          grep -vE '^\s*(#|$)' repos.txt | tr -d '\r' | while read -r repo src dest; do
+            # Accept a full GitHub URL, "owner/name" or a bare repo name
+            repo="${repo%/}"
+            repo="${repo%.git}"
+            case "$repo" in
+              https://github.com/*) path="${repo#https://github.com/}"; owner="${path%%/*}"; name="${path#*/}" ;;
+              */*) owner="${repo%%/*}"; name="${repo#*/}" ;;
+              *) owner="$OWNER"; name="$repo" ;;
+            esac
+            # Defaults: whole repo, into a folder named after it
+            src="${src:-.}"
+            dest="${dest:-$name}"
+            echo "::group::$owner/$name ($src) -> $dest"
             # Protected folders: never overwritten by a vault
             case "$dest" in
               ""|.|..|.github|.github/*|guide|guide/*|autres-docs|autres-docs/*)
-                echo "::error::'$dest' is a reserved folder, pick another destination for $repo"
+                echo "::error::'$dest' is a reserved folder, pick another destination for $owner/$name"
                 exit 1 ;;
             esac
             rm -rf tmp
-            git clone --depth 1 "https://x-access-token:${TOKEN}@github.com/${OWNER}/${repo}.git" tmp
+            git clone --depth 1 "https://x-access-token:${TOKEN}@github.com/${owner}/${name}.git" tmp
             rm -rf "$dest" && mkdir -p "$dest"
             cp -r "tmp/${src}/." "$dest/"
             rm -rf "$dest/.git" "$dest/.obsidian"

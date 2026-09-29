@@ -57,6 +57,6 @@ Images : dans `autres-docs/_assets/`, intégrées avec `![[image.png]]`.
 
 ---
 
-## Voir aussi
+## 🔗 Liens
 - [[04-ecrire-une-note]] — les conventions (tags, liens, style)
 - [[modele-note]] — le modèle à copier

@@ -44,7 +44,7 @@ Ce fichier dit à une IA (assistant de code, agent) comment se comporter et comm
 ---
 tags:
   - projet/<nom>        # obligatoire : nom du dossier dans brain_bean
-  - type/<type>         # obligatoire : contexte, cdc, archi, decision, setup, guide, reference, astuce, ecran, index
+  - type/<type>         # obligatoire : index, concept, guide, reference, contexte, cdc, archi, decision, setup, astuce, ecran
   - techno/<techno>     # une par techno abordée
   - statut/<statut>     # brouillon, a-jour, obsolete
 aliases: []
@@ -59,14 +59,18 @@ maj: AAAA-MM-JJ
 
 ### Corps de la note
 
-- Un titre `#`, puis 1 ou 2 phrases d'intro : à quoi sert la note, et quoi lire avant.
-- **`---` entre chaque grande section.**
-- Tableaux pour les décisions et les comparaisons. `> ⚠️ **…**` pour les pièges et les décisions clés.
+- Un titre `#`, puis un encadré `> [!abstract] En une phrase` : à quoi sert la note, et quoi lire avant.
+- **`---` entre chaque grande section**, et un emoji au début des titres `##`.
+- Encadrés Obsidian : `[!info] Définition`, `[!tip]`, `[!warning]`, `[!example]`, `[!question] À confirmer`, `[!todo] À compléter`, `[!success]` / `[!failure]`.
+- **`> [!quote] Tes mots`** : garder tels quels les mots du cours de l'utilisateur. Ne jamais les réécrire. Ajouter une explication à côté si besoin.
+- Si tu complètes un trou que l'utilisateur n'a pas écrit, **dis-le** dans un `> [!note]` daté.
+- Tableaux pour les décisions et les comparaisons. Sous un bloc de code : un tableau **`Code | Pourquoi`**. Pour les erreurs : **`Symptôme | Cause | Solution`**.
 - Le **pourquoi** des décisions, avec des **dates absolues**.
-- Blocs de code avec le langage. Mermaid en **une seule colonne** (`flowchart TB`).
+- Blocs de code avec le langage, et `// 👈` sur les lignes ajoutées dans un tuto pas à pas. Mermaid de préférence en colonne (`flowchart TD`).
 - Images dans `_assets/`, intégrées avec `![[image.png]]`.
-- Terminer par **« Voir aussi »**, avec 1 à 5 `[[liens]]` expliqués.
-- Ajouter la note au `_index.md` du vault.
+- Terminer par **`## 🔗 Liens`**, avec 1 à 5 `[[liens]]`.
+- Ajouter la note au sommaire du vault (`<projet>.md` ou `_index.md`).
+- Pour un lien vers une section (`[[note#Section]]`), viser un titre **sans emoji ni `:`**, sinon le lien peut casser.
 
 ### Nommage
 
@@ -85,6 +89,6 @@ maj: AAAA-MM-JJ
 
 - [ ] Tout est en français, et les termes techniques sont expliqués
 - [ ] Le front-matter est complet (`projet/`, `type/`, `statut/`, les dates)
-- [ ] « Voir aussi » est rempli et la note est ajoutée à `_index.md`
+- [ ] « 🔗 Liens » est rempli et la note est ajoutée au sommaire du vault
 - [ ] Aucun `CLAUDE.md`, aucune mention d'IA, aucun commit
 - [ ] Tu as donné à utilisateur les commandes git à lancer

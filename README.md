@@ -46,4 +46,4 @@ brain_bean/
 - Elle lit les repos privés grâce au secret `DOCS_READ_TOKEN`, un token GitHub en **lecture seule**.
 - Le dossier `autres-docs/` est la **zone libre** : on y écrit directement, et la synchro n'y touche jamais.
 - Pendant la copie, les dossiers `.git/`, `.obsidian/` et `.claude/` et les fichiers `CLAUDE.md` sont retirés.
-- Quelqu'un qui a accès à brain_bean voit **toute** la doc synchronisée, même si les repos d'origine sont privés. Le repo doit donc rester **privé**.
+- brain_bean est **public** : c'est la vitrine de mes docs. Les repos d'origine peuvent rester privés, et seul ce qui est listé dans `repos.txt` est publié ici.

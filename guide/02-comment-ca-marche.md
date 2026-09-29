@@ -19,7 +19,7 @@ Ce qui se passe entre tes vaults et brain_bean, étape par étape.
 
 Chaque projet a **son propre vault** dans **son propre repo GitHub**, souvent privé. brain_bean n'est pas un lien vers ces repos : c'est une **vraie copie** de leur contenu.
 
-Pourquoi une copie ? Pour qu'une personne qui n'a accès **qu'à brain_bean** puisse tout lire, sans avoir accès aux repos d'origine. Avec des **submodules** Git (des liens vers d'autres repos), elle aurait eu besoin d'un accès à chaque repo privé.
+Pourquoi une copie ? Pour **publier** la doc tout en gardant les repos d'origine **privés**. Avec des **submodules** Git (des liens vers d'autres repos), les lecteurs auraient eu besoin d'un accès à chaque repo privé.
 
 ```mermaid
 flowchart TB
@@ -27,8 +27,8 @@ flowchart TB
     B["Repo vault B (privé)"] --> S
     C["Repo vault C (privé)"] --> S
     S["GitHub Action sync.yml<br/>lit avec DOCS_READ_TOKEN"] --> H
-    H["brain_bean (privé)<br/>un dossier par vault"] --> P
-    P["Personnes invitées en Read<br/>voient tout, sans accès aux sources"]
+    H["brain_bean (public)<br/>un dossier par vault"] --> P
+    P["Tout le monde<br/>lit la doc, sans accès aux sources"]
 ```
 
 ---
@@ -66,11 +66,12 @@ brain_bean a besoin d'une clé pour lire tes repos privés. C'est un **fine-grai
 | Qui | Voit |
 |---|---|
 | Toi | Tout : les repos sources et brain_bean |
-| Une personne invitée sur brain_bean | Toute la doc copiée, mais **aucun** repo source |
-| Le reste du monde | Rien, **tant que brain_bean est privé** |
+| Le reste du monde | Toute la doc copiée dans brain_bean, mais **aucun** repo source |
+
+> ⚠️ **Ajouter un repo à `repos.txt`, c'est le publier.** Ce qui est dans le repo d'origine et pas dans le dossier copié reste privé : utilise la 2e colonne de `repos.txt` pour ne publier qu'un sous-dossier.
 
 ---
 
-## Voir aussi
+## 🔗 Liens
 - [[03-ajouter-un-vault]] — ajouter un repo à la synchro
 - [[01-demarrer]] — ouvrir brain_bean dans Obsidian
