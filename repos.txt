@@ -1,6 +1,8 @@
 # One vault per line: <repo>  <source folder in the repo>  <destination folder in brain_bean>
 # Use "." as source folder when the vault is at the repo root.
 # Lines starting with # are ignored.
-#
+https://github.com/theopayet1/doc_kotlin.git
+https://github.com/theopayet1/sass_garage.git
+https://github.com/theopayet1/docsbox.git
 # Example:
 # my-vault-repo  docs  my-vault
