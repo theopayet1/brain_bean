@@ -47,3 +47,4 @@ brain_bean/
 - Le dossier `autres-docs/` est la **zone libre** : on y écrit directement, et la synchro n'y touche jamais.
 - Pendant la copie, les dossiers `.git/`, `.obsidian/` et `.claude/` et les fichiers `CLAUDE.md` sont retirés.
 - brain_bean est **public** : c'est la vitrine de mes docs. Les repos d'origine peuvent rester privés, et seul ce qui est listé dans `repos.txt` est publié ici.
+"# dotnet_doc" 
