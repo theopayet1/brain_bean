@@ -36,6 +36,7 @@ maj: 2026-09-29
 - [[01 Les composants]] — card, row, column, image, text…
 - [[02 Le modifier]] — configurer / décorer un composant
 - [[03 MainActivity]] — construire `MainActivity.kt` étape par étape (Scaffold, NavHost, navbar)
+- [[04 Les previews]] — `@Preview` : voir un composable sans lancer l'émulateur
 
 ## 💻 Code (mémo Kotlin)
 
