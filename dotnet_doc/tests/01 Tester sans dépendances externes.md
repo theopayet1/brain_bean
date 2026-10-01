@@ -10,7 +10,7 @@ tags:
 aliases:
   - Mocks et fakes CSharp
 cree: 2026-09-30
-maj: 2026-09-30
+maj: 2026-10-01
 ---
 
 # Tester sans dépendances externes
@@ -35,11 +35,11 @@ maj: 2026-09-30
 ## 🎭 Mock Moq : un faux repository
 
 ```csharp
-this._repository.Setup(repository => repository.UpsertByZabbixIdAsync(It.IsAny<IReadOnlyCollection<Host>>()))
+this._repository.Setup(repository => repository.UpsertHostsAsync(It.IsAny<IReadOnlyCollection<Host>>()))
     .ReturnsAsync((IReadOnlyCollection<Host> hosts) =>
     {
         this._savedHosts = hosts.ToArray();
-        return CreateIds(hosts.Select(host => host.ZabbixId!), 200);
+        return CreateIds(hosts.Select(host => host.ExternalId!), 200);
     });
 ```
 
@@ -52,7 +52,7 @@ this._repository.Setup(repository => repository.UpsertByZabbixIdAsync(It.IsAny<I
 Vérifier ensuite qu'un appel a eu lieu, avec les bons arguments :
 
 ```csharp
-this._repository.Verify(repository => repository.DisableZabbixHostsExceptAsync(
+this._repository.Verify(repository => repository.DisableHostsExceptAsync(
     It.Is<IReadOnlyCollection<string>>(ids => ids.SequenceEqual(new[] { "10084" }))), Times.Once);
 ```
 
@@ -117,7 +117,7 @@ DbContextOptions<MonApiDbContext> options = new DbContextOptionsBuilder<MonApiDb
 ```csharp
 TaskCompletionSource synchronized = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
 this._syncService.Setup(service => service.SynchronizeAsync(It.IsAny<CancellationToken>()))
-    .ReturnsAsync(new ZabbixSyncResultDto())
+    .Returns(Task.CompletedTask)
     .Callback(() => synchronized.TrySetResult());
 
 await worker.StartAsync(CancellationToken.None);

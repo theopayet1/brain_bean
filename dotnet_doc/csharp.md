@@ -9,7 +9,7 @@ aliases:
   - CSharp / .NET — MOC
   - Accueil CSharp
 cree: 2026-09-30
-maj: 2026-09-30
+maj: 2026-10-01
 ---
 
 # 🗂️ C# / .NET — MOC
@@ -31,6 +31,7 @@ maj: 2026-09-30
 - [[01 Clean architecture en couches]] — le rôle de chaque projet, les `.Contracts`, le projet-feuille
 - [[02 Injection de dépendances en .NET]] — un `DependencyInjection.cs` par couche, les durées de vie
 - [[03 Résultat d'un cas d'usage (Result)]] — renvoyer un succès ou un code d'erreur, sans `null` ni exception
+- [[04 Repository classique ou repository EF]] — SQL à la main ou Entity Framework, et ce que veut dire le préfixe `Ef`
 
 ---
 
@@ -84,7 +85,8 @@ maj: 2026-09-30
 - [[01 Zabbix — les concepts]] — groupe, hôte, item, trigger, problème, acquittement
 - [[02 Zabbix — l'API JSON-RPC]] — s'authentifier, appeler les méthodes, les pièges
 - [[03 Zabbix — synchroniser dans sa base]] — le choix d'architecture et la correspondance des données
-- [[04 Zabbix — pièges et limites]] — faux positifs, métriques incomplètes, erreurs fréquentes
+- [[04 Zabbix — pièges et limites]] — faux positifs, réponses vides, erreurs fréquentes
+- [[05 Zabbix — les méthodes utilisées]] — les 4 méthodes appelées par la synchro, avec paramètres et réponses
 
 ---
 

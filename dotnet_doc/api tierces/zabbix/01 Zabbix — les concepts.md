@@ -9,7 +9,7 @@ tags:
 aliases:
   - Zabbix — vocabulaire
 cree: 2026-09-30
-maj: 2026-09-30
+maj: 2026-10-01
 ---
 
 # Zabbix — les concepts
@@ -64,7 +64,7 @@ flowchart TD
 Un **template** est un modèle d'items et de triggers qu'on applique à un hôte. *Linux by Zabbix agent* ajoute d'un coup le CPU, la RAM, les disques et leurs règles.
 
 > [!warning] Les clés changent d'un template à l'autre
-> La RAM s'appelle `vm.memory.utilization` sous Linux, `vm.memory.util` sous Windows, et d'autres templates utilisent `vm.memory.size[pavailable]` (ce qui est **libre**, pas ce qui est utilisé). Pour lire une métrique, il faut donc prévoir **plusieurs clés possibles**, voir [[02 Zabbix — l'API JSON-RPC]].
+> La RAM s'appelle `vm.memory.utilization` sous Linux, `vm.memory.util` sous Windows, et d'autres templates utilisent `vm.memory.size[pavailable]` (ce qui est **libre**, pas ce qui est utilisé). Le jour où on lira des mesures, il faudra donc prévoir **plusieurs clés possibles** par ressource.
 
 ---
 

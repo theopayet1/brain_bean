@@ -9,7 +9,7 @@ tags:
 aliases:
   - CSharp — architecture
 cree: 2026-09-30
-maj: 2026-09-30
+maj: 2026-10-01
 ---
 
 # Architecture .NET
@@ -47,6 +47,7 @@ flowchart TD
 | [[01 Clean architecture en couches]] | Le rôle de chaque projet, les `.Contracts`, le projet-feuille, les conventions |
 | [[02 Injection de dépendances en .NET]] | Un `DependencyInjection.cs` par couche, un `Program.cs` court |
 | [[03 Résultat d'un cas d'usage (Result)]] | Renvoyer un succès ou un code d'erreur métier |
+| [[04 Repository classique ou repository EF]] | SQL à la main ou Entity Framework, le préfixe `Ef` |
 
 ---
 

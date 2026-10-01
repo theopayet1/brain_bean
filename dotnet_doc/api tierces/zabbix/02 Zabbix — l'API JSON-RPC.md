@@ -12,7 +12,7 @@ aliases:
   - API Zabbix
   - Client Zabbix C#
 cree: 2026-09-30
-maj: 2026-09-30
+maj: 2026-10-01
 ---
 
 # Zabbix — l'API JSON-RPC
@@ -62,15 +62,16 @@ curl -X POST https://zabbix.example.com/api_jsonrpc.php \
 
 ---
 
-## 📋 Les méthodes utiles
+## 📋 Les méthodes utilisées
 
 | Méthode | Paramètres clés | Renvoie |
 |---|---|---|
 | `hostgroup.get` | `output`, `with_hosts: true` (seulement les groupes non vides) | Les groupes |
 | `host.get` | `output: [hostid, name, status, description]`, `selectHostGroups` | Les hôtes et leurs groupes |
-| `problem.get` | `recent: true`, `selectAcknowledges`, `sortfield: [eventid]` | Les problèmes actifs **et** récemment résolus, avec leurs acquittements |
+| `problem.get` | `recent: true`, `sortfield: [eventid]` | Les problèmes actifs **et** récemment résolus |
 | `trigger.get` | `triggerids`, `selectHosts: [hostid]` | L'hôte de chaque trigger |
-| `item.get` | `filter: { key_: [...] }`, `monitored: true` | Les items demandés, avec leur dernière valeur (`lastvalue`, `lastclock`) |
+
+👉 Le détail de chaque appel (requête, réponse, champ par champ) est dans [[05 Zabbix — les méthodes utilisées]].
 
 > [!warning] `problem.get` ne donne pas l'hôte
 > Un problème ne contient que l'identifiant de son trigger (`objectid`). Pour savoir quelle machine est concernée, on fait un **second appel** `trigger.get` avec la liste des `objectid`, en **une seule fois** pour tous les problèmes.
@@ -114,37 +115,6 @@ Et la conversion des erreurs : quelle que soit la panne, le reste de l'appli ne 
 | Pas de réponse avant le timeout | `ZabbixException` |
 | Code HTTP autre que 2xx | `ZabbixException` avec le code |
 | Réponse avec un champ `error` | `ZabbixException` avec le message de Zabbix |
-
----
-
-## 📏 Lire une métrique : plusieurs clés candidates
-
-Comme les clés dépendent du template, la configuration liste, pour chaque ressource, des **clés candidates par ordre de priorité**. La première clé **réellement collectée** sur l'hôte l'emporte.
-
-```json
-"MetricKeys": {
-  "Cpu": [
-    { "Key": "system.cpu.util" },
-    { "Key": "system.cpu.util[,idle]", "IsFreePercentage": true }
-  ],
-  "Memory": [
-    { "Key": "vm.memory.utilization" },
-    { "Key": "vm.memory.util" },
-    { "Key": "vm.memory.size[pavailable]", "IsFreePercentage": true }
-  ],
-  "Disk": [
-    { "Key": "vfs.fs.dependent.size[/,pused]" },
-    { "Key": "vfs.fs.size[/,pfree]", "IsFreePercentage": true },
-    { "Key": "vfs.fs.dependent.size[C:,pused]" }
-  ]
-}
-```
-
-| Réglage | Pourquoi |
-|---|---|
-| L'ordre de la liste | La première clé trouvée et collectée est utilisée |
-| `"IsFreePercentage": true` | L'item mesure ce qui est **libre** (CPU inactif, RAM disponible, disque libre) : utilisé = 100 − valeur |
-| Items ignorés | `lastclock = 0` (jamais collecté) ou `state = 1` (non supporté) |
 
 ---
 
