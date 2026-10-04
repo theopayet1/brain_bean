@@ -4,5 +4,6 @@
 https://github.com/theopayet1/doc_kotlin.git
 https://github.com/theopayet1/docsbox.git
 https://github.com/theopayet1/dotnet_doc.git
+https://github.com/theopayet1/doc_C-plus
 # Example:
 # my-vault-repo  docs  my-vault
