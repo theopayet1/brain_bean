@@ -1,0 +1,67 @@
+/* ============================================================
+   THÈME — la seule source de vérité des couleurs et tailles.
+   Changer une valeur ici change toute l'application.
+   ============================================================ */
+:root {
+  color-scheme: light;
+
+  --accent: #3b5bdb;
+  --accent-dark: #2f4ac0;
+  --danger: #c92a2a;
+
+  --bg: #f8f9fa;
+  --surface: #ffffff;
+  --text: #212529;
+  --text-muted: #6c757d;
+  --border: #dee2e6;
+
+  --font: 'Segoe UI', system-ui, sans-serif;
+  --radius: 6px;
+  --rail-width: 200px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.btn {
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  cursor: pointer;
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-dark);
+}
+.btn-danger {
+  color: var(--danger);
+}
+
+.error {
+  color: var(--danger);
+}
+.empty {
+  color: var(--text-muted);
+}
+.actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}

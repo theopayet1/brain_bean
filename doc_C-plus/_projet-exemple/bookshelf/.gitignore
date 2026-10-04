@@ -1,0 +1,19 @@
+# Build
+build/
+out/
+vcpkg_installed/
+CMakeUserPresets.json
+
+# Frontend
+node_modules/
+frontend/dist/
+
+# Bases de données locales (jamais dans le dépôt)
+*.db
+*.db-wal
+*.db-shm
+
+# Éditeurs
+.vs/
+.vscode/
+.idea/

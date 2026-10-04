@@ -1,0 +1,12 @@
+#pragma once
+
+#include <string_view>
+
+// Généré par CMake : ne pas modifier. Changer BOOKSHELF_APP_NAME dans CMakeLists.txt.
+namespace bookshelf::app
+{
+
+inline constexpr std::string_view AppName = "@BOOKSHELF_APP_NAME@";
+inline constexpr std::string_view Version = "@PROJECT_VERSION@";
+
+} // namespace bookshelf::app

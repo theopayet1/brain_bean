@@ -1,0 +1,38 @@
+---
+Language: Cpp
+BasedOnStyle: LLVM
+Standard: Latest
+ColumnLimit: 100
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+BreakBeforeBraces: Allman
+AccessModifierOffset: -4
+NamespaceIndentation: None
+PointerAlignment: Left
+ReferenceAlignment: Left
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AllowShortLambdasOnASingleLine: Inline
+AlwaysBreakTemplateDeclarations: Yes
+BinPackArguments: false
+BinPackParameters: false
+BreakConstructorInitializers: BeforeComma
+PackConstructorInitializers: Never
+InsertNewlineAtEOF: true
+SortIncludes: CaseSensitive
+IncludeBlocks: Regroup
+IncludeCategories:
+  # 1. en-têtes du projet, 2. bibliothèques externes, 3. windows.h (toujours avant les
+  # autres en-têtes Windows), 4. reste de l'API Windows, 5. bibliothèque standard
+  - Regex: '^"'
+    Priority: 1
+  - Regex: '^<(saucer|glaze|cmrc|doctest|sqlite3)[/.]'
+    Priority: 2
+  - Regex: '^<windows\.h>'
+    Priority: 3
+  - Regex: '^<[A-Za-z0-9_]+\.h>'
+    Priority: 4
+  - Regex: '^<'
+    Priority: 5

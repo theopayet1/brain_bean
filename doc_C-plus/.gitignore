@@ -1,0 +1,7 @@
+# Obsidian : l'état de l'interface (onglets ouverts, panneaux) change à chaque clic
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Fichiers système
+.DS_Store
+Thumbs.db

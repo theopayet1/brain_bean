@@ -1,0 +1,88 @@
+/* La coquille : un rail de navigation à gauche, le contenu à droite. */
+.shell {
+  display: grid;
+  grid-template-columns: var(--rail-width) 1fr;
+  min-height: 100vh;
+}
+.rail {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+}
+.brand {
+  font-size: 1.2rem;
+  margin: 0 0 16px;
+}
+.rail-item {
+  text-align: left;
+  padding: 8px 12px;
+  border: none;
+  border-radius: var(--radius);
+  background: none;
+  cursor: pointer;
+}
+.rail-item.active {
+  background: var(--accent);
+  color: white;
+}
+.content {
+  padding: 24px 32px;
+}
+
+.screen-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.search {
+  width: 280px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+}
+.table th,
+.table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 420px;
+}
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.form input {
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgb(0 0 0 / 0.35);
+}
+.dialog {
+  min-width: 360px;
+  padding: 20px 24px;
+  border-radius: var(--radius);
+  background: var(--surface);
+}
