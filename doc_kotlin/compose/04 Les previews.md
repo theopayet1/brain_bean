@@ -116,11 +116,11 @@ private fun ListeContentPreview() {
 }
 ```
 
-| Code | Pourquoi |
-|---|---|
-| `ListeContent(items, onItemClick)` | ne connaît ni ViewModel ni Koin : on lui donne tout |
-| `listOf("Un", …)` | de **fausses données** écrites à la main pour l'aperçu |
-| `onItemClick = {}` | une lambda vide : dans une preview, cliquer ne fait rien |
+| Code                               | Pourquoi                                                 |
+| ---------------------------------- | -------------------------------------------------------- |
+| `ListeContent(items, onItemClick)` | ne connaît ni ViewModel ni Koin : on lui donne tout      |
+| `listOf("Un", …)`                  | de **fausses données** écrites à la main pour l'aperçu   |
+| `onItemClick = {}`                 | une lambda vide : dans une preview, cliquer ne fait rien |
 
 ---
 
