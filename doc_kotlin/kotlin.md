@@ -10,7 +10,7 @@ aliases:
   - Accueil Kotlin
 cours: P1
 cree: 2026-09-28
-maj: 2026-09-29
+maj: 2026-10-07
 ---
 
 # 🗂️ Kotlin / Android — MOC
@@ -44,6 +44,9 @@ maj: 2026-09-29
 - [[01 Kotlin vs Java]] — pas d'accesseurs à coder, etc.
 - [[02 Les classes]] — constructeur, membre vs paramètre
 - [[03 Les logs]] — écrire/lire des logs, niveaux, bonnes pratiques
+- [[04 Les notifications push]] — FCM, le token et la liaison avec un backend .NET
+  - [[4.1 Notifications push côté Kotlin]] — le code Android pas à pas
+  - [[4.2 Notifications push côté .NET]] — le code backend pas à pas
 
 ## 🐘 Gradle
 
@@ -74,7 +77,7 @@ Chaque note a au moins `#projet/kotlin`, un `#type/…` et un `#statut/…`.
 
 | Famille | Tags utilisés ici |
 |---|---|
-| `techno/` | `#techno/kotlin` `#techno/android` `#techno/compose` `#techno/koin` `#techno/gradle` `#techno/java` |
-| `sujet/` | `#sujet/apk` `#sujet/manifest` `#sujet/activity` `#sujet/cycle-de-vie` `#sujet/ressources` `#sujet/compilation` `#sujet/architecture` `#sujet/mvvm` `#sujet/ui` `#sujet/permissions` `#sujet/securite` `#sujet/injection-de-dependances` `#sujet/navigation` `#sujet/debug` `#sujet/build` `#sujet/dependances` |
+| `techno/` | `#techno/kotlin` `#techno/android` `#techno/compose` `#techno/koin` `#techno/gradle` `#techno/java` `#techno/dotnet` `#techno/csharp` `#techno/efcore` |
+| `sujet/` | `#sujet/apk` `#sujet/manifest` `#sujet/activity` `#sujet/cycle-de-vie` `#sujet/ressources` `#sujet/compilation` `#sujet/architecture` `#sujet/mvvm` `#sujet/ui` `#sujet/permissions` `#sujet/securite` `#sujet/injection-de-dependances` `#sujet/navigation` `#sujet/debug` `#sujet/build` `#sujet/dependances` `#sujet/notifications` |
 | `type/` | `#type/index` `#type/concept` `#type/guide` `#type/reference` |
 | `statut/` | `#statut/a-jour` `#statut/brouillon` |
