@@ -7,7 +7,7 @@ tags:
   - statut/a-jour
 cours: P1
 cree: 2026-09-28
-maj: 2026-10-07
+maj: 2026-10-26
 ---
 
 # Code — mémo Kotlin
@@ -27,6 +27,9 @@ maj: 2026-10-07
 | [[04 Les notifications push]] | Le principe : FCM, le token, les 2 types de messages, le contrat Kotlin ↔ .NET |
 | ↳ [[4.1 Notifications push côté Kotlin]] | Le code Android pas à pas |
 | ↳ [[4.2 Notifications push côté .NET]] | Le code backend pas à pas |
+| [[05 Les fonctions d'extension]] | Ajouter une fonction à `Context`, `Intent`… sans les modifier |
+| [[06 KDoc et commentaires]] | Headers KDoc, block tags, manifest et Gradle commentés |
+| [[07 Conventions de nommage et Lint]] | Nommer en Kotlin, lancer Lint, corriger les warnings |
 
 ---
 

@@ -8,7 +8,7 @@ tags:
   - statut/a-jour
 cours: P1
 cree: 2026-09-28
-maj: 2026-09-29
+maj: 2026-10-26
 ---
 
 # Les composants de base d'une application Android
@@ -47,6 +47,12 @@ flowchart TD
 | **Permissions** | Ce que l'app a le droit de faire | [[05 Les Permissions]] |
 | **UI déclarative** | L'UI décrite en déclaratif (plus du « compilé ») | [[07 UI déclarative]] |
 | **Koin / DI** | Fournir les objets de l'extérieur (injection) | [[08 Koin (injection de dépendances)]] |
+| **Organisation du projet** | Les dossiers et les packages par couche | [[09 Organisation du projet]] |
+| **Intent** | Le message « je veux faire ça » envoyé à Android | [[10 Les Intents]] |
+| **Context** | Le guichet vers le système (Application vs Activity) | [[11 Le Context]] |
+| **Capacités natives** | Vibreur, capteurs, son… rangés dans des Managers | [[12 Les capacités natives (Managers)]] |
+| **Cycle de vie en pratique** | Quoi faire à quelle étape, et le commenter | [[13 Le cycle de vie en pratique]] |
+| **Ressources en pratique** | `stringResource`, variantes, nommage | [[14 Les ressources en pratique]] |
 
 ---
 
@@ -72,3 +78,10 @@ flowchart LR
 - [[05 Les Permissions]]
 - [[06 Classes.dex]]
 - [[07 UI déclarative]]
+- [[08 Koin (injection de dépendances)]]
+- [[09 Organisation du projet]]
+- [[10 Les Intents]]
+- [[11 Le Context]]
+- [[12 Les capacités natives (Managers)]]
+- [[13 Le cycle de vie en pratique]]
+- [[14 Les ressources en pratique]]
