@@ -12,16 +12,20 @@ tags:
   - statut/a-jour
 cours: P1
 cree: 2026-10-26
-maj: 2026-10-26
+maj: 2026-10-27
 ---
 
 # Les capacités natives et les Managers
 
 > [!abstract] En une phrase
-> Pour utiliser le **matériel** du téléphone (vibreur, son, GPS, capteurs, caméra…), on passe par le [[12 Le Context|Context]], et on **range tout ce code dans un Manager** : une classe dédiée, pour que l'**UI ne sache rien du matériel**.
+> Pour utiliser le **matériel** du téléphone (vibreur, son, GPS, capteurs, caméra…), on passe par le [[01 Le Context|Context]], et on **range tout ce code dans un Manager** : une classe dédiée, pour que l'**UI ne sache rien du matériel**.
 
 > [!note] Complété le 26 octobre 2026
 > Note ajoutée à partir de la grille d'évaluation (critères « capacités natives » : théorie **et** pratique). Exemples écrits pour la note, pas tirés de Metrix (Metrix n'a pas encore de Manager).
+
+> [!tip] Le code de A à Z, fichier par fichier
+> - [[4.1 Le vibreur pas à pas]] : la version simple (permission normale, pas de popup)
+> - [[4.2 La localisation pas à pas]] : avec une permission dangereuse (popup) et le cycle de vie
 
 ---
 
@@ -40,7 +44,7 @@ Une **capacité native**, c'est une fonction **matérielle** du téléphone. Cha
 | **Base de données** | Room (SQLite) | aucune | — |
 
 > [!info] Les vrais mots
-> Les permissions « simples » de [[06 Les Permissions]] s'appellent des **permissions normales** : accordées **à l'installation**. Les « invasives » s'appellent des **permissions dangereuses** : il faut les **déclarer** dans le manifest **et** les **demander à l'exécution** (la popup).
+> Les permissions « simples » de [[03 Les Permissions]] s'appellent des **permissions normales** : accordées **à l'installation**. Les « invasives » s'appellent des **permissions dangereuses** : il faut les **déclarer** dans le manifest **et** les **demander à l'exécution** (la popup).
 
 ---
 
@@ -62,12 +66,37 @@ Pourquoi c'est un problème :
 > Le **Manager**, c'est le **technicien** du vibreur. L'écran ne sait pas comment marche un vibreur : il dit juste au ViewModel « il y a une alerte », le ViewModel dit au technicien « vibre », et c'est le technicien qui parle au Context.
 
 ```mermaid
-flowchart TD
-    UI["🖥️ Screen<br/>affiche, ne connaît pas le matériel"] -->|action utilisateur| VM["🔗 ViewModel"]
-    VM -->|"vibrate()"| MGR["🧰 VibrationManager"]
-    MGR -->|getSystemService| CTX["🛎️ Context"]
-    CTX --> HW["📳 Vibreur du téléphone"]
+flowchart LR
+    subgraph UI["🖥️ Couche UI · ui/screens/"]
+        S["Screen<br/>affiche, ne connaît pas le matériel"] -->|action utilisateur| VM["ViewModel<br/>décide QUAND"]
+    end
+    subgraph DOM["🧠 Couche Domain · domain/"]
+        M["Modèles en Kotlin pur<br/>ex. Position"]
+    end
+    subgraph DATA["💾 Couche Data · data/manager/"]
+        MGR["Managers<br/>VibrationManager, GpsManager…<br/>savent COMMENT"]
+    end
+    subgraph AND["🤖 Android"]
+        CTX["🛎️ Context"] --> HW["📳 Vibreur, 🛰️ GPS, capteurs…"]
+    end
+    VM -->|"vibrate(), start()…"| MGR
+    MGR -->|getSystemService| CTX
+    MGR -.->|"Location → Position"| M
+    VM -.->|lit| M
+    DI["🔌 Koin · di/"] -.->|"injecte le Manager"| VM
 ```
+
+| Couche | Ce qu'on y met pour le matériel | Ce qui est **interdit** |
+|---|---|---|
+| **UI** | Le Screen (boutons, popup de permission) et le ViewModel (quand allumer / éteindre) | `getSystemService`, `Vibrator`, `Location`… |
+| **Domain** | Les **modèles** que le matériel produit, en Kotlin pur (`Position`) | Tout import `android.*` |
+| **Data** | Le **Manager** : le seul qui parle au Context et au matériel | La logique d'affichage |
+
+> [!info] Le Manager est rangé dans Data
+> Il **va chercher** une donnée à l'extérieur de l'app (le matériel), comme un Service va la chercher sur l'API. Il **traduit** aussi l'objet Android en modèle du Domain (`Location → Position`), comme un mapper.
+
+> [!tip] Pour aller jusqu'au bout de la Clean Archi
+> Le Domain peut aussi déclarer le **contrat** du Manager (`interface IGpsManager`), et Data l'implémente (`GpsManager : IGpsManager`). Le ViewModel dépend alors de l'**interface**, exactement comme avec `IHostRep` → [[00 Architecture]]. C'est plus propre, mais ce n'est pas exigé par la grille.
 
 ### Exemple 1 : le vibreur
 
@@ -99,7 +128,7 @@ class VibrationManager(context: Context) {
 
 | Code | Pourquoi |
 |---|---|
-| `class VibrationManager(context: Context)` | Le Manager **reçoit** le Context, il ne le cherche pas lui-même → [[09 Koin (injection de dépendances)\|Koin]] le lui donne |
+| `class VibrationManager(context: Context)` | Le Manager **reçoit** le Context, il ne le cherche pas lui-même → [[05 Koin (injection de dépendances)\|Koin]] le lui donne |
 | `Build.VERSION.SDK_INT >= …S` | Depuis **Android 12** (API 31), on passe par `VibratorManager`. Avant, par `Vibrator` |
 | `getSystemService(...)` | On demande le **service** au guichet (le Context) |
 | `Vibrator?` + `vibrator?.` | Le service peut être **absent** (tablette sans vibreur) : pas de crash |
@@ -196,7 +225,7 @@ val appModule = module {
 | Code | Pourquoi |
 |---|---|
 | `single` | **Un seul** Manager pour toute l'app : il n'y a qu'un vibreur |
-| `androidContext()` | L'**Application Context**, qui vit aussi longtemps que le `single` → pas de fuite ([[12 Le Context]]) |
+| `androidContext()` | L'**Application Context**, qui vit aussi longtemps que le `single` → pas de fuite ([[01 Le Context]]) |
 
 ### Dans le ViewModel
 
@@ -230,10 +259,15 @@ Pour le GPS ou la caméra : **1)** la déclarer dans le manifest, **2)** la dema
 @Composable
 fun MapScreen(viewModel: MapViewModel = koinViewModel()) {
     val launcher = rememberLauncherForActivityResult(
-        ActivityResultContracts.RequestPermission()
-    ) { granted -> viewModel.onLocationPermissionResult(granted) }
+        ActivityResultContracts.RequestMultiplePermissions()
+    ) { results -> viewModel.onLocationPermissionResult(granted = results.values.any { it }) }
 
-    Button(onClick = { launcher.launch(Manifest.permission.ACCESS_FINE_LOCATION) }) {
+    Button(onClick = {
+        launcher.launch(arrayOf(
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+        ))
+    }) {
         Text(stringResource(R.string.map_locate_me))
     }
 }
@@ -241,12 +275,13 @@ fun MapScreen(viewModel: MapViewModel = koinViewModel()) {
 
 | Code | Pourquoi |
 |---|---|
-| `rememberLauncherForActivityResult(RequestPermission())` | Prépare la **popup** de permission. Le bloc `{ granted -> }` reçoit la **réponse** |
+| `rememberLauncherForActivityResult(RequestMultiplePermissions())` | Prépare la **popup** de permission. Le bloc `{ results -> }` reçoit la **réponse** pour chaque permission |
+| `FINE` **et** `COARSE` ensemble | Depuis **Android 12**, demander `FINE` seule est **ignoré** par Android |
 | `launcher.launch(...)` | **Affiche** la popup (ou répond direct si c'est déjà accordé / refusé) |
 | `viewModel.onLocationPermissionResult(granted)` | L'écran **remonte** la réponse au ViewModel : c'est lui qui décide quoi faire |
 
 > [!tip] Déjà fait dans le cours
-> La même mécanique, pour les notifications, est expliquée pas à pas dans [[4.1 Notifications push côté Kotlin]] (étape 3).
+> La même mécanique, pour les notifications, est expliquée pas à pas dans [[1.1 Notifications push côté Kotlin]] (étape 3).
 
 ---
 
@@ -255,14 +290,14 @@ fun MapScreen(viewModel: MapViewModel = koinViewModel()) {
 > [!success] Pour viser « Maîtrisé »
 > - Au moins **2 capacités natives** (son, vibreur, GPS, gyroscope, base de données…).
 > - L'accès au matériel est **centralisé dans des Managers**, **détaché de l'UI**.
-> - Au moins **une fonction d'extension sur `Context`** → [[05 Les fonctions d'extension]].
-> - Les Managers ont des **commentaires clairs** (KDoc) → [[06 KDoc et commentaires]].
+> - Au moins **une fonction d'extension sur `Context`** → [[04 Les fonctions d'extension]].
+> - Les Managers ont des **commentaires clairs** (KDoc) → [[05 KDoc et commentaires]].
 
 ---
 
 ## 🔗 Liens
 
-- [[12 Le Context]] — le guichet vers le matériel
-- [[06 Les Permissions]] — déclarer avant d'utiliser
+- [[01 Le Context]] — le guichet vers le matériel
+- [[03 Les Permissions]] — déclarer avant d'utiliser
 - [[03 Le cycle de vie]] — allumer et éteindre un capteur au bon moment
-- [[05 Les fonctions d'extension]] — `Context.hasPermission()`
+- [[04 Les fonctions d'extension]] — `Context.hasPermission()`

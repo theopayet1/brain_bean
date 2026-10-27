@@ -19,7 +19,7 @@ maj: 2026-10-26
 # La couche UI : MVI et UDF
 
 > [!abstract] En une phrase
-> Dans la couche **UI**, l'**état** descend du ViewModel vers l'écran, et les **actions** de l'utilisateur remontent de l'écran vers le ViewModel : c'est le **flux unidirectionnel** (**UDF**), et **MVI** est la façon de l'organiser. À lire après [[08 UI déclarative]] et [[00 Architecture]].
+> Dans la couche **UI**, l'**état** descend du ViewModel vers l'écran, et les **actions** de l'utilisateur remontent de l'écran vers le ViewModel : c'est le **flux unidirectionnel** (**UDF**), et **MVI** est la façon de l'organiser. À lire après [[01 UI déclarative]] et [[00 Architecture]].
 
 > [!note] Complété le 26 octobre 2026
 > Note ajoutée à partir de la grille d'évaluation (critère « couche UI et Jetpack Compose » : MVI, UDF, gestion des états, Single Activity, navigation). Les exemples sont le **vrai code de Metrix**, sauf la version « MVI stricte ».
@@ -56,7 +56,7 @@ flowchart TD
 | **I**ntent | Une **intention** de l'utilisateur | « réessayer », « filtrer »… |
 
 > [!warning] Intent ≠ Intent
-> Le « **I** » de MVI n'a **rien à voir** avec l'[[11 Les Intents|Intent d'Android]]. Pour éviter la confusion, beaucoup de projets l'appellent **Action** ou **Event**.
+> Le « **I** » de MVI n'a **rien à voir** avec l'[[02 Les Intents|Intent d'Android]]. Pour éviter la confusion, beaucoup de projets l'appellent **Action** ou **Event**.
 
 ```mermaid
 flowchart TD
@@ -194,7 +194,7 @@ fun HostListScreen(
 |---|---|
 | `koinViewModel()` | Koin fournit le ViewModel, avec ses dépendances |
 | `collectAsState()` | Transforme le `StateFlow` en **état Compose** : à chaque nouvel état, **recomposition** |
-| `HostListScreenContent(state, …)` | L'affichage est dans un composable **séparé** qui reçoit tout en paramètres : il est **prévisualisable** ([[04 Les previews]]) |
+| `HostListScreenContent(state, …)` | L'affichage est dans un composable **séparé** qui reçoit tout en paramètres : il est **prévisualisable** ([[05 Les previews]]) |
 | `onRetry = viewModel::loadHosts` | L'action **remonte** par une lambda |
 | `onHostClick: (Int) -> Unit` | L'écran ne connaît **pas** le `navController` : il dit juste « on a cliqué sur l'hôte 12 » |
 
@@ -219,7 +219,7 @@ var expanded by remember { mutableStateOf(false) }
 
 ## 🧭 Single Activity et navigation
 
-**Une seule activity** (`MainActivity`) sert de **conteneur**. Les écrans sont des **composables**, et le **NavHost** choisit lequel afficher → construction pas à pas dans [[03 MainActivity]].
+**Une seule activity** (`MainActivity`) sert de **conteneur**. Les écrans sont des **composables**, et le **NavHost** choisit lequel afficher → construction pas à pas dans [[04 MainActivity]].
 
 ```mermaid
 flowchart TD
@@ -232,7 +232,7 @@ flowchart TD
 
 | Pourquoi une seule activity | |
 |---|---|
-| **Navigation** plus simple | Changer d'écran = changer de route, pas lancer un [[11 Les Intents\|Intent]] |
+| **Navigation** plus simple | Changer d'écran = changer de route, pas lancer un [[02 Les Intents\|Intent]] |
 | **Partage** facile | Le thème, la navbar, Koin sont posés **une fois** |
 | **Cycle de vie** plus simple | Un seul cycle de vie d'activity à gérer |
 
@@ -252,7 +252,7 @@ La grille demande des composables « découpés conformément à la **philosophi
 > - Écrans **bien nommés**, composants **au bon endroit**, découpage **Lego**.
 > - **Actions du ViewModel** nommées de façon **claire**.
 > - **State** bien formé.
-> - **Un composant complexe** avec un **KDoc** et des block tags → [[06 KDoc et commentaires]].
+> - **Un composant complexe** avec un **KDoc** et des block tags → [[05 KDoc et commentaires]].
 > - Savoir **schématiser** MVI / UDF (les schémas de cette note).
 
 ---
@@ -260,6 +260,6 @@ La grille demande des composables « découpés conformément à la **philosophi
 ## 🔗 Liens
 
 - [[00 Architecture]] — où se place la couche UI
-- [[08 UI déclarative]] — l'état et la recomposition
-- [[03 MainActivity]] — la Single Activity en pratique
-- [[04 Les previews]] — pourquoi séparer Screen et Content
+- [[01 UI déclarative]] — l'état et la recomposition
+- [[04 MainActivity]] — la Single Activity en pratique
+- [[05 Les previews]] — pourquoi séparer Screen et Content

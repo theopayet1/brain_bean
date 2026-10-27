@@ -8,7 +8,7 @@ tags:
   - statut/a-jour
 cours: P1
 cree: 2026-09-28
-maj: 2026-10-26
+maj: 2026-10-27
 ---
 
 # Les composants de base d'une application Android
@@ -34,24 +34,39 @@ flowchart TD
 | **Manifest** | Carte d'identité : **nom de l'app**, **permissions** (ex. vibration), **activity principale** | [[01 Le manifest]] |
 | **Activity** | Un **écran** ; fournit aussi un **contexte** (accès aux capacités matérielles) | [[02 Les Activities]] |
 | **Ressources (`res`)** | **Non compilées** : images, sons, gifs, couleurs, strings (multilingue) | [[04 Les Ressources]] |
-| **`classes.dex`** | Le **code compilé**, la **partie exécutable** de l'app | [[07 Classes.dex]] |
+| **`classes.dex`** | Le **code compilé**, la **partie exécutable** de l'app | [[05 Classes.dex]] |
 
 ---
 
-## 🧱 Autres notions
+## 🗂️ Les sous-dossiers
 
-| Notion | Rôle | Note |
-|---|---|---|
-| **Cycle de vie** | Les états d'une activity, quoi faire à quelle étape, la rotation | [[03 Le cycle de vie]] |
-| **Architecture** | Screen / ViewModel / Model | [[05 Architecture (Screen - ViewModel - Model)]] |
-| **Permissions** | Ce que l'app a le droit de faire | [[06 Les Permissions]] |
-| **UI déclarative** | L'UI décrite en déclaratif (plus du « compilé ») | [[08 UI déclarative]] |
-| **Koin / DI** | Fournir les objets de l'extérieur (injection) | [[09 Koin (injection de dépendances)]] |
-| **Organisation du projet** | Les dossiers et les packages par couche | [[10 Organisation du projet]] |
-| **Intent** | Le message « je veux faire ça » envoyé à Android | [[11 Les Intents]] |
-| **Context** | Le guichet vers le système (Application vs Activity) | [[12 Le Context]] |
-| **Capacités natives** | Vibreur, capteurs, son… rangés dans des Managers | [[13 Les capacités natives (Managers)]] |
-| **Ressources en pratique** | `stringResource`, variantes, nommage | [[14 Les ressources en pratique]] |
+### 1️⃣ L'app
+
+| Note | Rôle |
+|---|---|
+| [[01 Le manifest]] | La carte d'identité de l'app |
+| [[02 Les Activities]] | Un écran, qui est aussi un contexte |
+| [[03 Le cycle de vie]] | Les 4 états, quoi faire à quelle étape, la rotation |
+| [[04 Les Ressources]] | Le répertoire `res` et la reconfiguration |
+| ↳ [[4.1 Les ressources en pratique]] | `stringResource`, variantes (langue, nuit), nommage |
+| [[05 Classes.dex]] | Le code compilé / exécutable |
+| [[06 Organisation du projet]] | Les dossiers du projet et les packages par couche |
+
+### 2️⃣ Système et matériel
+
+| Note | Rôle |
+|---|---|
+| [[01 Le Context]] | Le guichet vers le système (Application vs Activity) |
+| [[02 Les Intents]] | Le message « je veux faire ça » envoyé à Android |
+| [[03 Les Permissions]] | Ce que l'app a le droit de faire : normale ou dangereuse |
+| [[04 Les capacités natives (Managers)]] | Vibreur, capteurs, son… rangés dans des Managers |
+| ↳ [[4.1 Le vibreur pas à pas]] | Ajouter le vibreur de A à Z (permission normale) |
+| ↳ [[4.2 La localisation pas à pas]] | Ajouter le GPS de A à Z (permission dangereuse, popup) |
+
+> [!info] Ce qui est rangé ailleurs
+> - Screen / ViewModel / Model et **Koin** → dossier **Architecture** : [[01 Architecture (Screen - ViewModel - Model)]], [[05 Koin (injection de dépendances)]]
+> - **UI déclarative** → dossier **Compose** : [[01 UI déclarative]]
+> - **Fonction d'extension**, KDoc, Lint → dossier **Code** : [[04 Les fonctions d'extension]]
 
 ---
 
@@ -70,17 +85,4 @@ flowchart LR
 
 ## ➡️ Suite
 
-- [[01 Le manifest]]
-- [[02 Les Activities]]
-- [[03 Le cycle de vie]]
-- [[04 Les Ressources]]
-- [[05 Architecture (Screen - ViewModel - Model)]]
-- [[06 Les Permissions]]
-- [[07 Classes.dex]]
-- [[08 UI déclarative]]
-- [[09 Koin (injection de dépendances)]]
-- [[10 Organisation du projet]]
-- [[11 Les Intents]]
-- [[12 Le Context]]
-- [[13 Les capacités natives (Managers)]]
-- [[14 Les ressources en pratique]]
+Commence par [[01 Le manifest]], puis suis les sous-dossiers dans l'ordre (1 → 2).

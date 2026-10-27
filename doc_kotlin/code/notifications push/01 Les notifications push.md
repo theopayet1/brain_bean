@@ -19,7 +19,7 @@ maj: 2026-10-07
 # Les notifications push
 
 > [!abstract] 
->À lire avant : [[06 Les Permissions]] et [[02 Les Activities#Le contexte]]. Le code est dans [[4.1 Notifications push côté Kotlin]] et [[4.2 Notifications push côté .NET]].
+>À lire avant : [[03 Les Permissions]] et [[02 Les Activities#Le contexte]]. Le code est dans [[1.1 Notifications push côté Kotlin]] et [[1.2 Notifications push côté .NET]].
 
 ---
 
@@ -155,20 +155,20 @@ SignalR (le temps réel de .NET) **ne remplace pas** le push. Il marche **unique
 
 | Symptôme | Cause | Solution |
 |---|---|---|
-| Aucune notif sur Android 13+ | `POST_NOTIFICATIONS` non demandée à l'utilisateur | la demander à l'exécution → [[4.1 Notifications push côté Kotlin#Étape 3 Demander la permission]] |
+| Aucune notif sur Android 13+ | `POST_NOTIFICATIONS` non demandée à l'utilisateur | la demander à l'exécution → [[1.1 Notifications push côté Kotlin#Étape 3 Demander la permission]] |
 | Notif reçue en arrière-plan mais pas app ouverte | message `notification` : quand l'app est ouverte, c'est à toi de l'afficher | appeler `showNotification` dans `onMessageReceived` |
 | Rien ne s'affiche du tout (Android 8+) | pas de **canal** créé | `createNotificationChannel` avant `notify` |
 | Le backend envoie mais ça n'arrive plus | token périmé : `onNewToken` n'envoie pas le nouveau token au backend | appeler `sendTokenToBackend` dans `onNewToken` |
 | `Unregistered` côté .NET | app désinstallée | supprimer le token en base |
 | L'émulateur ne reçoit rien | image d'émulateur **sans Google Play** | prendre une image « Google Play » dans le Device Manager |
-| Crash au démarrage `FirebaseApp is not initialized` | `google-services.json` absent ou plugin pas appliqué | voir [[4.1 Notifications push côté Kotlin#Étape 1 Brancher Firebase]] |
+| Crash au démarrage `FirebaseApp is not initialized` | `google-services.json` absent ou plugin pas appliqué | voir [[1.1 Notifications push côté Kotlin#Étape 1 Brancher Firebase]] |
 
 ---
 
 ## 🔗 Liens
 
-- [[4.1 Notifications push côté Kotlin]] — le code Android pas à pas
-- [[4.2 Notifications push côté .NET]] — le code backend pas à pas
-- [[06 Les Permissions]] — `POST_NOTIFICATIONS`, une permission **avec popup**
+- [[1.1 Notifications push côté Kotlin]] — le code Android pas à pas
+- [[1.2 Notifications push côté .NET]] — le code backend pas à pas
+- [[03 Les Permissions]] — `POST_NOTIFICATIONS`, une permission **avec popup**
 - [[01 Le manifest]] — où se déclarent le service et la permission
 - [[02 Les Activities#Le contexte]] — c'est lui qui donne accès au `NotificationManager`

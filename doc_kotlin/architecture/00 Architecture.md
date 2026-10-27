@@ -11,13 +11,13 @@ tags:
   - statut/a-jour
 cours: P1
 cree: 2026-10-26
-maj: 2026-10-26
+maj: 2026-10-27
 ---
 
 # Architecture — la Clean Architecture
 
 > [!abstract] En une phrase
-> La **Clean Architecture** range l'app en **3 couches** : **UI** (afficher), **Domain** (le métier) et **Data** (les données). Les dépendances vont **toutes vers le Domain**, qui ne dépend de **rien**. À lire après [[05 Architecture (Screen - ViewModel - Model)]].
+> La **Clean Architecture** range l'app en **3 couches** : **UI** (afficher), **Domain** (le métier) et **Data** (les données). Les dépendances vont **toutes vers le Domain**, qui ne dépend de **rien**. À lire après [[01 Architecture (Screen - ViewModel - Model)]].
 
 > [!note] Complété le 26 octobre 2026
 > Section ajoutée à partir de la grille d'évaluation : 4 critères sur 15 portent sur la Clean Architecture et ses couches. Les exemples sont le **vrai code de Metrix**.
@@ -43,7 +43,7 @@ flowchart TD
 
 ### Et ton Screen / ViewModel / Model ?
 
-Ta note [[05 Architecture (Screen - ViewModel - Model)]] décrit **la même idée**, en plus simple. Ton « **Model** » est **découpé en deux** :
+Ta note [[01 Architecture (Screen - ViewModel - Model)]] décrit **la même idée**, en plus simple. Ton « **Model** » est **découpé en deux** :
 
 | Ta note | Clean Architecture |
 |---|---|
@@ -141,15 +141,15 @@ sequenceDiagram
 
 | Note | Contenu |
 |---|---|
-| [[01 La couche Domain]] | Modèles, interfaces Repository, use cases |
-| [[02 La couche Data]] | Service/DTO, DAO/Entity, mapping, mécanisme de fetch |
-| [[03 La couche UI (MVI et UDF)]] | État, actions, flux unidirectionnel, Single Activity |
+| [[01 Architecture (Screen - ViewModel - Model)]] | La version simple vue en cours : Screen / ViewModel / Model |
+| [[02 La couche Domain]] | Modèles, interfaces Repository, use cases |
+| [[03 La couche Data]] | Service/DTO, DAO/Entity, mapping, mécanisme de fetch |
+| [[04 La couche UI (MVI et UDF)]] | État, actions, flux unidirectionnel, Single Activity |
+| [[05 Koin (injection de dépendances)]] | L'outil qui **branche** les couches entre elles |
 
 ---
 
 ## 🔗 Liens
 
-- [[05 Architecture (Screen - ViewModel - Model)]] — la version simple, vue en cours
-- [[09 Koin (injection de dépendances)]] — l'outil qui branche les couches
-- [[10 Organisation du projet]] — les packages `ui/`, `domain/`, `data/`, `di/`
+- [[06 Organisation du projet]] — les packages `ui/`, `domain/`, `data/`, `di/`
 - [[kotlin]] — accueil du cours

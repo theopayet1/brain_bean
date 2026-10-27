@@ -79,10 +79,10 @@ fun Context.hasPermission(permission: String): Boolean =
 
 | Code | Pourquoi |
 |---|---|
-| `fun Context.hasPermission(...)` | On étend `Context` : marche avec une Activity **et** l'Application ([[12 Le Context]]) |
+| `fun Context.hasPermission(...)` | On étend `Context` : marche avec une Activity **et** l'Application ([[01 Le Context]]) |
 | `ContextCompat.checkSelfPermission(this, …)` | `this` = **le Context** sur lequel on l'appelle |
 | `== PERMISSION_GRANTED` | Transforme le code d'Android en un `Boolean` lisible |
-| `@receiver` | Le **block tag** fait pour les extensions : il documente **l'objet étendu** → [[06 KDoc et commentaires]] |
+| `@receiver` | Le **block tag** fait pour les extensions : il documente **l'objet étendu** → [[05 KDoc et commentaires]] |
 
 Utilisation, dans un composable :
 
@@ -116,7 +116,7 @@ fun Context.openUrl(url: String): Boolean =
 
 | Code | Pourquoi |
 |---|---|
-| `startActivity(Intent(ACTION_VIEW, …))` | Un **Intent implicite** : Android choisit le navigateur → [[11 Les Intents]] |
+| `startActivity(Intent(ACTION_VIEW, …))` | Un **Intent implicite** : Android choisit le navigateur → [[02 Les Intents]] |
 | `try / catch ActivityNotFoundException` | Pas de navigateur = **pas de crash**, on renvoie `false` |
 
 ### Sur `Intent`
@@ -141,7 +141,7 @@ Metrix a déjà des extensions, **mais pas sur `Context`** :
 | Extension | Fichier | Rôle |
 |---|---|---|
 | `HttpClient.getBodyOrNull(path)` | `data/remote/HttpClientExtensions.kt` | Fait un `GET`, et transforme une erreur **404** en `null` |
-| `HostDto.toDomain()` | `data/mapper/ApiDtoMapper.kt` | Les **mappers** → [[02 La couche Data]] |
+| `HostDto.toDomain()` | `data/mapper/ApiDtoMapper.kt` | Les **mappers** → [[03 La couche Data]] |
 
 ```kotlin
 /**
@@ -184,6 +184,6 @@ Un fichier **par classe étendue**, nommé `<Classe>Extensions.kt`, à côté de
 ## 🔗 Liens
 
 - [[00 Code]]
-- [[12 Le Context]] — la classe qu'on étend le plus
-- [[06 KDoc et commentaires]] — le header obligatoire
-- [[13 Les capacités natives (Managers)]] — où l'extension sur `Context` sert
+- [[01 Le Context]] — la classe qu'on étend le plus
+- [[05 KDoc et commentaires]] — le header obligatoire
+- [[04 Les capacités natives (Managers)]] — où l'extension sur `Context` sert

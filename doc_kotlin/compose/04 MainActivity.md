@@ -129,7 +129,7 @@ flowchart TB
 
 | Code | Pourquoi |
 |---|---|
-| `Modifier.fillMaxSize()` | Le Scaffold prend **tout l'écran** → [[02 Le modifier]] |
+| `Modifier.fillMaxSize()` | Le Scaffold prend **tout l'écran** → [[03 Le modifier]] |
 | `{ innerPadding -> }` | Le Scaffold te donne `innerPadding` = la place prise par **les barres du téléphone + la topBar + la bottomBar** |
 
 > [!note] `innerPadding` souligné en rouge ?
@@ -409,7 +409,7 @@ fun MetrixApp() {
 ## 🔗 Liens
 
 - [[00 Compose]]
-- [[01 Les composants]]
-- [[02 Le modifier]]
+- [[02 Les composants]]
+- [[03 Le modifier]]
 - [[02 Les Activities]]
 - [[03 Les logs]] — pour débugger si ça ne marche pas

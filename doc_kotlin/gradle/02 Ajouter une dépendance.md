@@ -140,7 +140,7 @@ dependencies {
 }
 ```
 
-Puis **Sync Now**. Comment s'en servir → [[09 Koin (injection de dépendances)]].
+Puis **Sync Now**. Comment s'en servir → [[05 Koin (injection de dépendances)]].
 
 ---
 
@@ -170,4 +170,4 @@ plugins {
 - [[00 Gradle]]
 - [[01 Les fichiers Gradle]]
 - [[04 Commandes et erreurs Gradle]] — si le Sync échoue
-- [[03 MainActivity]] — utilise `navigation-compose` et `material-icons-core`
+- [[04 MainActivity]] — utilise `navigation-compose` et `material-icons-core`

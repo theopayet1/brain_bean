@@ -141,8 +141,8 @@ fun CompassScreen(viewModel: CompassViewModel = koinViewModel()) {
 
 | Code | Pourquoi |
 |---|---|
-| `viewModel.startCompass()` | L'écran **ne touche pas** au capteur : il prévient le ViewModel, qui parle au Manager → [[13 Les capacités natives (Managers)]] |
-| `collectAsStateWithLifecycle()` | Lit l'état **seulement** quand l'écran est visible → [[03 La couche UI (MVI et UDF)]] |
+| `viewModel.startCompass()` | L'écran **ne touche pas** au capteur : il prévient le ViewModel, qui parle au Manager → [[04 Les capacités natives (Managers)]] |
+| `collectAsStateWithLifecycle()` | Lit l'état **seulement** quand l'écran est visible → [[04 La couche UI (MVI et UDF)]] |
 | Le commentaire `// Cycle de vie : …` | Le **commentaire spécifique** demandé par la grille : il dit **pourquoi cette étape** |
 
 > [!warning] Dépendance à ajouter
@@ -164,6 +164,6 @@ fun CompassScreen(viewModel: CompassViewModel = koinViewModel()) {
 
 - [[02 Les Activities]] — ce qui traverse ce cycle de vie
 - [[04 Les Ressources]] — la reconfiguration (mode nuit)
-- [[12 Le Context]] — l'Activity Context vit de `onCreate` à `onDestroy`
-- [[13 Les capacités natives (Managers)]] — le Manager qu'on allume et éteint
-- [[06 KDoc et commentaires]] — comment écrire le commentaire
+- [[01 Le Context]] — l'Activity Context vit de `onCreate` à `onDestroy`
+- [[04 Les capacités natives (Managers)]] — le Manager qu'on allume et éteint
+- [[05 KDoc et commentaires]] — comment écrire le commentaire

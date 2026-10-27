@@ -60,7 +60,7 @@ maj: 2026-10-26
 |---|---|---|
 | `@param nom` | Un **paramètre** de fonction (ou du constructeur, s'il n'est pas `val`) | `@param permission la permission à vérifier` |
 | `@property nom` | Une **propriété** déclarée dans le constructeur (`val` / `var`) | `@property id Host identifier.` |
-| `@receiver` | L'objet **étendu** par une [[05 Les fonctions d'extension\|fonction d'extension]] | `@receiver le Context qui interroge le système` |
+| `@receiver` | L'objet **étendu** par une [[04 Les fonctions d'extension\|fonction d'extension]] | `@receiver le Context qui interroge le système` |
 | `@return` | Ce qui est **renvoyé** | `@return null si l'hôte n'existe pas` |
 | `@throws Type` | Une **exception** que la fonction peut lancer | `@throws IllegalArgumentException si …` |
 | `@see` | Un **lien** vers une autre classe / fonction utile | `@see ContextCompat.checkSelfPermission` |
@@ -210,6 +210,6 @@ dependencies {
 ## 🔗 Liens
 
 - [[00 Code]]
-- [[05 Les fonctions d'extension]] — le tag `@receiver`
+- [[04 Les fonctions d'extension]] — le tag `@receiver`
 - [[03 Le cycle de vie]] — le commentaire « spécifique » du cycle de vie
-- [[07 Conventions de nommage et Lint]] — l'autre moitié de la qualité
+- [[06 Conventions de nommage et Lint]] — l'autre moitié de la qualité

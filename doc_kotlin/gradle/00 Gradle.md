@@ -35,7 +35,7 @@ flowchart TD
     D --> APK
 ```
 
-👉 C'est Gradle qui produit le [[07 Classes.dex|classes.dex]] et qui range les [[04 Les Ressources|ressources]] dans l'[[00 les composant de base|APK]].
+👉 C'est Gradle qui produit le [[05 Classes.dex|classes.dex]] et qui range les [[04 Les Ressources|ressources]] dans l'[[00 les composant de base|APK]].
 
 ---
 
@@ -75,5 +75,5 @@ flowchart TD
 ## 🔗 Liens
 
 - [[kotlin]] — accueil du cours
-- [[07 Classes.dex]] — ce que Gradle produit
-- [[09 Koin (injection de dépendances)]] — une lib ajoutée via Gradle
+- [[05 Classes.dex]] — ce que Gradle produit
+- [[05 Koin (injection de dépendances)]] — une lib ajoutée via Gradle

@@ -74,10 +74,10 @@ com.diiage.metrix
 
 | Package | Pourquoi |
 |---|---|
-| `domain/` | Le **cœur** : ce que l'app manipule. Il ne dépend de **rien d'autre** → [[01 La couche Domain]] |
-| `data/` | **Va chercher** et **stocke** les données → [[02 La couche Data]] |
-| `ui/` | **Affiche** et réagit aux clics → [[03 La couche UI (MVI et UDF)]] |
-| `di/` | **Branche** les couches entre elles avec [[09 Koin (injection de dépendances)\|Koin]] |
+| `domain/` | Le **cœur** : ce que l'app manipule. Il ne dépend de **rien d'autre** → [[02 La couche Domain]] |
+| `data/` | **Va chercher** et **stocke** les données → [[03 La couche Data]] |
+| `ui/` | **Affiche** et réagit aux clics → [[04 La couche UI (MVI et UDF)]] |
+| `di/` | **Branche** les couches entre elles avec [[05 Koin (injection de dépendances)\|Koin]] |
 | `ui/screens/hostList/` | **Un dossier par écran** : on trouve le `Screen` et son `ViewModel` au même endroit |
 
 > [!success] Ce que la grille regarde

@@ -58,7 +58,7 @@ val hostId = intent.getIntExtra("hostId", -1)
 
 | Code | Pourquoi |
 |---|---|
-| `Intent(context, DetailActivity::class.java)` | On **nomme** l'activity à ouvrir. Il faut un [[12 Le Context\|Context]] |
+| `Intent(context, DetailActivity::class.java)` | On **nomme** l'activity à ouvrir. Il faut un [[01 Le Context\|Context]] |
 | `putExtra("hostId", 42)` | On **glisse une donnée** dans la lettre (un **extra**) |
 | `startActivity(intent)` | On **poste** la lettre à Android |
 | `getIntExtra("hostId", -1)` | On **lit** l'extra. `-1` = valeur par défaut s'il n'y est pas |
@@ -118,12 +118,12 @@ C'est un **Intent** qui lance ton app quand on touche son icône. Le [[01 Le man
 
 ## 🧭 Et avec Compose (Single Activity) ?
 
-Dans une app Compose, il n'y a **qu'une seule activity** (`MainActivity`) : on change d'écran avec le **NavHost**, pas avec des Intents → [[03 MainActivity]].
+Dans une app Compose, il n'y a **qu'une seule activity** (`MainActivity`) : on change d'écran avec le **NavHost**, pas avec des Intents → [[04 MainActivity]].
 
 Les Intents servent encore pour :
 - **lancer** l'app (le `intent-filter` ci-dessus) ;
 - parler **aux autres apps** (navigateur, partage, téléphone, appareil photo) ;
-- ouvrir l'app depuis une **notification** (un `PendingIntent`) → [[4.1 Notifications push côté Kotlin]].
+- ouvrir l'app depuis une **notification** (un `PendingIntent`) → [[1.1 Notifications push côté Kotlin]].
 
 > [!tip] PendingIntent
 > Un **`PendingIntent`**, c'est un Intent **préparé à l'avance** et confié à quelqu'un d'autre (le système de notifications), qui l'enverra **plus tard**, au clic.
@@ -133,6 +133,6 @@ Les Intents servent encore pour :
 ## 🔗 Liens
 
 - [[02 Les Activities]] — ce que l'Intent ouvre
-- [[12 Le Context]] — il faut un Context pour envoyer un Intent
+- [[01 Le Context]] — il faut un Context pour envoyer un Intent
 - [[01 Le manifest]] — l'`intent-filter` de l'activity principale
-- [[05 Les fonctions d'extension]] — ranger un Intent dans `Context.openUrl()`
+- [[04 Les fonctions d'extension]] — ranger un Intent dans `Context.openUrl()`

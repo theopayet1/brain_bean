@@ -36,7 +36,7 @@ Le manifest **déclare l'app**, c'est-à-dire :
 - le **nom de l'app** ;
 - les **permissions** (exemple : **demande de vibration**) ;
 - l'**[[02 Les Activities|activity principale]]** (le point d'entrée de l'app) ;
-- la classe **`Application`** de l'app, s'il y en a une (`android:name`). C'est souvent là qu'on démarre l'**[[09 Koin (injection de dépendances)|injection de dépendances]]**.
+- la classe **`Application`** de l'app, s'il y en a une (`android:name`). C'est souvent là qu'on démarre l'**[[05 Koin (injection de dépendances)|injection de dépendances]]**.
 
 > [!warning] Les libs ne sont pas dans le manifest
 > Les **libs** (Compose, Koin, Ktor…) se déclarent dans **Gradle**, dans `app/build.gradle.kts` → [[02 Ajouter une dépendance]]. Le manifest, lui, déclare ce que l'app **est** et ce qu'elle a **le droit de faire**.
@@ -48,7 +48,7 @@ Le manifest **déclare l'app**, c'est-à-dire :
 > [!warning] Le purgatoire tue tout
 > Si dans une activity on déclare des libs **avec injection de dépendances**, et que l'app est envoyée au **purgatoire**, alors **toutes les activities se font tuer**.
 
-C'est un effet direct du [[03 Le cycle de vie|cycle de vie]] : le passage au purgatoire peut détruire le contexte, donc les dépendances injectées. L'outil d'injection utilisé est [[09 Koin (injection de dépendances)|Koin]].
+C'est un effet direct du [[03 Le cycle de vie|cycle de vie]] : le passage au purgatoire peut détruire le contexte, donc les dépendances injectées. L'outil d'injection utilisé est [[05 Koin (injection de dépendances)|Koin]].
 
 ---
 
@@ -56,7 +56,7 @@ C'est un effet direct du [[03 Le cycle de vie|cycle de vie]] : le passage au pur
 
 Le manifest **déclare** ce que l'app a le droit de faire (jouer un son, ouvrir la caméra…). Ce n'est **pas lui le gardien** : c'est **Android** qui, au moment d'agir, **vérifie le manifest**.
 
-👉 Détail dans [[06 Les Permissions]].
+👉 Détail dans [[03 Les Permissions]].
 
 ---
 
@@ -64,4 +64,4 @@ Le manifest **déclare** ce que l'app a le droit de faire (jouer un son, ouvrir 
 
 - [[00 les composant de base]]
 - [[02 Les Activities]]
-- [[06 Les Permissions]]
+- [[03 Les Permissions]]

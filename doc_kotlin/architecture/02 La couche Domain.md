@@ -72,11 +72,11 @@ data class Host(
 | Que des `val` | Le modèle est **immuable** : on ne le modifie pas, on en crée un nouveau avec `copy` |
 | `HostState?` | Le **métier** dit qu'un hôte peut ne pas avoir encore de mesure → `null` autorisé |
 | `List<Alert>` (pas `List<AlertDto>`) | Le modèle ne contient **que des modèles du Domain**, jamais de DTO |
-| Le KDoc `@property` | Explique le **sens métier** de chaque champ → [[06 KDoc et commentaires]] |
+| Le KDoc `@property` | Explique le **sens métier** de chaque champ → [[05 KDoc et commentaires]] |
 
 ### Modèle du Domain ≠ DTO
 
-| | **Domain Model** (`Host`) | **DTO** (`HostDto`) → [[02 La couche Data]] |
+| | **Domain Model** (`Host`) | **DTO** (`HostDto`) → [[03 La couche Data]] |
 |---|---|---|
 | Rangé dans | `domain/model/` | `data/dto/` |
 | Suit | Ce dont **l'app** a besoin | La forme du **JSON** de l'API |
@@ -175,5 +175,5 @@ val hosts = getMonitoredHosts()
 ## 🔗 Liens
 
 - [[00 Architecture]] — les 3 couches et la règle de dépendance
-- [[02 La couche Data]] — qui implémente les interfaces
-- [[06 KDoc et commentaires]] — les commentaires « header »
+- [[03 La couche Data]] — qui implémente les interfaces
+- [[05 KDoc et commentaires]] — les commentaires « header »

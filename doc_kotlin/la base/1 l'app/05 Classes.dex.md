@@ -44,4 +44,4 @@ flowchart LR
 
 - [[00 les composant de base]]
 - [[04 Les Ressources]]
-- [[06 Les Permissions]]
+- [[03 Les Permissions]]

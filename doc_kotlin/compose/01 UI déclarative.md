@@ -42,11 +42,11 @@ flowchart LR
 
 - On **déclare** l'UI en fonction d'un **état**, au lieu de manipuler les vues une par une.
 - Quand l'**état change**, l'UI est **recalculée / re-dessinée** automatiquement (la « recomposition »).
-- Ça s'articule bien avec l'architecture [[05 Architecture (Screen - ViewModel - Model)|Screen / ViewModel / Model]] : le **ViewModel** porte l'**état**, le **Screen** le **déclare**.
+- Ça s'articule bien avec l'architecture [[01 Architecture (Screen - ViewModel - Model)|Screen / ViewModel / Model]] : le **ViewModel** porte l'**état**, le **Screen** le **déclare**.
 
 ---
 
 ## 🔗 Liens
 
 - [[00 les composant de base]]
-- [[05 Architecture (Screen - ViewModel - Model)]]
+- [[01 Architecture (Screen - ViewModel - Model)]]

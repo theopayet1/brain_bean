@@ -34,7 +34,7 @@ flowchart TD
 ```
 
 > [!note] Rappel
-> Techniquement, **`classes.dex`** est le **code compilé / la partie exécutable** de l'app (voir [[07 Classes.dex]]). La « punaise » est la **métaphore de cours** pour dire qu'il s'exécute et veut accéder aux capacités du tél.
+> Techniquement, **`classes.dex`** est le **code compilé / la partie exécutable** de l'app (voir [[05 Classes.dex]]). La « punaise » est la **métaphore de cours** pour dire qu'il s'exécute et veut accéder aux capacités du tél.
 
 ---
 

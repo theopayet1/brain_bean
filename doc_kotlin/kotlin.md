@@ -10,7 +10,7 @@ aliases:
   - Accueil Kotlin
 cours: P1
 cree: 2026-09-28
-maj: 2026-10-26
+maj: 2026-10-27
 ---
 
 # 🗂️ Kotlin / Android — MOC
@@ -21,32 +21,35 @@ maj: 2026-10-26
 ## 🎯 Révision
 
 - [[Grille P1 Mobile]] — les 16 critères de la grille, la note à relire pour chacun, et la checklist du rendu
+- [[Vérification des critères]] — chaque point « Maîtrisé » à cocher, avec le lien vers la section qui l'explique
 
 ## 🧱 La base
 
 - [[00 les composant de base]] — vue d'ensemble des composants
-- [[01 Le manifest]] — la carte d'identité de l'app
-- [[02 Les Activities]] — activities & contexte
-- [[03 Le cycle de vie]] — les 4 états, quoi faire à quelle étape, la rotation, la version Compose
-- [[04 Les Ressources]] — le répertoire `res` & la reconfiguration
-- [[05 Architecture (Screen - ViewModel - Model)]] — Screen / ViewModel / Model
-- [[06 Les Permissions]] — Android vérifie le manifest & les autorisations
-- [[07 Classes.dex]] — le code compilé / exécutable
-- [[08 UI déclarative]] — l'UI en déclaratif (Compose)
-- [[09 Koin (injection de dépendances)]] — fournir les objets de l'extérieur
-- [[10 Organisation du projet]] — les dossiers et les packages par couche
-- [[11 Les Intents]] — le message « je veux faire ça » envoyé à Android
-- [[12 Le Context]] — le guichet vers le système, Application vs Activity
-- [[13 Les capacités natives (Managers)]] — vibreur, capteurs, son… rangés dans des Managers
-- [[14 Les ressources en pratique]] — `stringResource`, variantes (langue, nuit), nommage
+- **1 · L'app**
+  - [[01 Le manifest]] — la carte d'identité de l'app
+  - [[02 Les Activities]] — activities & contexte
+  - [[03 Le cycle de vie]] — les 4 états, quoi faire à quelle étape, la rotation, la version Compose
+  - [[04 Les Ressources]] — le répertoire `res` & la reconfiguration
+    - [[4.1 Les ressources en pratique]] — `stringResource`, variantes (langue, nuit), nommage
+  - [[05 Classes.dex]] — le code compilé / exécutable
+  - [[06 Organisation du projet]] — les dossiers du projet et les packages par couche
+- **2 · Système et matériel**
+  - [[01 Le Context]] — le guichet vers le système, Application vs Activity
+  - [[02 Les Intents]] — le message « je veux faire ça » envoyé à Android
+  - [[03 Les Permissions]] — Android vérifie le manifest & les autorisations
+  - [[04 Les capacités natives (Managers)]] — vibreur, capteurs, son… rangés dans des Managers
+    - [[4.1 Le vibreur pas à pas]] — de A à Z, permission normale
+    - [[4.2 La localisation pas à pas]] — de A à Z, permission dangereuse (popup)
 
 ## 🎨 Compose
 
 - [[00 Compose]] — fonctions, philosophie Kotlin, métaphore Lego
-- [[01 Les composants]] — card, row, column, image, text…
-- [[02 Le modifier]] — configurer / décorer un composant
-- [[03 MainActivity]] — construire `MainActivity.kt` étape par étape (Scaffold, NavHost, navbar)
-- [[04 Les previews]] — `@Preview` : voir un composable sans lancer l'émulateur
+- [[01 UI déclarative]] — l'UI en déclaratif : on décrit l'écran
+- [[02 Les composants]] — card, row, column, image, text…
+- [[03 Le modifier]] — configurer / décorer un composant
+- [[04 MainActivity]] — construire `MainActivity.kt` étape par étape (Scaffold, NavHost, navbar)
+- [[05 Les previews]] — `@Preview` : voir un composable sans lancer l'émulateur
 
 ## 💻 Code (mémo Kotlin)
 
@@ -54,12 +57,12 @@ maj: 2026-10-26
 - [[01 Kotlin vs Java]] — pas d'accesseurs à coder, etc.
 - [[02 Les classes]] — constructeur, membre vs paramètre
 - [[03 Les logs]] — écrire/lire des logs, niveaux, bonnes pratiques
-- [[04 Les notifications push]] — FCM, le token et la liaison avec un backend .NET
-  - [[4.1 Notifications push côté Kotlin]] — le code Android pas à pas
-  - [[4.2 Notifications push côté .NET]] — le code backend pas à pas
-- [[05 Les fonctions d'extension]] — ajouter une fonction à `Context`, `Intent`…
-- [[06 KDoc et commentaires]] — headers KDoc, block tags, manifest et Gradle commentés
-- [[07 Conventions de nommage et Lint]] — nommer en Kotlin, chasser les warnings
+- [[01 Les notifications push]] — FCM, le token et la liaison avec un backend .NET
+  - [[1.1 Notifications push côté Kotlin]] — le code Android pas à pas
+  - [[1.2 Notifications push côté .NET]] — le code backend pas à pas
+- [[04 Les fonctions d'extension]] — ajouter une fonction à `Context`, `Intent`…
+- [[05 KDoc et commentaires]] — headers KDoc, block tags, manifest et Gradle commentés
+- [[06 Conventions de nommage et Lint]] — nommer en Kotlin, chasser les warnings
 
 ## 🐘 Gradle
 
@@ -72,32 +75,24 @@ maj: 2026-10-26
 ## 🏛️ Architecture
 
 - [[00 Architecture]] — la Clean Architecture : UI, Domain, Data et la règle de dépendance
-- [[01 La couche Domain]] — modèles, interfaces Repository, use cases
-- [[02 La couche Data]] — Service/DTO, DAO/Entity, mapping, mécanisme de fetch
-- [[03 La couche UI (MVI et UDF)]] — état, actions, flux unidirectionnel, Single Activity
+- [[01 Architecture (Screen - ViewModel - Model)]] — la version simple vue en cours
+- [[02 La couche Domain]] — modèles, interfaces Repository, use cases
+- [[03 La couche Data]] — Service/DTO, DAO/Entity, mapping, mécanisme de fetch
+- [[04 La couche UI (MVI et UDF)]] — état, actions, flux unidirectionnel, Single Activity
+- [[05 Koin (injection de dépendances)]] — l'outil qui branche les couches
 
 ## 🧭 Parcours conseillé
 
 ```mermaid
 flowchart TD
-    I[00 Composants de base] --> M[01 Le manifest]
-    M --> A[02 Les Activities]
-    A --> CV[03 Le cycle de vie]
-    CV --> R[04 Les Ressources]
-    R --> D[07 Classes.dex]
-    D --> G[🐘 Gradle]
-    G --> AR[05 Architecture]
-    AR --> U[08 UI déclarative]
-    AR --> P[06 Les Permissions]
-    U --> CP[🎨 Compose]
-    I --> O[10 Organisation du projet]
-    A --> IN[11 Les Intents]
-    A --> CX[12 Le Context]
-    R --> RP[14 Ressources en pratique]
-    CX --> MG[13 Capacités natives]
-    P --> MG
-    AR --> ARC[🏛️ Architecture]
-    CP --> ARC
+    I[00 Composants de base] --> S1[🧱 1 · L'app<br/>manifest, activities, cycle de vie, ressources]
+    S1 --> S2[🧱 2 · Système et matériel<br/>Context, Intents, permissions, Managers]
+    S1 --> G[🐘 Gradle]
+    G --> CP[🎨 Compose<br/>UI déclarative, composants, MainActivity]
+    CP --> ARC[🏛️ Architecture<br/>Screen-VM-Model, Clean Archi, Koin]
+    S2 --> ARC
+    ARC --> CODE[💻 Code<br/>extension, KDoc, Lint]
+    CODE --> GR[🎯 Vérification des critères]
 ```
 
 ## 🏷️ Tags du cours

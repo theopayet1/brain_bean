@@ -28,12 +28,12 @@ maj: 2026-10-26
 
 | Code | Sujet | À relire |
 |---|---|---|
-| S-5 | **Fondamentaux** : Manifest, dossiers, Gradle, Activity, Context, **Intent**, cycle de vie | [[00 les composant de base]], [[03 Le cycle de vie]], [[10 Organisation du projet]], [[11 Les Intents]], [[12 Le Context]], [[00 Gradle]] |
+| S-5 | **Fondamentaux** : Manifest, dossiers, Gradle, Activity, Context, **Intent**, cycle de vie | [[00 les composant de base]], [[03 Le cycle de vie]], [[06 Organisation du projet]], [[02 Les Intents]], [[01 Le Context]], [[00 Gradle]] |
 | S-1 | **Clean Architecture** : rôle des couches, dépendances vers l'intérieur | [[00 Architecture]] |
-| S-3 | Couche **Domain** : Domain Models, interfaces Repository | [[01 La couche Domain]] |
-| S-2 | Couche **Data** : fetch, Service/DTO, DAO/Entity, mapping | [[02 La couche Data]] |
-| S-4 | Couche **UI** : Compose, **MVI**, **UDF**, états, Single Activity, navigation | [[03 La couche UI (MVI et UDF)]], [[00 Compose]], [[03 MainActivity]] |
-| S-6 | **Capacités natives** : rôle du Context, **Managers**, UI sans logique matérielle | [[13 Les capacités natives (Managers)]], [[06 Les Permissions]] |
+| S-3 | Couche **Domain** : Domain Models, interfaces Repository | [[02 La couche Domain]] |
+| S-2 | Couche **Data** : fetch, Service/DTO, DAO/Entity, mapping | [[03 La couche Data]] |
+| S-4 | Couche **UI** : Compose, **MVI**, **UDF**, états, Single Activity, navigation | [[04 La couche UI (MVI et UDF)]], [[00 Compose]], [[04 MainActivity]] |
+| S-6 | **Capacités natives** : rôle du Context, **Managers**, UI sans logique matérielle | [[04 Les capacités natives (Managers)]], [[03 Les Permissions]] |
 
 > [!tip] À l'oral
 > Pour « Maîtrisé », la grille répète : explications **claires**, qui vont **droit au but**, et capacité à **schématiser**. Entraîne-toi à redessiner les schémas des notes sans les regarder.
@@ -44,21 +44,21 @@ maj: 2026-10-26
 
 | Code | Sujet | À relire |
 |---|---|---|
-| SF-5 | **Fondamentaux** dans le projet : manifest, Gradle, ressources, cycle de vie, extension | [[14 Les ressources en pratique]], [[03 Le cycle de vie]], [[05 Les fonctions d'extension]] |
-| SF-1 | **Architecture en couches** + Koin | [[00 Architecture]], [[09 Koin (injection de dépendances)]] |
-| SF-3 | Composants **Domain** indépendants | [[01 La couche Domain]] |
-| SF-4 | Composants **Data** : DAO/Entity, Service/DTO, fetch, mapping | [[02 La couche Data]] |
-| SF-6 | **Matériel** : 2 capacités natives, Managers, extension sur Context | [[13 Les capacités natives (Managers)]] |
+| SF-5 | **Fondamentaux** dans le projet : manifest, Gradle, ressources, cycle de vie, extension | [[4.1 Les ressources en pratique]], [[03 Le cycle de vie]], [[04 Les fonctions d'extension]] |
+| SF-1 | **Architecture en couches** + Koin | [[00 Architecture]], [[05 Koin (injection de dépendances)]] |
+| SF-3 | Composants **Domain** indépendants | [[02 La couche Domain]] |
+| SF-4 | Composants **Data** : DAO/Entity, Service/DTO, fetch, mapping | [[03 La couche Data]] |
+| SF-6 | **Matériel** : 2 capacités natives, Managers, extension sur Context | [[04 Les capacités natives (Managers)]], [[4.1 Le vibreur pas à pas]], [[4.2 La localisation pas à pas]] |
 
 ## ✨ Qualité du code (expérience du développeur)
 
 | Code | Sujet | À relire |
 |---|---|---|
-| SE-1 | Couche **Data** : KDoc, découpage, pas de duplication, noms explicites | [[02 La couche Data]], [[06 KDoc et commentaires]] |
-| SE-2 | Couche **UI** : Lego, noms, actions du VM, State, KDoc d'un composable | [[03 La couche UI (MVI et UDF)]] |
-| SE-3 | Couche **Domain** : headers KDoc sur la logique métier | [[01 La couche Domain]] |
-| SE-4 | **Projet** : manifest et Gradle commentés, versions, ressources, cycle de vie, extension | [[06 KDoc et commentaires]], [[07 Conventions de nommage et Lint]] |
-| SE-5 | **Qualité** : Managers, conventions Kotlin (Lint), KDoc de l'extension du Context | [[07 Conventions de nommage et Lint]], [[05 Les fonctions d'extension]] |
+| SE-1 | Couche **Data** : KDoc, découpage, pas de duplication, noms explicites | [[03 La couche Data]], [[05 KDoc et commentaires]] |
+| SE-2 | Couche **UI** : Lego, noms, actions du VM, State, KDoc d'un composable | [[04 La couche UI (MVI et UDF)]] |
+| SE-3 | Couche **Domain** : headers KDoc sur la logique métier | [[02 La couche Domain]] |
+| SE-4 | **Projet** : manifest et Gradle commentés, versions, ressources, cycle de vie, extension | [[05 KDoc et commentaires]], [[06 Conventions de nommage et Lint]] |
+| SE-5 | **Qualité** : Managers, conventions Kotlin (Lint), KDoc de l'extension du Context | [[06 Conventions de nommage et Lint]], [[04 Les fonctions d'extension]] |
 
 ---
 
@@ -112,4 +112,5 @@ Tous les points « Maîtrisé » des critères pratiques et qualité, regroupés
 ## 🔗 Liens
 
 - [[kotlin]] — accueil du cours
+- [[Vérification des critères]] — chaque point « Maîtrisé » à cocher, avec le lien vers la section qui l'explique
 - [[00 Architecture]] — la section qui pèse le plus dans la grille

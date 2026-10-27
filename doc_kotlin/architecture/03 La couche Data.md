@@ -16,7 +16,7 @@ maj: 2026-10-26
 # La couche Data
 
 > [!abstract] En une phrase
-> La couche **Data** sait **où** sont les données (une **API** distante, une **base** locale) et **comment** les récupérer. Elle **remplit les contrats** du [[01 La couche Domain|Domain]] et **traduit** tout en modèles du Domain avant de les rendre.
+> La couche **Data** sait **où** sont les données (une **API** distante, une **base** locale) et **comment** les récupérer. Elle **remplit les contrats** du [[02 La couche Domain|Domain]] et **traduit** tout en modèles du Domain avant de les rendre.
 
 > [!note] Complété le 26 octobre 2026
 > Note ajoutée à partir de la grille d'évaluation (critères « couche Data » : théorie, pratique, qualité). La partie **distante** est le vrai code de **Metrix** ; la partie **locale** (Room) est un exemple écrit pour la note, Metrix n'a pas de base locale.
@@ -95,7 +95,7 @@ class HostRemote(
 | `HttpClient` en paramètre | Le client **Ktor** est fourni par Koin, déjà configuré (adresse de l'API, jeton) |
 | `httpClient.get("Host").body()` | Fait le `GET /Host` et **transforme** le JSON en `List<HostDto>` |
 | Renvoie des **DTO** | Le Service ne connaît **pas** le Domain : il parle la langue de l'API |
-| `getBodyOrNull(...)` | Une **fonction d'extension** maison de Metrix → [[05 Les fonctions d'extension]] |
+| `getBodyOrNull(...)` | Une **fonction d'extension** maison de Metrix → [[04 Les fonctions d'extension]] |
 
 ---
 
@@ -258,6 +258,6 @@ sequenceDiagram
 ## 🔗 Liens
 
 - [[00 Architecture]] — les 3 couches
-- [[01 La couche Domain]] — les contrats que la couche Data remplit
-- [[03 La couche UI (MVI et UDF)]] — qui consomme les données
-- [[05 Les fonctions d'extension]] — la technique des mappers
+- [[02 La couche Domain]] — les contrats que la couche Data remplit
+- [[04 La couche UI (MVI et UDF)]] — qui consomme les données
+- [[04 Les fonctions d'extension]] — la technique des mappers

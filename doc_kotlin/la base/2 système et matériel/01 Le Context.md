@@ -40,10 +40,10 @@ Ce que le Context permet :
 
 | Besoin | Appel | Note |
 |---|---|---|
-| Un **service matériel** | `context.getSystemService(SensorManager::class.java)` | [[13 Les capacités natives (Managers)]] |
+| Un **service matériel** | `context.getSystemService(SensorManager::class.java)` | [[04 Les capacités natives (Managers)]] |
 | Une **ressource** | `context.getString(R.string.app_name)` | [[04 Les Ressources]] |
-| Ouvrir une **activity** | `context.startActivity(intent)` | [[11 Les Intents]] |
-| Vérifier une **permission** | `ContextCompat.checkSelfPermission(context, …)` | [[06 Les Permissions]] |
+| Ouvrir une **activity** | `context.startActivity(intent)` | [[02 Les Intents]] |
+| Vérifier une **permission** | `ContextCompat.checkSelfPermission(context, …)` | [[03 Les Permissions]] |
 | Des **fichiers** privés de l'app | `context.filesDir` | — |
 
 ---
@@ -101,6 +101,6 @@ single<TokenStorage> { AndroidTokenStorage(androidContext()) }
 ## 🔗 Liens
 
 - [[02 Les Activities]] — la définition de base du contexte
-- [[13 Les capacités natives (Managers)]] — le Context au service du matériel
-- [[05 Les fonctions d'extension]] — ajouter ses propres fonctions au Context
-- [[09 Koin (injection de dépendances)]] — `androidContext()`
+- [[04 Les capacités natives (Managers)]] — le Context au service du matériel
+- [[04 Les fonctions d'extension]] — ajouter ses propres fonctions au Context
+- [[05 Koin (injection de dépendances)]] — `androidContext()`

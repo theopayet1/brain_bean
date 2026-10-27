@@ -46,4 +46,4 @@ Une activity passe par **4 états** reliés par des **méthodes de callback** : 
 
 - [[00 les composant de base]]
 - [[01 Le manifest]]
-- [[03 MainActivity]] — créer sa MainActivity en pratique
+- [[04 MainActivity]] — créer sa MainActivity en pratique
