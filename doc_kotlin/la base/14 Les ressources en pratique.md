@@ -16,7 +16,7 @@ maj: 2026-10-26
 # Les ressources en pratique
 
 > [!abstract] En une phrase
-> Comment **utiliser** les ressources dans le code, créer une **variante** (une autre langue, le mode nuit) et les **nommer** proprement. La théorie est dans [[03 Les Ressources]].
+> Comment **utiliser** les ressources dans le code, créer une **variante** (une autre langue, le mode nuit) et les **nommer** proprement. La théorie est dans [[04 Les Ressources]].
 
 > [!note] Complété le 26 octobre 2026
 > Note ajoutée à partir de la grille d'évaluation : « utilisation **systématique** des ressources et **au moins une variante** de ressource (dark mode, langue différente…) » et « le **nommage** des ressources suit une **convention** ».
@@ -59,7 +59,7 @@ Text(text = stringResource(R.string.welcome, userName))
 
 ### Et dans un ViewModel (sans Context) ?
 
-Le ViewModel n'a **pas de Context** ([[11 Le Context]]), donc pas de `getString`. On lui fait garder l'**identifiant**, et c'est l'écran qui le traduit. Vrai code de **Metrix** :
+Le ViewModel n'a **pas de Context** ([[12 Le Context]]), donc pas de `getString`. On lui fait garder l'**identifiant**, et c'est l'écran qui le traduit. Vrai code de **Metrix** :
 
 ```kotlin
 data class HostListUiState(
@@ -160,6 +160,6 @@ Une convention courante (celle que suit déjà Metrix) :
 
 ## 🔗 Liens
 
-- [[03 Les Ressources]] — la théorie : `res`, ressources conditionnelles, reconfiguration
-- [[11 Le Context]] — pourquoi le ViewModel garde un `@StringRes`
+- [[04 Les Ressources]] — la théorie : `res`, ressources conditionnelles, reconfiguration
+- [[12 Le Context]] — pourquoi le ViewModel garde un `@StringRes`
 - [[07 Conventions de nommage et Lint]] — les conventions côté code

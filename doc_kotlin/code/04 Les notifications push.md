@@ -19,7 +19,7 @@ maj: 2026-10-07
 # Les notifications push
 
 > [!abstract] 
->À lire avant : [[05 Les Permissions]] et [[02 Les Activities#Le contexte]]. Le code est dans [[4.1 Notifications push côté Kotlin]] et [[4.2 Notifications push côté .NET]].
+>À lire avant : [[06 Les Permissions]] et [[02 Les Activities#Le contexte]]. Le code est dans [[4.1 Notifications push côté Kotlin]] et [[4.2 Notifications push côté .NET]].
 
 ---
 
@@ -169,6 +169,6 @@ SignalR (le temps réel de .NET) **ne remplace pas** le push. Il marche **unique
 
 - [[4.1 Notifications push côté Kotlin]] — le code Android pas à pas
 - [[4.2 Notifications push côté .NET]] — le code backend pas à pas
-- [[05 Les Permissions]] — `POST_NOTIFICATIONS`, une permission **avec popup**
+- [[06 Les Permissions]] — `POST_NOTIFICATIONS`, une permission **avec popup**
 - [[01 Le manifest]] — où se déclarent le service et la permission
 - [[02 Les Activities#Le contexte]] — c'est lui qui donne accès au `NotificationManager`

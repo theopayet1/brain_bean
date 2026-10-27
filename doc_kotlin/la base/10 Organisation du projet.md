@@ -40,7 +40,7 @@ flowchart TD
 | `kotlin+java/com.diiage.metrix` | Le **code** de l'app | ci-dessous |
 | `kotlin+java/… (test)` | Les **tests unitaires** (tournent sur le PC) | — |
 | `kotlin+java/… (androidTest)` | Les **tests instrumentés** (tournent sur le téléphone) | — |
-| `res/` | Images, strings, couleurs, thèmes… | [[03 Les Ressources]] |
+| `res/` | Images, strings, couleurs, thèmes… | [[04 Les Ressources]] |
 | `Gradle Scripts` | Comment **fabriquer** l'app | [[01 Les fichiers Gradle]] |
 
 > [!tip] Vue Android vs vue Project
@@ -77,7 +77,7 @@ com.diiage.metrix
 | `domain/` | Le **cœur** : ce que l'app manipule. Il ne dépend de **rien d'autre** → [[01 La couche Domain]] |
 | `data/` | **Va chercher** et **stocke** les données → [[02 La couche Data]] |
 | `ui/` | **Affiche** et réagit aux clics → [[03 La couche UI (MVI et UDF)]] |
-| `di/` | **Branche** les couches entre elles avec [[08 Koin (injection de dépendances)\|Koin]] |
+| `di/` | **Branche** les couches entre elles avec [[09 Koin (injection de dépendances)\|Koin]] |
 | `ui/screens/hostList/` | **Un dossier par écran** : on trouve le `Screen` et son `ViewModel` au même endroit |
 
 > [!success] Ce que la grille regarde

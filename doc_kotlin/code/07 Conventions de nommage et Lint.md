@@ -51,7 +51,7 @@ Le **suffixe** dit **le rôle** de la classe : on sait ce qu'elle fait sans l'ou
 | `…ViewModel` / `…UiState` / `…Action` | La logique, l'état, les actions d'un écran | [[03 La couche UI (MVI et UDF)]] |
 | `…Repository` | Le contrat ou l'implémentation d'accès aux données | [[01 La couche Domain]] |
 | `…Dto` / `…Entity` / `…Dao` | La couche Data | [[02 La couche Data]] |
-| `…Manager` | L'accès à une capacité native | [[12 Les capacités natives (Managers)]] |
+| `…Manager` | L'accès à une capacité native | [[13 Les capacités natives (Managers)]] |
 | `…Extensions.kt` | Un fichier de fonctions d'extension | [[05 Les fonctions d'extension]] |
 
 > [!question] Le préfixe `I` et les abréviations
@@ -87,8 +87,8 @@ Le rapport s'ouvre dans un navigateur : `app/build/reports/lint-results-debug.ht
 | `A newer version of … is available` (dans le catalogue) | La lib a une version plus récente | Mettre à jour la version dans `libs.versions.toml`, puis **Sync** |
 | `Use version catalog instead` | Une dépendance **écrite en dur** dans `build.gradle.kts` (`"group:name:1.2.3"`) | La déplacer dans le catalogue → [[02 Ajouter une dépendance]] |
 | `kotlinOptions` barré ou souligné | Ancienne écriture ([[03 Le bloc android]]) | La remplacer par le bloc `kotlin { compilerOptions { … } }` (ci-dessous) |
-| `android:exported needs to be explicitly specified` | Une activity avec `intent-filter` sans `exported` | Ajouter `android:exported="true"` → [[10 Les Intents]] |
-| `Missing permissions required by …` | On appelle un service protégé (vibreur, GPS) sans la permission | La déclarer dans le manifest → [[05 Les Permissions]] |
+| `android:exported needs to be explicitly specified` | Une activity avec `intent-filter` sans `exported` | Ajouter `android:exported="true"` → [[11 Les Intents]] |
+| `Missing permissions required by …` | On appelle un service protégé (vibreur, GPS) sans la permission | La déclarer dans le manifest → [[06 Les Permissions]] |
 | `Hardcoded string "…", should use @string resource` | Un texte écrit en dur dans un fichier XML | Le mettre dans `strings.xml` → [[14 Les ressources en pratique]] |
 | `The resource R.… appears to be unused` | Une ressource que plus personne n'utilise | La supprimer |
 | `Class name 'exemple' should start with an uppercase letter` | Nom de classe hors convention | **Refactor → Rename** (**Maj + F6**) |

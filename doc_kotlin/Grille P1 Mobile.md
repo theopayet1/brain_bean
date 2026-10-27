@@ -17,7 +17,7 @@ maj: 2026-10-26
 # Grille d'évaluation P1 Mobile — où réviser
 
 > [!abstract] En une phrase
-> Les **15 critères** de la grille d'évaluation (P2028 DI2 P1 Mobile, créée le 14 octobre 2026), avec pour chacun **la note à relire**, puis la **checklist du rendu** pour viser « Maîtrisé ».
+> Les **16 critères** de la grille d'évaluation (P2028 DI2 P1 Mobile, créée le 14 octobre 2026), avec pour chacun **la note à relire**, puis la **checklist du rendu** pour viser « Maîtrisé ».
 
 > [!info] Le barème
 > Chaque critère est noté **Non réalisé (0)**, **Non acquis (5)**, **En cours d'acquisition (9)**, **Acquis (15)** ou **Maîtrisé (20)**. Pour les critères pratiques, le niveau dépend du **nombre de points « Maîtrisé »** que tu coches.
@@ -28,12 +28,12 @@ maj: 2026-10-26
 
 | Code | Sujet | À relire |
 |---|---|---|
-| S-5 | **Fondamentaux** : Manifest, dossiers, Gradle, Activity, Context, **Intent**, cycle de vie | [[00 les composant de base]], [[09 Organisation du projet]], [[10 Les Intents]], [[11 Le Context]], [[00 Gradle]] |
+| S-5 | **Fondamentaux** : Manifest, dossiers, Gradle, Activity, Context, **Intent**, cycle de vie | [[00 les composant de base]], [[03 Le cycle de vie]], [[10 Organisation du projet]], [[11 Les Intents]], [[12 Le Context]], [[00 Gradle]] |
 | S-1 | **Clean Architecture** : rôle des couches, dépendances vers l'intérieur | [[00 Architecture]] |
 | S-3 | Couche **Domain** : Domain Models, interfaces Repository | [[01 La couche Domain]] |
 | S-2 | Couche **Data** : fetch, Service/DTO, DAO/Entity, mapping | [[02 La couche Data]] |
 | S-4 | Couche **UI** : Compose, **MVI**, **UDF**, états, Single Activity, navigation | [[03 La couche UI (MVI et UDF)]], [[00 Compose]], [[03 MainActivity]] |
-| S-6 | **Capacités natives** : rôle du Context, **Managers**, UI sans logique matérielle | [[12 Les capacités natives (Managers)]], [[05 Les Permissions]] |
+| S-6 | **Capacités natives** : rôle du Context, **Managers**, UI sans logique matérielle | [[13 Les capacités natives (Managers)]], [[06 Les Permissions]] |
 
 > [!tip] À l'oral
 > Pour « Maîtrisé », la grille répète : explications **claires**, qui vont **droit au but**, et capacité à **schématiser**. Entraîne-toi à redessiner les schémas des notes sans les regarder.
@@ -44,11 +44,11 @@ maj: 2026-10-26
 
 | Code | Sujet | À relire |
 |---|---|---|
-| SF-5 | **Fondamentaux** dans le projet : manifest, Gradle, ressources, cycle de vie, extension | [[14 Les ressources en pratique]], [[13 Le cycle de vie en pratique]], [[05 Les fonctions d'extension]] |
-| SF-1 | **Architecture en couches** + Koin | [[00 Architecture]], [[08 Koin (injection de dépendances)]] |
+| SF-5 | **Fondamentaux** dans le projet : manifest, Gradle, ressources, cycle de vie, extension | [[14 Les ressources en pratique]], [[03 Le cycle de vie]], [[05 Les fonctions d'extension]] |
+| SF-1 | **Architecture en couches** + Koin | [[00 Architecture]], [[09 Koin (injection de dépendances)]] |
 | SF-3 | Composants **Domain** indépendants | [[01 La couche Domain]] |
 | SF-4 | Composants **Data** : DAO/Entity, Service/DTO, fetch, mapping | [[02 La couche Data]] |
-| SF-6 | **Matériel** : 2 capacités natives, Managers, extension sur Context | [[12 Les capacités natives (Managers)]] |
+| SF-6 | **Matériel** : 2 capacités natives, Managers, extension sur Context | [[13 Les capacités natives (Managers)]] |
 
 ## ✨ Qualité du code (expérience du développeur)
 

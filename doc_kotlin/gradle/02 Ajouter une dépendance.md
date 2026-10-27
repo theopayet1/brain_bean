@@ -140,7 +140,7 @@ dependencies {
 }
 ```
 
-Puis **Sync Now**. Comment s'en servir → [[08 Koin (injection de dépendances)]].
+Puis **Sync Now**. Comment s'en servir → [[09 Koin (injection de dépendances)]].
 
 ---
 

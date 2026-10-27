@@ -18,7 +18,7 @@ maj: 2026-10-26
 # Les capacités natives et les Managers
 
 > [!abstract] En une phrase
-> Pour utiliser le **matériel** du téléphone (vibreur, son, GPS, capteurs, caméra…), on passe par le [[11 Le Context|Context]], et on **range tout ce code dans un Manager** : une classe dédiée, pour que l'**UI ne sache rien du matériel**.
+> Pour utiliser le **matériel** du téléphone (vibreur, son, GPS, capteurs, caméra…), on passe par le [[12 Le Context|Context]], et on **range tout ce code dans un Manager** : une classe dédiée, pour que l'**UI ne sache rien du matériel**.
 
 > [!note] Complété le 26 octobre 2026
 > Note ajoutée à partir de la grille d'évaluation (critères « capacités natives » : théorie **et** pratique). Exemples écrits pour la note, pas tirés de Metrix (Metrix n'a pas encore de Manager).
@@ -40,7 +40,7 @@ Une **capacité native**, c'est une fonction **matérielle** du téléphone. Cha
 | **Base de données** | Room (SQLite) | aucune | — |
 
 > [!info] Les vrais mots
-> Les permissions « simples » de [[05 Les Permissions]] s'appellent des **permissions normales** : accordées **à l'installation**. Les « invasives » s'appellent des **permissions dangereuses** : il faut les **déclarer** dans le manifest **et** les **demander à l'exécution** (la popup).
+> Les permissions « simples » de [[06 Les Permissions]] s'appellent des **permissions normales** : accordées **à l'installation**. Les « invasives » s'appellent des **permissions dangereuses** : il faut les **déclarer** dans le manifest **et** les **demander à l'exécution** (la popup).
 
 ---
 
@@ -99,7 +99,7 @@ class VibrationManager(context: Context) {
 
 | Code | Pourquoi |
 |---|---|
-| `class VibrationManager(context: Context)` | Le Manager **reçoit** le Context, il ne le cherche pas lui-même → [[08 Koin (injection de dépendances)\|Koin]] le lui donne |
+| `class VibrationManager(context: Context)` | Le Manager **reçoit** le Context, il ne le cherche pas lui-même → [[09 Koin (injection de dépendances)\|Koin]] le lui donne |
 | `Build.VERSION.SDK_INT >= …S` | Depuis **Android 12** (API 31), on passe par `VibratorManager`. Avant, par `Vibrator` |
 | `getSystemService(...)` | On demande le **service** au guichet (le Context) |
 | `Vibrator?` + `vibrator?.` | Le service peut être **absent** (tablette sans vibreur) : pas de crash |
@@ -112,7 +112,7 @@ class VibrationManager(context: Context) {
  * Lit le gyroscope et publie sa vitesse de rotation.
  *
  * Un capteur allumé vide la batterie : on appelle [start] quand l'écran est
- * visible et [stop] quand il ne l'est plus (voir « 13 Le cycle de vie en pratique »).
+ * visible et [stop] quand il ne l'est plus (voir « 03 Le cycle de vie »).
  *
  * @param context l'Application Context, fourni par Koin.
  */
@@ -150,7 +150,7 @@ class GyroscopeManager(context: Context) : SensorEventListener {
 | `getDefaultSensor(Sensor.TYPE_GYROSCOPE)` | On choisit **quel** capteur. `null` si le téléphone n'en a pas |
 | `MutableStateFlow` privé + `StateFlow` public | Le Manager **publie** la valeur, le ViewModel la **lit** sans pouvoir la modifier |
 | `SENSOR_DELAY_UI` | Une fréquence suffisante pour l'affichage, et **économe** |
-| `start()` / `stop()` | On allume et on éteint le capteur **au bon moment** du cycle de vie → [[13 Le cycle de vie en pratique]] |
+| `start()` / `stop()` | On allume et on éteint le capteur **au bon moment** du cycle de vie → [[03 Le cycle de vie]] |
 
 ### Exemple 3 : jouer un son
 
@@ -196,7 +196,7 @@ val appModule = module {
 | Code | Pourquoi |
 |---|---|
 | `single` | **Un seul** Manager pour toute l'app : il n'y a qu'un vibreur |
-| `androidContext()` | L'**Application Context**, qui vit aussi longtemps que le `single` → pas de fuite ([[11 Le Context]]) |
+| `androidContext()` | L'**Application Context**, qui vit aussi longtemps que le `single` → pas de fuite ([[12 Le Context]]) |
 
 ### Dans le ViewModel
 
@@ -262,7 +262,7 @@ fun MapScreen(viewModel: MapViewModel = koinViewModel()) {
 
 ## 🔗 Liens
 
-- [[11 Le Context]] — le guichet vers le matériel
-- [[05 Les Permissions]] — déclarer avant d'utiliser
-- [[13 Le cycle de vie en pratique]] — allumer et éteindre un capteur au bon moment
+- [[12 Le Context]] — le guichet vers le matériel
+- [[06 Les Permissions]] — déclarer avant d'utiliser
+- [[03 Le cycle de vie]] — allumer et éteindre un capteur au bon moment
 - [[05 Les fonctions d'extension]] — `Context.hasPermission()`

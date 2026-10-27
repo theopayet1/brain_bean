@@ -58,7 +58,7 @@ val hostId = intent.getIntExtra("hostId", -1)
 
 | Code | Pourquoi |
 |---|---|
-| `Intent(context, DetailActivity::class.java)` | On **nomme** l'activity à ouvrir. Il faut un [[11 Le Context\|Context]] |
+| `Intent(context, DetailActivity::class.java)` | On **nomme** l'activity à ouvrir. Il faut un [[12 Le Context\|Context]] |
 | `putExtra("hostId", 42)` | On **glisse une donnée** dans la lettre (un **extra**) |
 | `startActivity(intent)` | On **poste** la lettre à Android |
 | `getIntExtra("hostId", -1)` | On **lit** l'extra. `-1` = valeur par défaut s'il n'y est pas |
@@ -133,6 +133,6 @@ Les Intents servent encore pour :
 ## 🔗 Liens
 
 - [[02 Les Activities]] — ce que l'Intent ouvre
-- [[11 Le Context]] — il faut un Context pour envoyer un Intent
+- [[12 Le Context]] — il faut un Context pour envoyer un Intent
 - [[01 Le manifest]] — l'`intent-filter` de l'activity principale
 - [[05 Les fonctions d'extension]] — ranger un Intent dans `Context.openUrl()`

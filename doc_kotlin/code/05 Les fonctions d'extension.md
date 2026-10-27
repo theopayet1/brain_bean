@@ -79,7 +79,7 @@ fun Context.hasPermission(permission: String): Boolean =
 
 | Code | Pourquoi |
 |---|---|
-| `fun Context.hasPermission(...)` | On étend `Context` : marche avec une Activity **et** l'Application ([[11 Le Context]]) |
+| `fun Context.hasPermission(...)` | On étend `Context` : marche avec une Activity **et** l'Application ([[12 Le Context]]) |
 | `ContextCompat.checkSelfPermission(this, …)` | `this` = **le Context** sur lequel on l'appelle |
 | `== PERMISSION_GRANTED` | Transforme le code d'Android en un `Boolean` lisible |
 | `@receiver` | Le **block tag** fait pour les extensions : il documente **l'objet étendu** → [[06 KDoc et commentaires]] |
@@ -116,7 +116,7 @@ fun Context.openUrl(url: String): Boolean =
 
 | Code | Pourquoi |
 |---|---|
-| `startActivity(Intent(ACTION_VIEW, …))` | Un **Intent implicite** : Android choisit le navigateur → [[10 Les Intents]] |
+| `startActivity(Intent(ACTION_VIEW, …))` | Un **Intent implicite** : Android choisit le navigateur → [[11 Les Intents]] |
 | `try / catch ActivityNotFoundException` | Pas de navigateur = **pas de crash**, on renvoie `false` |
 
 ### Sur `Intent`
@@ -184,6 +184,6 @@ Un fichier **par classe étendue**, nommé `<Classe>Extensions.kt`, à côté de
 ## 🔗 Liens
 
 - [[00 Code]]
-- [[11 Le Context]] — la classe qu'on étend le plus
+- [[12 Le Context]] — la classe qu'on étend le plus
 - [[06 KDoc et commentaires]] — le header obligatoire
-- [[12 Les capacités natives (Managers)]] — où l'extension sur `Context` sert
+- [[13 Les capacités natives (Managers)]] — où l'extension sur `Context` sert

@@ -52,7 +52,7 @@ class MainActivity : ComponentActivity() {
 | Code | Pourquoi |
 |---|---|
 | `class MainActivity : ComponentActivity()` | Notre activity **est une** `ComponentActivity` : la classe de base qui sait afficher du Compose |
-| `override fun onCreate(...)` | La 1re étape du [[02 Les Activities#Le cycle de vie d'une Activity\|cycle de vie]] (mort → purgatoire) : c'est ici qu'on construit l'écran |
+| `override fun onCreate(...)` | La 1re étape du [[03 Le cycle de vie\|cycle de vie]] (mort → purgatoire) : c'est ici qu'on construit l'écran |
 | `super.onCreate(savedInstanceState)` | Android fait d'abord son travail. **Toujours en 1re ligne** |
 | `savedInstanceState: Bundle?` | L'état sauvegardé (ex. après une reconfig). Le `?` = peut être `null` |
 | `enableEdgeToEdge()` | L'app dessine **jusqu'aux bords**, sous les barres du téléphone (on gère ça à l'étape 4) |

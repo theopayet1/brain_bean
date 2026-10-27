@@ -17,7 +17,7 @@ maj: 2026-09-29
 > [!abstract] En une phrase
 > **Compose**, c'est construire l'UI avec des **fonctions** (pas des balises), en **empilant des composants comme des Lego**.
 
-C'est la suite de [[07 UI déclarative|l'UI déclarative]] : on **décrit** l'écran en Kotlin au lieu d'écrire du XML.
+C'est la suite de [[08 UI déclarative|l'UI déclarative]] : on **décrit** l'écran en Kotlin au lieu d'écrire du XML.
 
 ---
 
@@ -101,5 +101,5 @@ flowchart LR
 
 ## 🔗 Liens
 
-- [[07 UI déclarative]]
-- [[04 Architecture (Screen - ViewModel - Model)]]
+- [[08 UI déclarative]]
+- [[05 Architecture (Screen - ViewModel - Model)]]

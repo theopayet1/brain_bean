@@ -20,24 +20,24 @@ maj: 2026-10-26
 
 ## 🎯 Révision
 
-- [[Grille P1 Mobile]] — les 15 critères de la grille, la note à relire pour chacun, et la checklist du rendu
+- [[Grille P1 Mobile]] — les 16 critères de la grille, la note à relire pour chacun, et la checklist du rendu
 
 ## 🧱 La base
 
 - [[00 les composant de base]] — vue d'ensemble des composants
 - [[01 Le manifest]] — la carte d'identité de l'app
-- [[02 Les Activities]] — activities, contexte & cycle de vie
-- [[03 Les Ressources]] — le répertoire `res` & la reconfiguration
-- [[04 Architecture (Screen - ViewModel - Model)]] — Screen / ViewModel / Model
-- [[05 Les Permissions]] — Android vérifie le manifest & les autorisations
-- [[06 Classes.dex]] — le code compilé / exécutable
-- [[07 UI déclarative]] — l'UI en déclaratif (Compose)
-- [[08 Koin (injection de dépendances)]] — fournir les objets de l'extérieur
-- [[09 Organisation du projet]] — les dossiers et les packages par couche
-- [[10 Les Intents]] — le message « je veux faire ça » envoyé à Android
-- [[11 Le Context]] — le guichet vers le système, Application vs Activity
-- [[12 Les capacités natives (Managers)]] — vibreur, capteurs, son… rangés dans des Managers
-- [[13 Le cycle de vie en pratique]] — quoi faire à quelle étape, et comment le commenter
+- [[02 Les Activities]] — activities & contexte
+- [[03 Le cycle de vie]] — les 4 états, quoi faire à quelle étape, la rotation, la version Compose
+- [[04 Les Ressources]] — le répertoire `res` & la reconfiguration
+- [[05 Architecture (Screen - ViewModel - Model)]] — Screen / ViewModel / Model
+- [[06 Les Permissions]] — Android vérifie le manifest & les autorisations
+- [[07 Classes.dex]] — le code compilé / exécutable
+- [[08 UI déclarative]] — l'UI en déclaratif (Compose)
+- [[09 Koin (injection de dépendances)]] — fournir les objets de l'extérieur
+- [[10 Organisation du projet]] — les dossiers et les packages par couche
+- [[11 Les Intents]] — le message « je veux faire ça » envoyé à Android
+- [[12 Le Context]] — le guichet vers le système, Application vs Activity
+- [[13 Les capacités natives (Managers)]] — vibreur, capteurs, son… rangés dans des Managers
 - [[14 Les ressources en pratique]] — `stringResource`, variantes (langue, nuit), nommage
 
 ## 🎨 Compose
@@ -82,19 +82,19 @@ maj: 2026-10-26
 flowchart TD
     I[00 Composants de base] --> M[01 Le manifest]
     M --> A[02 Les Activities]
-    A --> R[03 Les Ressources]
-    R --> D[06 Classes.dex]
+    A --> CV[03 Le cycle de vie]
+    CV --> R[04 Les Ressources]
+    R --> D[07 Classes.dex]
     D --> G[🐘 Gradle]
-    G --> AR[04 Architecture]
-    AR --> U[07 UI déclarative]
-    AR --> P[05 Les Permissions]
+    G --> AR[05 Architecture]
+    AR --> U[08 UI déclarative]
+    AR --> P[06 Les Permissions]
     U --> CP[🎨 Compose]
-    I --> O[09 Organisation du projet]
-    A --> IN[10 Les Intents]
-    A --> CX[11 Le Context]
-    A --> CV[13 Cycle de vie en pratique]
+    I --> O[10 Organisation du projet]
+    A --> IN[11 Les Intents]
+    A --> CX[12 Le Context]
     R --> RP[14 Ressources en pratique]
-    CX --> MG[12 Capacités natives]
+    CX --> MG[13 Capacités natives]
     P --> MG
     AR --> ARC[🏛️ Architecture]
     CP --> ARC

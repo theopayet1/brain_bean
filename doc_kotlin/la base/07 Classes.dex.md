@@ -36,12 +36,12 @@ flowchart LR
 
 > [!tip] Compilé vs non compilé
 > - **`classes.dex`** = le code, **compilé** et **exécutable**.
-> - Les **[[03 Les Ressources|ressources (`res`)]]** = **non compilées** (images, sons, gifs, couleurs, strings).
+> - Les **[[04 Les Ressources|ressources (`res`)]]** = **non compilées** (images, sons, gifs, couleurs, strings).
 
 ---
 
 ## 🔗 Liens
 
 - [[00 les composant de base]]
-- [[03 Les Ressources]]
-- [[05 Les Permissions]]
+- [[04 Les Ressources]]
+- [[06 Les Permissions]]

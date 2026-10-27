@@ -211,5 +211,5 @@ dependencies {
 
 - [[00 Code]]
 - [[05 Les fonctions d'extension]] — le tag `@receiver`
-- [[13 Le cycle de vie en pratique]] — le commentaire « spécifique » du cycle de vie
+- [[03 Le cycle de vie]] — le commentaire « spécifique » du cycle de vie
 - [[07 Conventions de nommage et Lint]] — l'autre moitié de la qualité

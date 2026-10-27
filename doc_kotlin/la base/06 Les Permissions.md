@@ -34,7 +34,7 @@ flowchart TD
 ```
 
 > [!note] Rappel
-> Techniquement, **`classes.dex`** est le **code compilé / la partie exécutable** de l'app (voir [[06 Classes.dex]]). La « punaise » est la **métaphore de cours** pour dire qu'il s'exécute et veut accéder aux capacités du tél.
+> Techniquement, **`classes.dex`** est le **code compilé / la partie exécutable** de l'app (voir [[07 Classes.dex]]). La « punaise » est la **métaphore de cours** pour dire qu'il s'exécute et veut accéder aux capacités du tél.
 
 ---
 
@@ -97,5 +97,5 @@ flowchart TD
 ## 🔗 Liens
 
 - [[01 Le manifest]] — où se déclarent les permissions
-- [[02 Les Activities#Le cycle de vie d'une Activity]] — la destruction des composants
+- [[03 Le cycle de vie]] — la destruction des composants
 - [[00 les composant de base]]

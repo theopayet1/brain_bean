@@ -19,7 +19,7 @@ maj: 2026-10-26
 # La couche UI : MVI et UDF
 
 > [!abstract] En une phrase
-> Dans la couche **UI**, l'**état** descend du ViewModel vers l'écran, et les **actions** de l'utilisateur remontent de l'écran vers le ViewModel : c'est le **flux unidirectionnel** (**UDF**), et **MVI** est la façon de l'organiser. À lire après [[07 UI déclarative]] et [[00 Architecture]].
+> Dans la couche **UI**, l'**état** descend du ViewModel vers l'écran, et les **actions** de l'utilisateur remontent de l'écran vers le ViewModel : c'est le **flux unidirectionnel** (**UDF**), et **MVI** est la façon de l'organiser. À lire après [[08 UI déclarative]] et [[00 Architecture]].
 
 > [!note] Complété le 26 octobre 2026
 > Note ajoutée à partir de la grille d'évaluation (critère « couche UI et Jetpack Compose » : MVI, UDF, gestion des états, Single Activity, navigation). Les exemples sont le **vrai code de Metrix**, sauf la version « MVI stricte ».
@@ -56,7 +56,7 @@ flowchart TD
 | **I**ntent | Une **intention** de l'utilisateur | « réessayer », « filtrer »… |
 
 > [!warning] Intent ≠ Intent
-> Le « **I** » de MVI n'a **rien à voir** avec l'[[10 Les Intents|Intent d'Android]]. Pour éviter la confusion, beaucoup de projets l'appellent **Action** ou **Event**.
+> Le « **I** » de MVI n'a **rien à voir** avec l'[[11 Les Intents|Intent d'Android]]. Pour éviter la confusion, beaucoup de projets l'appellent **Action** ou **Event**.
 
 ```mermaid
 flowchart TD
@@ -131,7 +131,7 @@ class HostListViewModel(
 | `IHostRep` en paramètre | Le ViewModel dépend du **Domain**, pas de la couche Data → [[00 Architecture]] |
 | `_uiState` **privé** et **modifiable** | Seul le ViewModel peut **changer** l'état |
 | `uiState` **public** en `StateFlow` | L'écran peut seulement le **lire** : c'est l'UDF dans le code |
-| `init { loadHosts() }` | On charge dès la création. Le ViewModel **survit à la rotation** → pas de rechargement ([[13 Le cycle de vie en pratique]]) |
+| `init { loadHosts() }` | On charge dès la création. Le ViewModel **survit à la rotation** → pas de rechargement ([[03 Le cycle de vie]]) |
 | `_uiState.update { it.copy(...) }` | On crée un **nouvel état** à partir de l'ancien, en ne changeant que ce qui bouge |
 | `viewModelScope.launch` | Lance l'appel réseau **sans bloquer** l'écran. Annulé tout seul si le ViewModel est détruit |
 | `loadHosts`, `resetFilters` | Les **actions** ont des noms de **verbes** clairs (la grille le demande) |
@@ -232,7 +232,7 @@ flowchart TD
 
 | Pourquoi une seule activity | |
 |---|---|
-| **Navigation** plus simple | Changer d'écran = changer de route, pas lancer un [[10 Les Intents\|Intent]] |
+| **Navigation** plus simple | Changer d'écran = changer de route, pas lancer un [[11 Les Intents\|Intent]] |
 | **Partage** facile | Le thème, la navbar, Koin sont posés **une fois** |
 | **Cycle de vie** plus simple | Un seul cycle de vie d'activity à gérer |
 
@@ -260,6 +260,6 @@ La grille demande des composables « découpés conformément à la **philosophi
 ## 🔗 Liens
 
 - [[00 Architecture]] — où se place la couche UI
-- [[07 UI déclarative]] — l'état et la recomposition
+- [[08 UI déclarative]] — l'état et la recomposition
 - [[03 MainActivity]] — la Single Activity en pratique
 - [[04 Les previews]] — pourquoi séparer Screen et Content

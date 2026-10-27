@@ -33,8 +33,8 @@ flowchart TD
 |---|---|---|
 | **Manifest** | Carte d'identité : **nom de l'app**, **permissions** (ex. vibration), **activity principale** | [[01 Le manifest]] |
 | **Activity** | Un **écran** ; fournit aussi un **contexte** (accès aux capacités matérielles) | [[02 Les Activities]] |
-| **Ressources (`res`)** | **Non compilées** : images, sons, gifs, couleurs, strings (multilingue) | [[03 Les Ressources]] |
-| **`classes.dex`** | Le **code compilé**, la **partie exécutable** de l'app | [[06 Classes.dex]] |
+| **Ressources (`res`)** | **Non compilées** : images, sons, gifs, couleurs, strings (multilingue) | [[04 Les Ressources]] |
+| **`classes.dex`** | Le **code compilé**, la **partie exécutable** de l'app | [[07 Classes.dex]] |
 
 ---
 
@@ -42,16 +42,15 @@ flowchart TD
 
 | Notion | Rôle | Note |
 |---|---|---|
-| **Cycle de vie** | Les états par lesquels passe une activity | [[02 Les Activities#Le cycle de vie d'une Activity]] |
-| **Architecture** | Screen / ViewModel / Model | [[04 Architecture (Screen - ViewModel - Model)]] |
-| **Permissions** | Ce que l'app a le droit de faire | [[05 Les Permissions]] |
-| **UI déclarative** | L'UI décrite en déclaratif (plus du « compilé ») | [[07 UI déclarative]] |
-| **Koin / DI** | Fournir les objets de l'extérieur (injection) | [[08 Koin (injection de dépendances)]] |
-| **Organisation du projet** | Les dossiers et les packages par couche | [[09 Organisation du projet]] |
-| **Intent** | Le message « je veux faire ça » envoyé à Android | [[10 Les Intents]] |
-| **Context** | Le guichet vers le système (Application vs Activity) | [[11 Le Context]] |
-| **Capacités natives** | Vibreur, capteurs, son… rangés dans des Managers | [[12 Les capacités natives (Managers)]] |
-| **Cycle de vie en pratique** | Quoi faire à quelle étape, et le commenter | [[13 Le cycle de vie en pratique]] |
+| **Cycle de vie** | Les états d'une activity, quoi faire à quelle étape, la rotation | [[03 Le cycle de vie]] |
+| **Architecture** | Screen / ViewModel / Model | [[05 Architecture (Screen - ViewModel - Model)]] |
+| **Permissions** | Ce que l'app a le droit de faire | [[06 Les Permissions]] |
+| **UI déclarative** | L'UI décrite en déclaratif (plus du « compilé ») | [[08 UI déclarative]] |
+| **Koin / DI** | Fournir les objets de l'extérieur (injection) | [[09 Koin (injection de dépendances)]] |
+| **Organisation du projet** | Les dossiers et les packages par couche | [[10 Organisation du projet]] |
+| **Intent** | Le message « je veux faire ça » envoyé à Android | [[11 Les Intents]] |
+| **Context** | Le guichet vers le système (Application vs Activity) | [[12 Le Context]] |
+| **Capacités natives** | Vibreur, capteurs, son… rangés dans des Managers | [[13 Les capacités natives (Managers)]] |
 | **Ressources en pratique** | `stringResource`, variantes, nommage | [[14 Les ressources en pratique]] |
 
 ---
@@ -73,15 +72,15 @@ flowchart LR
 
 - [[01 Le manifest]]
 - [[02 Les Activities]]
-- [[03 Les Ressources]]
-- [[04 Architecture (Screen - ViewModel - Model)]]
-- [[05 Les Permissions]]
-- [[06 Classes.dex]]
-- [[07 UI déclarative]]
-- [[08 Koin (injection de dépendances)]]
-- [[09 Organisation du projet]]
-- [[10 Les Intents]]
-- [[11 Le Context]]
-- [[12 Les capacités natives (Managers)]]
-- [[13 Le cycle de vie en pratique]]
+- [[03 Le cycle de vie]]
+- [[04 Les Ressources]]
+- [[05 Architecture (Screen - ViewModel - Model)]]
+- [[06 Les Permissions]]
+- [[07 Classes.dex]]
+- [[08 UI déclarative]]
+- [[09 Koin (injection de dépendances)]]
+- [[10 Organisation du projet]]
+- [[11 Les Intents]]
+- [[12 Le Context]]
+- [[13 Les capacités natives (Managers)]]
 - [[14 Les ressources en pratique]]

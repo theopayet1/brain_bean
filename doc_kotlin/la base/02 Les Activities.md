@@ -9,7 +9,7 @@ tags:
   - statut/a-jour
 cours: P1
 cree: 2026-09-28
-maj: 2026-09-29
+maj: 2026-10-26
 ---
 
 # Les Activities
@@ -35,50 +35,10 @@ Une **activity est aussi un contexte**. C'est par lui qu'on accède aux ressourc
 
 ## Le cycle de vie d'une Activity
 
-Une activity passe par **4 états** reliés par des **méthodes de callback** (`onCreate`, `onStart`…).
+Une activity passe par **4 états** reliés par des **méthodes de callback** : **mort** → `onCreate` → **purgatoire** → `onStart` → **visible** → `onResume` → **active**, puis on redescend par `onPause`, `onStop`, `onDestroy`. `onCreate` = **création du contexte**, `onDestroy` = **totalement mort**.
 
-### 🧭 Les 4 états
-
-| État | Description |
-|---|---|
-| **mort** | L'activity n'existe pas (ou plus). |
-| **purgatoire** | Elle est « morte » mais **survit légèrement** : elle peut encore envoyer des notifications et **garder un certain contexte**. |
-| **visible** | Elle est affichée mais **pas au premier plan** (ex. masquée partiellement). |
-| **active** | Elle est **au premier plan**, l'utilisateur interagit avec. |
-
-### 🔁 Diagramme d'états
-
-```mermaid
-stateDiagram-v2
-    [*] --> mort
-    mort --> purgatoire : onCreate
-    purgatoire --> visible : onStart
-    visible --> active : onResume
-    active --> visible : onPause
-    visible --> purgatoire : onStop
-    purgatoire --> mort : onDestroy
-    note right of purgatoire
-        onCreate = création du contexte
-        onDestroy = totalement mort
-    end note
-```
-
-### 📋 Les transitions en détail
-
-| Transition | Méthode | Ce qui se passe |
-|---|---|---|
-| mort → purgatoire | `onCreate` | **Création du contexte**. |
-| purgatoire → visible | `onStart` | L'activity devient visible. |
-| visible → active | `onResume` | L'activity passe au premier plan. |
-| active → visible | `onPause` | L'activity quitte le premier plan. |
-| visible → purgatoire | `onStop` | L'activity n'est plus visible. |
-| purgatoire → mort | `onDestroy` | L'activity est **totalement morte**. |
-
-> [!note] Lecture du schéma
-> L'entrée se fait toujours « vers le haut » (`onCreate → onStart → onResume`) et la sortie « vers le bas » (`onPause → onStop → onDestroy`). Le **purgatoire** est l'état intermédiaire : l'app n'est plus visible mais pas encore détruite.
-
-> [!tip] Reconfiguration = cycle complet
-> Un changement de configuration (ex. **mode jour → mode nuit**) relance **tout** le cycle : suppression entière puis création entière. → voir [[03 Les Ressources#Reconfiguration cycle de vie complet]]
+> [!tip] Tout le détail est dans sa propre note
+> Les états, les schémas, quoi faire à quelle étape, la rotation et la version Compose → [[03 Le cycle de vie]].
 
 ---
 

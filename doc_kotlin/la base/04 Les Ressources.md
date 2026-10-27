@@ -71,7 +71,7 @@ flowchart LR
     CR --> N[🌙 Mode nuit]
 ```
 
-👉 Voir le détail des états et méthodes dans [[02 Les Activities#Le cycle de vie d'une Activity]].
+👉 Voir le détail des états et méthodes dans [[03 Le cycle de vie]].
 
 ---
 

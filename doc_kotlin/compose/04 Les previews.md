@@ -293,4 +293,4 @@ fun ListeScreen(viewModel: ListeViewModel = koinViewModel()) {
 - [[00 Compose]] — le principe des composables
 - [[01 Les composants]] — ce qu'on prévisualise
 - [[03 MainActivity]] — l'écran qui assemble barre et navigation
-- [[04 Architecture (Screen - ViewModel - Model)]] — pourquoi séparer Screen et contenu
+- [[05 Architecture (Screen - ViewModel - Model)]] — pourquoi séparer Screen et contenu

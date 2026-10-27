@@ -40,10 +40,10 @@ Ce que le Context permet :
 
 | Besoin | Appel | Note |
 |---|---|---|
-| Un **service matériel** | `context.getSystemService(SensorManager::class.java)` | [[12 Les capacités natives (Managers)]] |
-| Une **ressource** | `context.getString(R.string.app_name)` | [[03 Les Ressources]] |
-| Ouvrir une **activity** | `context.startActivity(intent)` | [[10 Les Intents]] |
-| Vérifier une **permission** | `ContextCompat.checkSelfPermission(context, …)` | [[05 Les Permissions]] |
+| Un **service matériel** | `context.getSystemService(SensorManager::class.java)` | [[13 Les capacités natives (Managers)]] |
+| Une **ressource** | `context.getString(R.string.app_name)` | [[04 Les Ressources]] |
+| Ouvrir une **activity** | `context.startActivity(intent)` | [[11 Les Intents]] |
+| Vérifier une **permission** | `ContextCompat.checkSelfPermission(context, …)` | [[06 Les Permissions]] |
 | Des **fichiers** privés de l'app | `context.filesDir` | — |
 
 ---
@@ -55,7 +55,7 @@ Il n'y a pas **un** Context mais **plusieurs**, qui ne vivent **pas aussi longte
 | Context | Vit… | Sert à |
 |---|---|---|
 | **Application** (`applicationContext`) | **Tant que l'app tourne** | Les services longue durée : Koin, base de données, Managers |
-| **Activity** (l'activity elle-même) | **Tant que l'activity vit** ([[02 Les Activities#Le cycle de vie d'une Activity\|cycle de vie]]) | Tout ce qui touche à **l'écran** : thème, dialogues, demande de permission |
+| **Activity** (l'activity elle-même) | **Tant que l'activity vit** ([[03 Le cycle de vie\|cycle de vie]]) | Tout ce qui touche à **l'écran** : thème, dialogues, demande de permission |
 
 ```mermaid
 flowchart TD
@@ -101,6 +101,6 @@ single<TokenStorage> { AndroidTokenStorage(androidContext()) }
 ## 🔗 Liens
 
 - [[02 Les Activities]] — la définition de base du contexte
-- [[12 Les capacités natives (Managers)]] — le Context au service du matériel
+- [[13 Les capacités natives (Managers)]] — le Context au service du matériel
 - [[05 Les fonctions d'extension]] — ajouter ses propres fonctions au Context
-- [[08 Koin (injection de dépendances)]] — `androidContext()`
+- [[09 Koin (injection de dépendances)]] — `androidContext()`
