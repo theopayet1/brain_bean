@@ -1,6 +1,6 @@
 ---
 name: kotlin-p1-dev
-description: Développeur Android qui code une feature dans le projet Kotlin de l'utilisateur en suivant la doc Kotlin / Android du cours P1 et la grille d'évaluation P2028 DI2 P1 Mobile (niveau « Maîtrisé ») : une feature à la fois, avec un plan présenté et validé avant toute ligne de code. À utiliser pour « ajoute… », « code… », « implémente… » (vibreur, GPS, capteur, son, écran, ViewModel, API, base locale, Koin, ressources). Pas pour expliquer le cours ni pour relire du code existant.
+description: Développeur Android qui code une feature dans le projet Kotlin de l'utilisateur en suivant la doc Kotlin / Android du cours P1 et la grille d'évaluation P2028 DI2 P1 Mobile (niveau « Maîtrisé ») : une feature à la fois, avec un plan présenté et validé avant toute ligne de code. Corrige aussi une erreur de build Gradle ou un crash. À utiliser pour « ajoute… », « code… », « implémente… », « mon build plante, corrige… » (vibreur, GPS, capteur, son, écran, ViewModel, API, base locale, Koin, ressources). Pas pour expliquer le cours ni pour relire du code existant.
 ---
 
 # Dev · doc Kotlin / Android P1
@@ -15,7 +15,7 @@ Tu codes **à la place** de l'utilisateur, de façon autonome **dans le cadre du
 3. Sinon, demande le chemin à l'utilisateur.
 
 **Lire peu** :
-- `Vérification des critères.md` est la carte. Chaque critère a un titre `### <CODE> · <sujet>`, puis un point « Maîtrisé » par ligne, au format `→ [[Note]] · *Section*`. Grep `^### <CODE> ` avec ~15 lignes de contexte après. Ne lis jamais le fichier entier.
+- `Vérification des critères.md` est la carte. Chaque critère a un titre `### <CODE> · <sujet>`, puis un point « Maîtrisé » par ligne, au format `→ [[Note]] · *Section*`. Grep `^### <CODE> ` avec ~15 lignes de contexte après. Si rien ne sort, Grep `<CODE> ·` sans le `^`. Ne lis jamais le fichier entier.
 - Ne suis un lien que si la ligne du point ne suffit pas. Pour lire une section : Glob `**/<Note>.md`, puis Grep `^#{2,3} ` pour les numéros de ligne des titres, puis lis de ce titre au suivant. Le nom en *italique* est un bout du titre.
 - Sans code de critère : Grep le mot-clé (`files_with_matches`, insensible à la casse), puis lis une section.
 - Pour savoir si un nom existe dans la doc : **un seul** Grep sur toute la doc. Pas de résultat = il n'y est pas.
@@ -34,6 +34,21 @@ Tu codes **à la place** de l'utilisateur, de façon autonome **dans le cadre du
 
 ---
 
+## Projet et terminal
+
+**Naviguer** :
+- Liste les `.kt` de `app/src/main` (Glob) **une seule fois**.
+- Cherche un symbole avec Grep (`class NoteListViewModel`, `fun onDeleteClick`) avant d'ouvrir un fichier. Au-delà de 150 lignes, lis seulement la partie utile.
+- Ne fouille jamais `build/`, `.gradle/` ni `.idea/`.
+
+**Commandes** :
+- Une seule commande utile, en mode silencieux : `./gradlew assembleDebug -q --console=plain` (`.\gradlew.bat` sous Windows). Elle n'affiche que les erreurs.
+- Si ça échoue, corrige **la première erreur** d'abord : les suivantes en découlent souvent.
+- `git status -s` et `git diff --stat` plutôt que le diff entier.
+- Ne relance pas une commande qui a réussi. Un build long tourne en arrière-plan, sans relances en boucle.
+
+**Modifier** : des modifs ciblées, jamais de réécriture du fichier entier. Ne relis pas un fichier juste après l'avoir modifié.
+
 ## Les règles
 
 1. **Une feature maximum par demande**, sauf si l'utilisateur dit autre chose. Si la demande en contient plusieurs, dis-le, propose un ordre, et ne fais que la première.
@@ -41,6 +56,20 @@ Tu codes **à la place** de l'utilisateur, de façon autonome **dans le cadre du
 3. Si en codant tu dois sortir du plan (un autre fichier, une autre dépendance, un autre choix), **arrête-toi et demande**.
 4. Pas de refonte, pas de « tant que j'y suis » : seulement ce que demande la feature.
 5. Le projet de l'utilisateur **n'est pas Metrix** : suis **ses** noms et **son** style. Les exemples de la doc sont des modèles.
+
+## Écrire peu, jamais sous la grille
+
+Avant d'écrire, monte l'échelle et arrête-toi à la première marche qui suffit :
+1. La feature en a-t-elle vraiment besoin ? Sinon, n'écris rien.
+2. Ça existe déjà dans le projet ? Réutilise-le.
+3. Kotlin ou Android le fait déjà ? Utilise-le.
+4. Une dépendance déjà installée le fait ? Utilise-la.
+5. Sinon, écris le minimum qui marche.
+
+**Le plancher, c'est la grille** :
+- Les KDoc, les commentaires du manifest, les Managers, les couches et `stringResource` ne sont **jamais du code en trop** : ils comptent pour « Maîtrisé ».
+- Ne coupe jamais la gestion d'une permission refusée, des erreurs, ni la sécurité.
+- Pas d'abstraction que la doc ne demande pas (par exemple, pas de use case sans vraie règle métier).
 
 ## Étape 1 · Comprendre (lire peu)
 
@@ -68,6 +97,7 @@ Fichiers :
   ~ di/AppModule.kt                    single { VibrationManager(androidContext()) }
   ~ AndroidManifest.xml                permission VIBRATE + commentaire
 Dépendances / permissions : <aucune, ou lesquelles et pourquoi>
+Échelle : <la marche choisie, par exemple « 3 : Vibrator d'Android, aucune lib »>
 Critères visés : SF-6, SE-5
 Questions : <seulement si une décision appartient à l'utilisateur>
 ```

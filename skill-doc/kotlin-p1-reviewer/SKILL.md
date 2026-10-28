@@ -15,7 +15,7 @@ Tu vérifies du code par rapport aux points « Maîtrisé » de la grille, à pa
 3. Sinon, demande le chemin à l'utilisateur.
 
 **Lire peu** :
-- `Vérification des critères.md` est la carte. Chaque critère a un titre `### <CODE> · <sujet>`, puis un point « Maîtrisé » par ligne, au format `→ [[Note]] · *Section*`. Grep `^### <CODE> ` avec ~15 lignes de contexte après. Ne lis jamais le fichier entier.
+- `Vérification des critères.md` est la carte. Chaque critère a un titre `### <CODE> · <sujet>`, puis un point « Maîtrisé » par ligne, au format `→ [[Note]] · *Section*`. Grep `^### <CODE> ` avec ~15 lignes de contexte après. Si rien ne sort, Grep `<CODE> ·` sans le `^`. Ne lis jamais le fichier entier.
 - Ne suis un lien que si la ligne du point ne suffit pas. Pour lire une section : Glob `**/<Note>.md`, puis Grep `^#{2,3} ` pour les numéros de ligne des titres, puis lis de ce titre au suivant. Le nom en *italique* est un bout du titre.
 - Sans code de critère : Grep le mot-clé (`files_with_matches`, insensible à la casse), puis lis une section.
 - Pour savoir si un nom existe dans la doc : **un seul** Grep sur toute la doc. Pas de résultat = il n'y est pas.
@@ -34,6 +34,21 @@ Tu vérifies du code par rapport aux points « Maîtrisé » de la grille, à pa
 
 ---
 
+## Projet et terminal
+
+**Naviguer** :
+- Liste les `.kt` de `app/src/main` (Glob) **une seule fois**.
+- Cherche un symbole avec Grep (`class NoteListViewModel`, `fun onDeleteClick`) avant d'ouvrir un fichier. Au-delà de 150 lignes, lis seulement la partie utile.
+- Ne fouille jamais `build/`, `.gradle/` ni `.idea/`.
+
+**Commandes** :
+- Une seule commande utile, en mode silencieux : `./gradlew assembleDebug -q --console=plain` (`.\gradlew.bat` sous Windows). Elle n'affiche que les erreurs.
+- Si ça échoue, corrige **la première erreur** d'abord : les suivantes en découlent souvent.
+- `git status -s` et `git diff --stat` plutôt que le diff entier.
+- Ne relance pas une commande qui a réussi. Un build long tourne en arrière-plan, sans relances en boucle.
+
+**Modifier** : des modifs ciblées, jamais de réécriture du fichier entier. Ne relis pas un fichier juste après l'avoir modifié.
+
 ## Vérifier
 
 1. **Le code à relire** : ce qui est collé, ou les fichiers du projet que l'utilisateur nomme. Dans le projet, ne lis que les fichiers concernés par le critère.
@@ -49,5 +64,7 @@ Tu vérifies du code par rapport aux points « Maîtrisé » de la grille, à pa
 5. **Le niveau** : n'en donne **pas** de final s'il reste des ❓. Pour SF / SE, le niveau dépend du nombre de points validés (voir l'encadré « Comment t'en servir » en haut de `Vérification des critères.md`).
 6. **La correction** : seulement les lignes qui changent, avec un commentaire là où la grille en demande un.
 7. **Hors grille** : une vraie erreur (un warning certain, un crash) se signale en une ligne.
+
+8. **Code en trop** : du code que ni la feature ni la grille ne demandent (une abstraction inutile, un doublon, une dépendance qui fait ce que Kotlin fait déjà) se signale dans un `💡`, sans faire baisser le niveau. Les KDoc et les commentaires demandés par la grille ne sont **jamais** en trop.
 
 **Format** : un bloc par point de la grille, ✅ / ❌ / ❓, puis la correction, puis la note à relire.
