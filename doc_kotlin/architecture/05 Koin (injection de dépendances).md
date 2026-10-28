@@ -65,13 +65,13 @@ val repo: Repository by inject()
 > [!warning] Rappel cycle de vie
 > Si des dépendances sont injectées au niveau d'une [[02 Les Activities|activity]] et que l'app part au **purgatoire**, les activities (et leur contexte) peuvent être **tuées** → voir [[01 Le manifest#Point d'attention injection de dépendances]].
 
-- Très utilisé pour fournir les **ViewModel** → voir [[04 Architecture (Screen - ViewModel - Model)]].
+- Très utilisé pour fournir les **ViewModel** → voir [[01 Architecture (Screen - ViewModel - Model)]].
 
 ---
 
 ## 🔗 Liens
 
-- [[00 les composant de base]]
+- [[00 Les composants de base]]
 - [[01 Le manifest]]
-- [[04 Architecture (Screen - ViewModel - Model)]]
+- [[01 Architecture (Screen - ViewModel - Model)]]
 - [[02 Ajouter une dépendance]] — ajouter Koin au projet (Gradle + BOM)

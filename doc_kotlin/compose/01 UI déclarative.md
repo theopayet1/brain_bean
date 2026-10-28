@@ -6,10 +6,10 @@ tags:
   - techno/android
   - techno/compose
   - sujet/ui
-  - statut/brouillon
+  - statut/a-jour
 cours: P1
 cree: 2026-09-28
-maj: 2026-09-29
+maj: 2026-10-28
 ---
 
 # L'UI déclarative
@@ -17,8 +17,8 @@ maj: 2026-09-29
 > [!info] Idée clé
 > La partie **UI est désormais du déclaratif** — ce n'est plus l'ancienne approche « compilée » (layouts XML inflatés).
 
-> [!question] À confirmer
-> Tu avais noté « **UI pacest** » : je l'interprète comme **Jetpack Compose** (le toolkit d'UI déclarative de Kotlin/Android). À confirmer avec le cours — dis-moi si le terme exact était autre chose.
+> [!note] « UI pacest » (tranché le 28 octobre 2026)
+> Tu avais noté « **UI pacest** ». On retient **Jetpack Compose**, le toolkit d'UI déclarative d'Android : c'est le seul qui colle avec la suite du cours. À l'oral, dis simplement « **Jetpack Compose** ».
 
 ---
 
@@ -42,11 +42,11 @@ flowchart LR
 
 - On **déclare** l'UI en fonction d'un **état**, au lieu de manipuler les vues une par une.
 - Quand l'**état change**, l'UI est **recalculée / re-dessinée** automatiquement (la « recomposition »).
-- Ça s'articule bien avec l'architecture [[04 Architecture (Screen - ViewModel - Model)|Screen / ViewModel / Model]] : le **ViewModel** porte l'**état**, le **Screen** le **déclare**.
+- Ça s'articule bien avec l'architecture [[01 Architecture (Screen - ViewModel - Model)|Screen / ViewModel / Model]] : le **ViewModel** porte l'**état**, le **Screen** le **déclare**.
 
 ---
 
 ## 🔗 Liens
 
-- [[00 les composant de base]]
-- [[04 Architecture (Screen - ViewModel - Model)]]
+- [[00 Les composants de base]]
+- [[01 Architecture (Screen - ViewModel - Model)]]

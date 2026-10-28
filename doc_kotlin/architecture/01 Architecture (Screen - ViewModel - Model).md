@@ -43,16 +43,13 @@ flowchart LR
 
 ## 🗃️ La couche Model en détail
 
-> [!note] Complété le 29 septembre 2026
-> Cette partie n'était pas dans tes notes de cours (`..`). À comparer avec le cours si le prof a donné une autre définition.
-
 Le **model**, c'est **ce que l'app manipule**, sans rien savoir de l'affichage. On y trouve en général :
 
-| Élément | Rôle | Exemple |
-|---|---|---|
-| **Data class** | Décrit **une donnée** | `data class Host(val id: Int, val name: String)` |
-| **Repository** | **Va chercher** les données et les rend au ViewModel. Le ViewModel ne sait pas d'où elles viennent | `HostRepository.getHosts()` |
-| **Source de données** | L'endroit réel où sont les données : une **API** (avec Ktor), une **base locale**… | un appel HTTP |
+| Élément               | Rôle                                                                                               | Exemple                                          |
+| --------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| **Data class**        | Décrit **une donnée**                                                                              | `data class Host(val id: Int, val name: String)` |
+| **Repository**        | **Va chercher** les données et les rend au ViewModel. Le ViewModel ne sait pas d'où elles viennent | `HostRepository.getHosts()`                      |
+| **Source de données** | L'endroit réel où sont les données : une **API** (avec Ktor), une **base locale**…                 | un appel HTTP                                    |
 
 ```mermaid
 flowchart TD
@@ -70,5 +67,5 @@ flowchart TD
 
 ## 🔗 Liens
 
-- [[00 les composant de base]]
+- [[00 Les composants de base]]
 - [[02 Les Activities]]

@@ -52,7 +52,7 @@ class MainActivity : ComponentActivity() {
 | Code | Pourquoi |
 |---|---|
 | `class MainActivity : ComponentActivity()` | Notre activity **est une** `ComponentActivity` : la classe de base qui sait afficher du Compose |
-| `override fun onCreate(...)` | La 1re étape du [[02 Les Activities#Le cycle de vie d'une Activity\|cycle de vie]] (mort → purgatoire) : c'est ici qu'on construit l'écran |
+| `override fun onCreate(...)` | La 1re étape du [[03 Le cycle de vie\|cycle de vie]] (mort → purgatoire) : c'est ici qu'on construit l'écran |
 | `super.onCreate(savedInstanceState)` | Android fait d'abord son travail. **Toujours en 1re ligne** |
 | `savedInstanceState: Bundle?` | L'état sauvegardé (ex. après une reconfig). Le `?` = peut être `null` |
 | `enableEdgeToEdge()` | L'app dessine **jusqu'aux bords**, sous les barres du téléphone (on gère ça à l'étape 4) |
@@ -129,7 +129,7 @@ flowchart TB
 
 | Code | Pourquoi |
 |---|---|
-| `Modifier.fillMaxSize()` | Le Scaffold prend **tout l'écran** → [[02 Le modifier]] |
+| `Modifier.fillMaxSize()` | Le Scaffold prend **tout l'écran** → [[03 Le modifier]] |
 | `{ innerPadding -> }` | Le Scaffold te donne `innerPadding` = la place prise par **les barres du téléphone + la topBar + la bottomBar** |
 
 > [!note] `innerPadding` souligné en rouge ?
@@ -409,7 +409,7 @@ fun MetrixApp() {
 ## 🔗 Liens
 
 - [[00 Compose]]
-- [[01 Les composants]]
-- [[02 Le modifier]]
+- [[02 Les composants]]
+- [[03 Le modifier]]
 - [[02 Les Activities]]
 - [[03 Les logs]] — pour débugger si ça ne marche pas

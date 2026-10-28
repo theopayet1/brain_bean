@@ -17,7 +17,7 @@ maj: 2026-09-29
 
 > [!abstract] En une phrase
 > Une **preview**, c'est un **aperçu d'un composable directement dans Android Studio**, sans lancer l'émulateur.
-> À lire avant : [[00 Compose]] et [[01 Les composants]].
+> À lire avant : [[00 Compose]] et [[02 Les composants]].
 
 ---
 
@@ -116,11 +116,11 @@ private fun ListeContentPreview() {
 }
 ```
 
-| Code                               | Pourquoi                                                 |
-| ---------------------------------- | -------------------------------------------------------- |
-| `ListeContent(items, onItemClick)` | ne connaît ni ViewModel ni Koin : on lui donne tout      |
-| `listOf("Un", …)`                  | de **fausses données** écrites à la main pour l'aperçu   |
-| `onItemClick = {}`                 | une lambda vide : dans une preview, cliquer ne fait rien |
+| Code | Pourquoi |
+|---|---|
+| `ListeContent(items, onItemClick)` | ne connaît ni ViewModel ni Koin : on lui donne tout |
+| `listOf("Un", …)` | de **fausses données** écrites à la main pour l'aperçu |
+| `onItemClick = {}` | une lambda vide : dans une preview, cliquer ne fait rien |
 
 ---
 
@@ -291,6 +291,6 @@ fun ListeScreen(viewModel: ListeViewModel = koinViewModel()) {
 ## 🔗 Liens
 
 - [[00 Compose]] — le principe des composables
-- [[01 Les composants]] — ce qu'on prévisualise
-- [[03 MainActivity]] — l'écran qui assemble barre et navigation
-- [[04 Architecture (Screen - ViewModel - Model)]] — pourquoi séparer Screen et contenu
+- [[02 Les composants]] — ce qu'on prévisualise
+- [[04 MainActivity]] — l'écran qui assemble barre et navigation
+- [[01 Architecture (Screen - ViewModel - Model)]] — pourquoi séparer Screen et contenu

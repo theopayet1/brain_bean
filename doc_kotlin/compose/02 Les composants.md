@@ -75,4 +75,4 @@ Un composant peut en **contenir d'autres** → c'est comme ça qu'on assemble un
 ## 🔗 Liens
 
 - [[00 Compose]]
-- [[02 Le modifier]]
+- [[03 Le modifier]]

@@ -9,7 +9,7 @@ tags:
   - statut/a-jour
 cours: P1
 cree: 2026-09-28
-maj: 2026-09-29
+maj: 2026-10-27
 ---
 
 # Compose
@@ -17,7 +17,7 @@ maj: 2026-09-29
 > [!abstract] En une phrase
 > **Compose**, c'est construire l'UI avec des **fonctions** (pas des balises), en **empilant des composants comme des Lego**.
 
-C'est la suite de [[07 UI déclarative|l'UI déclarative]] : on **décrit** l'écran en Kotlin au lieu d'écrire du XML.
+C'est la suite de [[01 UI déclarative|l'UI déclarative]] : on **décrit** l'écran en Kotlin au lieu d'écrire du XML.
 
 ---
 
@@ -92,14 +92,14 @@ flowchart LR
 
 | Note | Contenu |
 |---|---|
-| [[01 Les composants]] | card, row, column, image, text… |
-| [[02 Le modifier]] | configurer / décorer un composant |
-| [[03 MainActivity]] | construire `MainActivity.kt` étape par étape : Scaffold, NavHost, navbar |
-| [[04 Les previews]] | `@Preview` : voir un composable sans lancer l'émulateur |
+| [[01 UI déclarative]] | Le principe : on **décrit** l'écran au lieu de le construire |
+| [[02 Les composants]] | card, row, column, image, text… |
+| [[03 Le modifier]] | configurer / décorer un composant |
+| [[04 MainActivity]] | construire `MainActivity.kt` étape par étape : Scaffold, NavHost, navbar |
+| [[05 Les previews]] | `@Preview` : voir un composable sans lancer l'émulateur |
 
 ---
 
 ## 🔗 Liens
 
-- [[07 UI déclarative]]
-- [[04 Architecture (Screen - ViewModel - Model)]]
+- [[01 Architecture (Screen - ViewModel - Model)]]
