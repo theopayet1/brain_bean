@@ -10,7 +10,7 @@ tags:
   - statut/a-jour
 cours: P1
 cree: 2026-10-26
-maj: 2026-10-26
+maj: 2026-10-28
 ---
 
 # Le Context
@@ -69,7 +69,7 @@ flowchart TD
 > ✅ Pour un objet longue durée, on lui donne l'**Application Context**.
 
 > [!question] À confirmer avec le cours
-> Ta note [[01 Le manifest#Point d'attention injection de dépendances]] dit que les dépendances injectées « font tuer les activities ». La règle qu'on trouve dans la doc Android est celle du dessus : **ne jamais garder un Activity Context dans un objet injecté qui vit plus longtemps que l'activity**. Vérifie si c'est ça que le prof voulait dire.
+> Ta note [[01 Le manifest#Point d'attention injection de dépendances]] dit que les dépendances injectées « font tuer les activities ». C'est un **autre** sujet que la fuite mémoire : il s'agit de la **mort du processus** quand l'app est en arrière-plan (expliquée dans le manifest). Vérifie avec le prof que c'est bien ça qu'il voulait dire.
 
 ---
 

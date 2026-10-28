@@ -8,7 +8,7 @@ tags:
   - statut/a-jour
 cours: P1
 cree: 2026-09-28
-maj: 2026-09-29
+maj: 2026-10-28
 ---
 
 # Les Ressources (`res`)
@@ -55,6 +55,9 @@ Android choisit automatiquement la bonne ressource selon la configuration du té
 > [!note] Pas compilées, mais embarquées
 > Ce sont des ressources qui **ne sont pas compilées**. Elles **vivent dans le répertoire de l'APK**, parce qu'on considère qu'elles sont **liées au système**.
 
+> [!note] À nuancer à l'oral
+> « Non compilées » veut dire : **pas transformées en code** (elles ne vont pas dans [[05 Classes.dex|classes.dex]]). Techniquement, les fichiers XML de `res/` (strings, couleurs, layouts) sont quand même **convertis** par l'outil `aapt2` en format binaire, et un fichier `resources.arsc` sert d'annuaire. Seuls `res/raw/` et `assets/` sont copiés **tels quels**. Si le prof te pose la question : « pas compilées en code exécutable, mais empaquetées par aapt2 ».
+
 ---
 
 ## Reconfiguration cycle de vie complet
@@ -77,5 +80,5 @@ flowchart LR
 
 ## 🔗 Liens
 
-- [[00 les composant de base]]
+- [[00 Les composants de base]]
 - [[02 Les Activities]]

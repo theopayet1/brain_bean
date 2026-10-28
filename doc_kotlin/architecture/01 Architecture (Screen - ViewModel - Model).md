@@ -67,5 +67,5 @@ flowchart TD
 
 ## 🔗 Liens
 
-- [[00 les composant de base]]
+- [[00 Les composants de base]]
 - [[02 Les Activities]]

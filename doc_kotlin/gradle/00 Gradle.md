@@ -35,7 +35,7 @@ flowchart TD
     D --> APK
 ```
 
-👉 C'est Gradle qui produit le [[05 Classes.dex|classes.dex]] et qui range les [[04 Les Ressources|ressources]] dans l'[[00 les composant de base|APK]].
+👉 C'est Gradle qui produit le [[05 Classes.dex|classes.dex]] et qui range les [[04 Les Ressources|ressources]] dans l'[[00 Les composants de base|APK]].
 
 ---
 

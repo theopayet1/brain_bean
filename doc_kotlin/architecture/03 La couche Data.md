@@ -10,7 +10,7 @@ tags:
   - statut/a-jour
 cours: P1
 cree: 2026-10-26
-maj: 2026-10-26
+maj: 2026-10-28
 ---
 
 # La couche Data
@@ -181,7 +181,7 @@ Le **Repository** décide **d'où** viennent les données. Deux façons de faire
 ### 1. Distant seulement (Metrix aujourd'hui)
 
 ```kotlin
-class HostRepo(private val remote: HostRemote) : IHostRep {
+class HostRepositoryImpl(private val remote: HostRemote) : HostRepository {
     override suspend fun getAll(): List<Host> =
         remote.getAll().map { it.toDomain() }
 }
@@ -194,10 +194,10 @@ Simple, mais **sans réseau = écran vide**.
 La **base locale** devient la **seule source de vérité** : l'écran lit **toujours** la base, et l'API sert à la **rafraîchir**.
 
 ```kotlin
-class HostRepo(
+class HostRepositoryImpl(
     private val remote: HostRemote,
     private val dao: HostDao,
-) : IHostRep {
+) : HostRepository {
 
     // L'écran lit toujours la base : il affiche les dernières données connues, même hors ligne.
     override fun observeAll(): Flow<List<Host>> =
@@ -215,7 +215,7 @@ class HostRepo(
 ```mermaid
 sequenceDiagram
     participant VM as ViewModel
-    participant R as HostRepo
+    participant R as HostRepositoryImpl
     participant DB as HostDao (Room)
     participant API as HostRemote (Ktor)
     VM->>R: observeAll()

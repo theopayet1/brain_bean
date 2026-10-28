@@ -11,7 +11,7 @@ tags:
   - statut/a-jour
 cours: P1
 cree: 2026-10-26
-maj: 2026-10-27
+maj: 2026-10-28
 ---
 
 # Architecture — la Clean Architecture
@@ -35,7 +35,7 @@ flowchart TD
 | Couche | Rôle | Contient | Connaît |
 |---|---|---|---|
 | **UI** (présentation) | **Afficher** et réagir aux actions | Screens, composables, ViewModels, UiState | le **Domain** |
-| **Domain** (métier) | **Ce que l'app manipule** et ses règles | Modèles (`Host`), interfaces (`IHostRep`), use cases | **personne** |
+| **Domain** (métier) | **Ce que l'app manipule** et ses règles | Modèles (`Host`), interfaces (`HostRepository`), use cases | **personne** |
 | **Data** (accès aux données) | **Aller chercher** et **stocker** les données | Repositories, Services/DTO, DAO/Entity, mappers | le **Domain** |
 
 > [!info] La règle de dépendance
@@ -72,41 +72,41 @@ Le **ViewModel** a besoin des hôtes, mais il ne doit **pas** dépendre de la co
 
 ```mermaid
 flowchart TD
-    VM["🔗 HostListViewModel<br/>(UI)"] -->|"dépend de"| I["💎 IHostRep<br/>interface (Domain)"]
-    R["🗃️ HostRepo<br/>(Data)"] -->|implémente| I
-    K["📦 Koin<br/>single#60;IHostRep#62; { HostRepo(get()) }"] -.->|"donne HostRepo<br/>quand on demande IHostRep"| VM
+    VM["🔗 HostListViewModel<br/>(UI)"] -->|"dépend de"| I["💎 HostRepository<br/>interface (Domain)"]
+    R["🗃️ HostRepositoryImpl<br/>(Data)"] -->|implémente| I
+    K["📦 Koin<br/>single#60;HostRepository#62; { HostRepositoryImpl(get()) }"] -.->|"donne HostRepositoryImpl<br/>quand on demande HostRepository"| VM
 ```
 
 Vrai code de **Metrix** :
 
 ```kotlin
-// domain/repository/IHostRep.kt : le contrat
-interface IHostRep {
+// domain/repository/HostRepository.kt : le contrat
+interface HostRepository {
     suspend fun getAll(): List<Host>
     // …
 }
 
-// data/repository/HostRepository.kt : l'implémentation
-class HostRepo(private val remote: HostRemote) : IHostRep {
+// data/repository/HostRepositoryImpl.kt : l'implémentation
+class HostRepositoryImpl(private val remote: HostRemote) : HostRepository {
     override suspend fun getAll(): List<Host> =
         remote.getAll().map { it.toDomain() }
 }
 
 // ui/screens/hostList/HostListViewModel.kt : ne connaît que l'interface
-class HostListViewModel(private val hostRepository: IHostRep) : ViewModel()
+class HostListViewModel(private val hostRepository: HostRepository) : ViewModel()
 
 // di/AppModule.kt : le branchement
 single { HostRemote(get(named(AUTHENTICATED_API_CLIENT))) }
-single<IHostRep> { HostRepo(get()) }
+single<HostRepository> { HostRepositoryImpl(get()) }
 viewModelOf(::HostListViewModel)
 ```
 
 | Code | Pourquoi |
 |---|---|
-| `interface IHostRep` | Le **contrat** : « je sais donner des hôtes ». Il est dans le **Domain** |
-| `class HostRepo(...) : IHostRep` | La couche **Data** **remplit** le contrat |
-| `HostListViewModel(private val hostRepository: IHostRep)` | Le ViewModel demande **le contrat**, pas `HostRepo` : il ne sait pas que ça vient d'une API |
-| `single<IHostRep> { HostRepo(get()) }` | « Quand quelqu'un demande un `IHostRep`, donne-lui un `HostRepo` » |
+| `interface HostRepository` | Le **contrat** : « je sais donner des hôtes ». Il est dans le **Domain** |
+| `class HostRepositoryImpl(...) : HostRepository` | La couche **Data** **remplit** le contrat |
+| `HostListViewModel(private val hostRepository: HostRepository)` | Le ViewModel demande **le contrat**, pas `HostRepositoryImpl` : il ne sait pas que ça vient d'une API |
+| `single<HostRepository> { HostRepositoryImpl(get()) }` | « Quand quelqu'un demande un `HostRepository`, donne-lui un `HostRepositoryImpl` » |
 | `viewModelOf(::HostListViewModel)` | Koin crée le ViewModel et remplit **tout seul** ses paramètres avec `get()` |
 
 > [!success] Ce que la grille attend (SF-1)
@@ -120,7 +120,7 @@ viewModelOf(::HostListViewModel)
 sequenceDiagram
     participant S as HostListScreen
     participant VM as HostListViewModel
-    participant R as HostRepo
+    participant R as HostRepositoryImpl
     participant RE as HostRemote
     participant API as API Metrix
     S->>VM: (init) loadHosts()

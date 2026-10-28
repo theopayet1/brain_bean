@@ -11,7 +11,7 @@ tags:
   - statut/a-jour
 cours: P1
 cree: 2026-10-26
-maj: 2026-10-26
+maj: 2026-10-28
 ---
 
 # Conventions de nommage et Lint
@@ -54,8 +54,12 @@ Le **suffixe** dit **le rôle** de la classe : on sait ce qu'elle fait sans l'ou
 | `…Manager` | L'accès à une capacité native | [[04 Les capacités natives (Managers)]] |
 | `…Extensions.kt` | Un fichier de fonctions d'extension | [[04 Les fonctions d'extension]] |
 
-> [!question] Le préfixe `I` et les abréviations
-> Metrix écrit `IHostRep` (interface) et `HostRepo` (implémentation). Le `I` devant une interface est une habitude **C#** : en Kotlin, la convention est plutôt `HostRepository` (interface) et `HostRepositoryImpl` ou `RemoteHostRepository`. Et les conventions déconseillent les **abréviations** (`Rep`, `Repo`). Lint ne le signale pas : à voir si le prof est attentif à ça.
+> [!success] Le préfixe `I` et les abréviations (tranché le 28 octobre 2026)
+> On voit souvent `IHostRep` (interface) et `HostRepo` (implémentation). Le `I` devant une interface est une habitude **C#**, et les conventions Kotlin déconseillent les **abréviations** (`Rep`, `Repo`). Lint ne le signale pas, mais le prof y fait attention. La doc utilise donc :
+> - **`HostRepository`** pour l'**interface** (dans `domain/repository/`) ;
+> - **`HostRepositoryImpl`** pour l'**implémentation** (dans `data/repository/`).
+>
+> Pour renommer dans un projet : clic droit sur la classe → **Refactor → Rename**, Android Studio met à jour tous les usages.
 
 ---
 

@@ -9,7 +9,7 @@ tags:
   - statut/a-jour
 cours: P1
 cree: 2026-10-26
-maj: 2026-10-26
+maj: 2026-10-28
 ---
 
 # La couche Domain
@@ -27,14 +27,14 @@ maj: 2026-10-26
 ```mermaid
 flowchart TD
     D["💎 Domain"] --> M["📦 model/<br/>Host, Alert, User…<br/>les données métier"]
-    D --> R["📜 repository/<br/>IHostRep, IAlertRep…<br/>les contrats"]
+    D --> R["📜 repository/<br/>HostRepository, AlertRepository…<br/>les contrats"]
     D --> U["⚙️ usecase/<br/>une action métier<br/>(optionnel)"]
 ```
 
 | Élément | Rôle | Exemple Metrix |
 |---|---|---|
 | **Domain Model** | Décrit **une donnée métier**, telle que l'app la pense | `Host`, `Alert`, `UserRole` |
-| **Interface Repository** | Le **contrat** : « je sais donner / créer / supprimer des hôtes » | `IHostRep` |
+| **Interface Repository** | Le **contrat** : « je sais donner / créer / supprimer des hôtes » | `HostRepository` |
 | **Use case** | **Une** action métier, quand elle contient une vraie règle | dossier `usecase/` (vide pour l'instant) |
 
 > [!info] Kotlin pur
@@ -90,13 +90,13 @@ data class Host(
 
 ## 📜 Les interfaces Repository
 
-Vrai code de **Metrix** (`domain/repository/IHostRep.kt`, raccourci) :
+Vrai code de **Metrix** (`domain/repository/HostRepository.kt`, raccourci) :
 
 ```kotlin
 /**
  * Contrat du domaine pour accéder aux hôtes et aux ressources associées.
  */
-interface IHostRep {
+interface HostRepository {
     /** Récupère tous les hôtes. */
     suspend fun getAll(): List<Host>
 
@@ -140,11 +140,11 @@ Un **use case** = **une** action métier, dans **une** classe. On en crée un qu
 /**
  * Donne les hôtes à surveiller : les hôtes désactivés sont exclus.
  *
- * @property hostRep la source des hôtes.
+ * @property hostRepository la source des hôtes.
  */
-class GetMonitoredHostsUseCase(private val hostRep: IHostRep) {
+class GetMonitoredHostsUseCase(private val hostRepository: HostRepository) {
     suspend operator fun invoke(): List<Host> =
-        hostRep.getAll().filter { !it.isDisabled }
+        hostRepository.getAll().filter { !it.isDisabled }
 }
 
 // Dans un ViewModel
@@ -153,12 +153,12 @@ val hosts = getMonitoredHosts()
 
 | Code | Pourquoi |
 |---|---|
-| Dépend de `IHostRep` | Le use case reste dans le Domain : il ne connaît que **l'interface** |
+| Dépend de `HostRepository` | Le use case reste dans le Domain : il ne connaît que **l'interface** |
 | `operator fun invoke()` | Permet d'appeler l'objet **comme une fonction** : `getMonitoredHosts()` |
 | `filter { !it.isDisabled }` | La **règle métier**, écrite **une seule fois** |
 
 > [!note] Pas obligatoire
-> La grille parle de **Models** et de **Repositories**, pas de use cases. Si le ViewModel appelle juste `hostRep.getAll()`, un use case qui ne fait que transmettre n'apporte rien.
+> La grille parle de **Models** et de **Repositories**, pas de use cases. Si le ViewModel appelle juste `hostRepository.getAll()`, un use case qui ne fait que transmettre n'apporte rien.
 
 ---
 

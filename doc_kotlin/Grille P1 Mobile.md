@@ -8,16 +8,15 @@ tags:
   - statut/a-jour
 aliases:
   - Grille d'évaluation P1 Mobile
-  - Checklist du rendu
 cours: P1
 cree: 2026-10-26
-maj: 2026-10-26
+maj: 2026-10-28
 ---
 
 # Grille d'évaluation P1 Mobile — où réviser
 
 > [!abstract] En une phrase
-> Les **16 critères** de la grille d'évaluation (P2028 DI2 P1 Mobile, créée le 14 octobre 2026), avec pour chacun **la note à relire**, puis la **checklist du rendu** pour viser « Maîtrisé ».
+> Les **16 critères** de la grille d'évaluation (P2028 DI2 P1 Mobile, créée le 14 octobre 2026), avec pour chacun **la note à relire**, et le lien vers la **checklist du rendu** pour viser « Maîtrisé ».
 
 > [!info] Le barème
 > Chaque critère est noté **Non réalisé (0)**, **Non acquis (5)**, **En cours d'acquisition (9)**, **Acquis (15)** ou **Maîtrisé (20)**. Pour les critères pratiques, le niveau dépend du **nombre de points « Maîtrisé »** que tu coches.
@@ -28,7 +27,7 @@ maj: 2026-10-26
 
 | Code | Sujet | À relire |
 |---|---|---|
-| S-5 | **Fondamentaux** : Manifest, dossiers, Gradle, Activity, Context, **Intent**, cycle de vie | [[00 les composant de base]], [[03 Le cycle de vie]], [[06 Organisation du projet]], [[02 Les Intents]], [[01 Le Context]], [[00 Gradle]] |
+| S-5 | **Fondamentaux** : Manifest, dossiers, Gradle, Activity, Context, **Intent**, cycle de vie | [[00 Les composants de base]], [[03 Le cycle de vie]], [[06 Organisation du projet]], [[02 Les Intents]], [[01 Le Context]], [[00 Gradle]] |
 | S-1 | **Clean Architecture** : rôle des couches, dépendances vers l'intérieur | [[00 Architecture]] |
 | S-3 | Couche **Domain** : Domain Models, interfaces Repository | [[02 La couche Domain]] |
 | S-2 | Couche **Data** : fetch, Service/DTO, DAO/Entity, mapping | [[03 La couche Data]] |
@@ -64,48 +63,8 @@ maj: 2026-10-26
 
 ## ✅ Checklist du rendu
 
-Tous les points « Maîtrisé » des critères pratiques et qualité, regroupés. Coche au fur et à mesure.
-
-### Manifest et Gradle
-
-- [ ] Manifest **sans warning**, avec un **commentaire par permission** et par activity
-- [ ] Gradle **sans warning** (attention à `kotlinOptions`), avec des **regions** ou des commentaires par famille de libs
-- [ ] **Toutes** les versions dans `libs.versions.toml`, aucune écrite en dur, des noms clairs
-
-### Ressources
-
-- [ ] **Aucun texte en dur** dans les composables : tout passe par `stringResource`
-- [ ] **Au moins une variante** de ressource : `values-en/` ou `values-night/`
-- [ ] Les ressources suivent **une convention de nommage** (`ic_`, `écran_élément_rôle`…)
-
-### Cycle de vie et extension
-
-- [ ] **Une** utilisation **utile** du cycle de vie (pas « logger pour logger ») avec un **commentaire spécifique**
-- [ ] **Une fonction d'extension sur `Context`**, avec un KDoc et des **block tags** (`@receiver`, `@param`, `@return`)
-
-### Architecture
-
-- [ ] Packages `ui/`, `domain/`, `data/`, `di/` ; Domain en **Kotlin pur**
-- [ ] ViewModels qui dépendent des **interfaces** du Domain, branchées par **Koin**
-- [ ] Couples **Service/DTO** et **DAO/Entity** séparés, **mappers** écrits, fetch **local / distant** cohérent
-
-### Matériel
-
-- [ ] **Au moins 2 capacités natives** (son, vibreur, GPS, gyroscope, base de données…)
-- [ ] Chacune dans un **Manager**, **aucun** `getSystemService` dans un composable
-- [ ] Les **permissions dangereuses** demandées à l'exécution
-
-### UI
-
-- [ ] Composables découpés en **Lego** (Screen → Content → composants de `ui/core/components`)
-- [ ] **Un `UiState`** par écran, des **actions** de ViewModel aux noms clairs
-- [ ] **Un composable complexe** avec un KDoc
-
-### Qualité
-
-- [ ] **Code → Inspect Code** sur tout le projet : plus de warning de nommage
-- [ ] KDoc sur les fonctions et services de la couche Data, et sur les Managers
-- [ ] **Une seule langue** pour les commentaires
+> [!tip] Elle a sa propre note
+> Tous les points « Maîtrisé » à cocher, critère par critère, avec le lien vers la note qui explique chaque point → [[Vérification des critères]].
 
 ---
 

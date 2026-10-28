@@ -10,7 +10,7 @@ aliases:
   - Accueil Kotlin
 cours: P1
 cree: 2026-09-28
-maj: 2026-10-27
+maj: 2026-10-28
 ---
 
 # 🗂️ Kotlin / Android — MOC
@@ -20,12 +20,14 @@ maj: 2026-10-27
 
 ## 🎯 Révision
 
-- [[Grille P1 Mobile]] — les 16 critères de la grille, la note à relire pour chacun, et la checklist du rendu
+- [[Fiche de révision]] — tout le cours en une page, simplement
+- [[Fiche points faibles]] — tes 5 points à retravailler et les petits pièges du diagnostic
+- [[Grille P1 Mobile]] — les 16 critères de la grille et la note à relire pour chacun
 - [[Vérification des critères]] — chaque point « Maîtrisé » à cocher, avec le lien vers la section qui l'explique
 
 ## 🧱 La base
 
-- [[00 les composant de base]] — vue d'ensemble des composants
+- [[00 Les composants de base]] — vue d'ensemble des composants
 - **1 · L'app**
   - [[01 Le manifest]] — la carte d'identité de l'app
   - [[02 Les Activities]] — activities & contexte

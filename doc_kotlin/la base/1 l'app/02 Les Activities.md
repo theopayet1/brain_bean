@@ -9,7 +9,7 @@ tags:
   - statut/a-jour
 cours: P1
 cree: 2026-09-28
-maj: 2026-10-26
+maj: 2026-10-28
 ---
 
 # Les Activities
@@ -26,10 +26,10 @@ Chaque activity est déclarée dans [[01 Le manifest|le manifest]], tourne dans 
 > [!info] Définition
 > Le **contexte** est la **classe de base d'Android** qui fournit les **contrats** permettant d'**accéder aux capacités matérielles du téléphone** (par exemple **vibrer**).
 
-Une **activity est aussi un contexte**. C'est par lui qu'on accède aux ressources et capacités du système (vibration, notifications, fichiers, services…). Le contexte est **créé** au lancement de l'activity (étape `onCreate`) et **détruit** à sa mort.
+Une **activity est aussi un contexte** : il est **créé** à `onCreate` et **détruit** à sa mort. Les deux Contexts (Application et Activity), la fuite mémoire et où trouver un Context → [[01 Le Context]].
 
 > [!warning] Lien avec l'injection de dépendances
-> Comme les dépendances injectées reposent sur le contexte, le passage au **purgatoire** qui détruit le contexte fait **tuer les activities**. → voir [[01 Le manifest#Point d'attention injection de dépendances]]
+> Une app au **purgatoire** (en arrière-plan) peut voir son **processus tué** par Android s'il manque de mémoire : toutes les activities et les dépendances injectées meurent avec. → voir [[01 Le manifest#Point d'attention injection de dépendances]]
 
 ---
 
@@ -44,6 +44,6 @@ Une activity passe par **4 états** reliés par des **méthodes de callback** : 
 
 ## 🔗 Liens
 
-- [[00 les composant de base]]
+- [[00 Les composants de base]]
 - [[01 Le manifest]]
 - [[04 MainActivity]] — créer sa MainActivity en pratique

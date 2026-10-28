@@ -138,10 +138,10 @@ fun Intent.hostIdOrNull(): Int? =
 
 Metrix a déjà des extensions, **mais pas sur `Context`** :
 
-| Extension | Fichier | Rôle |
-|---|---|---|
-| `HttpClient.getBodyOrNull(path)` | `data/remote/HttpClientExtensions.kt` | Fait un `GET`, et transforme une erreur **404** en `null` |
-| `HostDto.toDomain()` | `data/mapper/ApiDtoMapper.kt` | Les **mappers** → [[03 La couche Data]] |
+| Extension                        | Fichier                               | Rôle                                                      |     |
+| -------------------------------- | ------------------------------------- | --------------------------------------------------------- | --- |
+| `HttpClient.getBodyOrNull(path)` | `data/remote/HttpClientExtensions.kt` | Fait un `GET`, et transforme une erreur **404** en `null` |     |
+| `HostDto.toDomain()`             | `data/mapper/ApiDtoMapper.kt`         | Les **mappers** → [[03 La couche Data]]                   |     |
 
 ```kotlin
 /**

@@ -9,13 +9,13 @@ tags:
   - statut/a-jour
 cours: P1
 cree: 2026-09-28
-maj: 2026-09-29
+maj: 2026-10-28
 ---
 
 # Les Permissions
 
 > [!abstract] Idée clé
-> Pour qu'un composant ait le droit de **faire quelque chose** (jouer un son, ouvrir la caméra…), il faut que ce soit **déclaré dans le [[01 Le manifest|manifest]]**. C'est **Android** (le gardien) qui **vérifie le manifest** et bloque si ce n'est pas déclaré.
+> Pour qu'un composant ait le droit de **faire quelque chose** (vibrer, aller sur internet, ouvrir la caméra…), il faut que ce soit **déclaré dans le [[01 Le manifest|manifest]]**. C'est **Android** (le gardien) qui **vérifie le manifest** et bloque si ce n'est pas déclaré.
 >
 > ⚠️ Le manifest n'est **pas** le gardien : c'est la **carte d'identité** qui *déclare*. Le **gardien, c'est le système Android**.
 
@@ -41,13 +41,13 @@ flowchart TD
 ## 🚪 Le gardien (Android) : déclaré ou bloqué
 
 > [!quote] Tes mots
-> Quand la **classe `.dex` veut sortir** — exemple **jouer un son** — *hop*, il y a un **gardien**. S'il **n'est pas déclaré dans le manifest**, alors *hop* **on le détruit**, rien à faire.
+> Quand la **classe `.dex` veut sortir** — exemple **faire vibrer** — *hop*, il y a un **gardien**. S'il **n'est pas déclaré dans le manifest**, alors *hop* **on le détruit**, rien à faire.
 
 👉 Le **gardien, c'est Android** : il **regarde le manifest**. Ce qui n'y est **pas déclaré** n'a pas le droit de sortir.
 
 ```mermaid
 flowchart LR
-    A[Composant veut agir<br/>ex. jouer un son] --> G{🚪 Android vérifie :<br/>déclaré dans le manifest ?}
+    A[Composant veut agir<br/>ex. faire vibrer] --> G{🚪 Android vérifie :<br/>déclaré dans le manifest ?}
     G -->|oui| OK[✅ autorisé]
     G -->|non| KO[❌ bloqué]
 ```
@@ -56,10 +56,13 @@ flowchart LR
 
 ## 🦠 Deux types de permissions
 
-### 1. Permissions « simples » (ex. jouer un son)
+### 1. Permissions « simples » (ex. vibrer)
 
 > [!quote] Tes mots
-> C'est un peu comme le **covid** : on doit **demander autorisation**, comme pour jouer un son… alors qu'**il n'y a pas de popup** pour jouer du son. « Alors c'est con. »
+> C'est un peu comme le **covid** : on doit **demander autorisation**, comme pour vibrer… alors qu'**il n'y a pas de popup** pour vibrer. « Alors c'est con. »
+
+> [!note] Corrigé le 28 octobre 2026
+> Ton exemple de cours était « **jouer un son** ». En fait, jouer un son ne demande **aucune** permission. Le bon exemple de permission simple (le vrai mot : permission **normale**), c'est **`VIBRATE`** ou **`INTERNET`** : déclarées dans le manifest, accordées à l'installation, sans popup.
 
 ➡️ Déclarées dans le manifest, mais **sans popup** à l'utilisateur.
 
@@ -98,4 +101,4 @@ flowchart TD
 
 - [[01 Le manifest]] — où se déclarent les permissions
 - [[03 Le cycle de vie]] — la destruction des composants
-- [[00 les composant de base]]
+- [[00 Les composants de base]]

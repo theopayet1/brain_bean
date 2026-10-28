@@ -71,7 +71,7 @@ val repo: Repository by inject()
 
 ## 🔗 Liens
 
-- [[00 les composant de base]]
+- [[00 Les composants de base]]
 - [[01 Le manifest]]
 - [[01 Architecture (Screen - ViewModel - Model)]]
 - [[02 Ajouter une dépendance]] — ajouter Koin au projet (Gradle + BOM)

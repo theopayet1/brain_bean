@@ -12,7 +12,7 @@ tags:
   - statut/a-jour
 cours: P1
 cree: 2026-10-26
-maj: 2026-10-27
+maj: 2026-10-28
 ---
 
 # Les capacités natives et les Managers
@@ -96,7 +96,7 @@ flowchart LR
 > Il **va chercher** une donnée à l'extérieur de l'app (le matériel), comme un Service va la chercher sur l'API. Il **traduit** aussi l'objet Android en modèle du Domain (`Location → Position`), comme un mapper.
 
 > [!tip] Pour aller jusqu'au bout de la Clean Archi
-> Le Domain peut aussi déclarer le **contrat** du Manager (`interface IGpsManager`), et Data l'implémente (`GpsManager : IGpsManager`). Le ViewModel dépend alors de l'**interface**, exactement comme avec `IHostRep` → [[00 Architecture]]. C'est plus propre, mais ce n'est pas exigé par la grille.
+> Le Domain peut aussi déclarer le **contrat** du Manager (`interface GpsManager`), et Data l'implémente (`GpsManagerImpl : GpsManager`). Le ViewModel dépend alors de l'**interface**, exactement comme avec `HostRepository` → [[00 Architecture]]. C'est plus propre, mais ce n'est pas exigé par la grille.
 
 ### Exemple 1 : le vibreur
 

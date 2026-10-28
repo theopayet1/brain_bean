@@ -6,10 +6,10 @@ tags:
   - techno/android
   - techno/compose
   - sujet/ui
-  - statut/brouillon
+  - statut/a-jour
 cours: P1
 cree: 2026-09-28
-maj: 2026-09-29
+maj: 2026-10-28
 ---
 
 # L'UI déclarative
@@ -17,8 +17,8 @@ maj: 2026-09-29
 > [!info] Idée clé
 > La partie **UI est désormais du déclaratif** — ce n'est plus l'ancienne approche « compilée » (layouts XML inflatés).
 
-> [!question] À confirmer
-> Tu avais noté « **UI pacest** » : je l'interprète comme **Jetpack Compose** (le toolkit d'UI déclarative de Kotlin/Android). À confirmer avec le cours — dis-moi si le terme exact était autre chose.
+> [!note] « UI pacest » (tranché le 28 octobre 2026)
+> Tu avais noté « **UI pacest** ». On retient **Jetpack Compose**, le toolkit d'UI déclarative d'Android : c'est le seul qui colle avec la suite du cours. À l'oral, dis simplement « **Jetpack Compose** ».
 
 ---
 
@@ -48,5 +48,5 @@ flowchart LR
 
 ## 🔗 Liens
 
-- [[00 les composant de base]]
+- [[00 Les composants de base]]
 - [[01 Architecture (Screen - ViewModel - Model)]]

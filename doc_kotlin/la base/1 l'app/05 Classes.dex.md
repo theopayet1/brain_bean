@@ -8,7 +8,7 @@ tags:
   - statut/a-jour
 cours: P1
 cree: 2026-09-28
-maj: 2026-09-29
+maj: 2026-10-28
 ---
 
 # `classes.dex`
@@ -36,12 +36,12 @@ flowchart LR
 
 > [!tip] Compilé vs non compilé
 > - **`classes.dex`** = le code, **compilé** et **exécutable**.
-> - Les **[[04 Les Ressources|ressources (`res`)]]** = **non compilées** (images, sons, gifs, couleurs, strings).
+> - Les **[[04 Les Ressources|ressources (`res`)]]** = **non compilées** (images, sons, gifs, couleurs, strings) : elles ne deviennent pas du code. Le détail (aapt2) est dans [[04 Les Ressources]].
 
 ---
 
 ## 🔗 Liens
 
-- [[00 les composant de base]]
+- [[00 Les composants de base]]
 - [[04 Les Ressources]]
 - [[03 Les Permissions]]

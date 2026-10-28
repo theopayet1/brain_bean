@@ -9,13 +9,13 @@ tags:
   - statut/a-jour
 cours: P1
 cree: 2026-10-26
-maj: 2026-10-26
+maj: 2026-10-28
 ---
 
 # Organisation d'un projet Android
 
 > [!abstract] En une phrase
-> Un projet Android, c'est **un module `app`** qui contient 3 choses : le **manifest**, le **code** (rangé en packages) et les **ressources**, plus les **fichiers Gradle** autour. À lire après [[00 les composant de base]].
+> Un projet Android, c'est **un module `app`** qui contient 3 choses : le **manifest**, le **code** (rangé en packages) et les **ressources**, plus les **fichiers Gradle** autour. À lire après [[00 Les composants de base]].
 
 > [!note] Complété le 26 octobre 2026
 > Note ajoutée à partir de la grille d'évaluation (critère « organisation des dossiers »). Les exemples viennent du projet **Metrix**.
@@ -59,14 +59,14 @@ com.diiage.metrix
 ├── di/                      ← AppModule.kt : le câblage Koin
 ├── domain/                  ← le MÉTIER (pur Kotlin)
 │   ├── model/               ← Host, Alert, User…
-│   ├── repository/          ← les interfaces (IHostRep…)
+│   ├── repository/          ← les interfaces (HostRepository…)
 │   └── usecase/
 ├── data/                    ← d'où viennent les données
 │   ├── dto/                 ← la forme du JSON de l'API
 │   ├── remote/              ← les appels HTTP (Ktor)
 │   ├── local/               ← le stockage sur le téléphone
 │   ├── mapper/              ← DTO → modèle du domaine
-│   └── repository/          ← les implémentations (HostRepo…)
+│   └── repository/          ← les implémentations (HostRepositoryImpl…)
 └── ui/                      ← l'AFFICHAGE
     ├── core/                ← thème, NavHost, composants réutilisables
     └── screens/             ← un dossier par écran (Screen + ViewModel)
@@ -97,6 +97,6 @@ com.diiage.metrix
 
 ## 🔗 Liens
 
-- [[00 les composant de base]]
+- [[00 Les composants de base]]
 - [[00 Architecture]] — pourquoi on range par couche
 - [[01 Les fichiers Gradle]] — le détail des fichiers Gradle

@@ -13,7 +13,7 @@ tags:
   - statut/a-jour
 cours: P1
 cree: 2026-10-26
-maj: 2026-10-26
+maj: 2026-10-28
 ---
 
 # La couche UI : MVI et UDF
@@ -103,7 +103,7 @@ Vrai code de **Metrix** (raccourci) :
 
 ```kotlin
 class HostListViewModel(
-    private val hostRepository: IHostRep,
+    private val hostRepository: HostRepository,
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(HostListUiState())
@@ -128,7 +128,7 @@ class HostListViewModel(
 
 | Code | Pourquoi |
 |---|---|
-| `IHostRep` en paramètre | Le ViewModel dépend du **Domain**, pas de la couche Data → [[00 Architecture]] |
+| `HostRepository` en paramètre | Le ViewModel dépend du **Domain**, pas de la couche Data → [[00 Architecture]] |
 | `_uiState` **privé** et **modifiable** | Seul le ViewModel peut **changer** l'état |
 | `uiState` **public** en `StateFlow` | L'écran peut seulement le **lire** : c'est l'UDF dans le code |
 | `init { loadHosts() }` | On charge dès la création. Le ViewModel **survit à la rotation** → pas de rechargement ([[03 Le cycle de vie]]) |
@@ -163,8 +163,9 @@ fun onAction(action: HostListAction) {
 | `data object` / `data class` | Une action **sans** donnée / **avec** une donnée |
 | `fun onAction(...)` + `when` | **Une seule** porte d'entrée. Le `when` oblige à traiter **toutes** les actions |
 
-> [!question] À confirmer avec le cours
-> Les deux versions respectent l'UDF. Vérifie si le prof attend la `sealed interface` d'actions (MVI strict) ou si une fonction par action lui va.
+> [!success] Le choix (tranché le 28 octobre 2026) : une fonction par action
+> Les deux versions respectent l'UDF. Pour le rendu, on **garde une fonction par action**, comme dans Metrix : c'est déjà en place (pas de refactor risqué le jour de l'éval), et la grille SE-2 demande surtout des **actions aux noms clairs** (`loadHosts`, `resetFilters`), ce que les fonctions font très bien.
+> À l'oral, montre que tu **connais** la version stricte : « on peut aussi avoir une seule porte d'entrée `onAction(action)` avec une `sealed interface`, et le `when` oblige à traiter toutes les actions ». Ça vaut des points sans toucher au code.
 
 ---
 
