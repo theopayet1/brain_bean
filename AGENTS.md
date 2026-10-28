@@ -32,6 +32,7 @@ Ce fichier dit à une IA (assistant de code, agent) comment se comporter et comm
 | `repos.txt`                        | Liste des vaults synchronisés | Seulement sur demande explicite |
 | `.github/workflows/sync.yml`       | La synchro (GitHub Action)    | Oui, si utilisateur le demande  |
 | `autres-docs/`                     | Notes écrites directement ici | Oui, si utilisateur le demande  |
+| `skill-doc/`                       | Skills (un dossier par skill) | Oui, si utilisateur le demande  |
 | `<dossier de vault>/`              | Copie synchronisée            | **Non**                         |
 
 ---

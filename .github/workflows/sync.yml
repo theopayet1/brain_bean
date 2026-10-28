@@ -36,7 +36,7 @@ jobs:
             echo "::group::$owner/$name ($src) -> $dest"
             # Protected folders: never overwritten by a vault
             case "$dest" in
-              ""|.|..|.github|.github/*|guide|guide/*|autres-docs|autres-docs/*)
+              ""|.|..|.github|.github/*|guide|guide/*|autres-docs|autres-docs/*|skill-doc|skill-doc/*)
                 echo "::error::'$dest' is a reserved folder, pick another destination for $owner/$name"
                 exit 1 ;;
             esac

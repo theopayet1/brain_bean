@@ -34,6 +34,10 @@ brain_bean/
 │   └── modele-note.md         # Modèle de note à copier
 ├── autres-docs/               # Zone libre : notes écrites directement ici
 │   └── _index.md
+├── skill-doc/                 # Les skills : un dossier par skill, mode d'emploi d'une doc pour une IA
+│   ├── kotlin-p1-prof/        # Expliquer le cours Kotlin et faire réviser l'oral
+│   ├── kotlin-p1-reviewer/    # Vérifier du code par rapport à la grille P1
+│   └── kotlin-p1-dev/         # Coder une feature : une à la fois, plan validé d'abord
 ├── .github/workflows/sync.yml # La synchro automatique
 └── <un dossier par vault>/    # Créés par la synchro, ne pas modifier à la main
 ```
@@ -45,6 +49,7 @@ brain_bean/
 - Toutes les **6 h**, une GitHub Action copie chaque vault listé dans `repos.txt` dans son propre dossier.
 - Elle lit les repos privés grâce au secret `DOCS_READ_TOKEN`, un token GitHub en **lecture seule**.
 - Le dossier `autres-docs/` est la **zone libre** : on y écrit directement, et la synchro n'y touche jamais.
+- Le dossier `skill-doc/` range les **skills** (format ouvert `SKILL.md`). Ils lisent les vaults d'ici, et la synchro n'y touche jamais non plus.
 - Pendant la copie, les dossiers `.git/`, `.obsidian/` et `.claude/` et les fichiers `CLAUDE.md` sont retirés.
 - brain_bean est **public** : c'est la vitrine de mes docs. Les repos d'origine peuvent rester privés, et seul ce qui est listé dans `repos.txt` est publié ici.
 "# dotnet_doc" 
